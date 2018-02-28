@@ -1,0 +1,38 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+html button,
+body button {
+  outline: 0;
+  background: none;
+  border: none;
+}
+#main-page {
+  width: 100%;
+  height: 100%;
+}
+#main-page #header-content-section {
+  height: 85%;
+  background: linear-gradient(to top, #0c0e12, #37446a);
+}
+#main-page #header-content-section #header-section {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+}
+#main-page #header-content-section #header-section .header-text {
+  color: #ffffff;
+}
+#main-page #header-content-section #content-section {
+  height: 75%;
+}
+#main-page footer {
+  display: flex;
+  flex-direction: column;
+  height: 15%;
+  background: #2c2c2c;
+  align-items: center;
+}

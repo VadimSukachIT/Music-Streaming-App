@@ -1,0 +1,50 @@
+@import "variables";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  button {
+    outline: 0;
+    background: none;
+    border: none;
+  }
+}
+
+#main-page {
+  width: 100%;
+  height: 100%;
+
+  #header-content-section {
+    height: 85%;
+    background: linear-gradient(to top, rgb(12, 14, 18), rgb(55, 68, 106));
+
+    #header-section {
+      display: flex;
+      justify-content: space-between;
+      height: 10%;
+
+      .header-text {
+        color: @text-color;
+      }
+    }
+
+    #content-section {
+      height: 75%;
+    }
+
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    height: 15%;
+    background: @grey-color;
+    align-items: center;
+
+    #player-section {
+
+    }
+  }
+}
