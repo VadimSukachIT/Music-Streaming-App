@@ -1,5 +1,12 @@
 @import "variables";
 
+.button-icons {
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -42,9 +49,61 @@ html, body {
     height: 15%;
     background: @grey-color;
     align-items: center;
+    justify-content: center;
 
     #player-section {
+      width: 550px;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
+      #player-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 300px;
+        margin-bottom: 15px;
+
+        #shuffle-song-button {
+          background: url("../icons/shuffle-icon.svg") no-repeat;
+          .button-icons;
+        }
+
+        #previous-song-button {
+          background: url("../icons/play-next-button-icon.svg") no-repeat;
+          .button-icons;
+        }
+
+        #play-song-button {
+          border: 1px solid white;
+          border-radius: 35px;
+
+          &:before {
+            font-size: 25px;
+            content: "\25B6";
+
+          }
+          &:hover {
+            color: white;
+          }
+
+        }
+
+        #next-song-button {
+          background: url("../icons/play-next-button-icon.svg") no-repeat;
+          .button-icons;
+        }
+
+        #repeat-song-button {
+          background: url("../icons/repeat-icon.svg") no-repeat;
+          .button-icons;
+        }
+      }
+
+      #progress-section {
+        width: 100%;
+        display: flex;
+      }
     }
   }
 }

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Player</title>
-    <link rel="stylesheet" href="Styles/styles.less">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Styles/styles.css">
 
 </head>
 <body>
@@ -26,8 +25,14 @@
     </div>
     <footer>
         <div id="player-section">
-            <div class="player-buttons"></div>
-            <div class="progress-section">
+            <div id="player-buttons">
+                <button type="button" id="shuffle-song-button"></button>
+                <button type="button" id="previous-song-button"></button>
+                <button type="button" id="play-song-button"></button>
+                <button type="button" id="next-song-button"></button>
+                <button type="button" id="repeat-song-button"></button>
+            </div>
+            <div id="progress-section">
                 <span id="current-song-time">0:00</span>
                 <div id="song-progress-bar"></div>
                 <span id="song-duration">0:00</span>

@@ -1,3 +1,8 @@
+.button-icons {
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+}
 html,
 body {
   width: 100%;
@@ -35,4 +40,57 @@ body button {
   height: 15%;
   background: #2c2c2c;
   align-items: center;
+  justify-content: center;
+}
+#main-page footer #player-section {
+  width: 550px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#main-page footer #player-section #player-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 15px;
+}
+#main-page footer #player-section #player-buttons #shuffle-song-button {
+  background: url("../icons/shuffle-icon.svg") no-repeat;
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+}
+#main-page footer #player-section #player-buttons #previous-song-button {
+  background: url("../icons/play-next-button-icon.svg") no-repeat;
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+}
+#main-page footer #player-section #player-buttons #play-song-button {
+  border: 1px solid white;
+  border-radius: 35px;
+}
+#main-page footer #player-section #player-buttons #play-song-button:before {
+  font-size: 25px;
+  content: "\25B6";
+}
+#main-page footer #player-section #player-buttons #play-song-button:hover {
+  color: white;
+}
+#main-page footer #player-section #player-buttons #next-song-button {
+  background: url("../icons/play-next-button-icon.svg") no-repeat;
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+}
+#main-page footer #player-section #player-buttons #repeat-song-button {
+  background: url("../icons/repeat-icon.svg") no-repeat;
+  width: 20px;
+  height: 15px;
+  background-size: contain;
+}
+#main-page footer #player-section #progress-section {
+  width: 100%;
+  display: flex;
 }
