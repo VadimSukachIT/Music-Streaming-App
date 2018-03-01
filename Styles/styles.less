@@ -30,7 +30,8 @@ html, body {
     #header-section {
       display: flex;
       justify-content: space-between;
-      height: 10%;
+      height: 5%;
+      background: black;
 
       .header-text {
         color: @text-color;
@@ -38,7 +39,49 @@ html, body {
     }
 
     #content-section {
-      height: 75%;
+      height: 95%;
+
+      #content-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+
+        #content-menu {
+          display: flex;
+          width: 400px;
+          justify-content: space-between;
+        }
+
+      }
+
+      #main-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+
+        .playlist {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .playlist-cover {
+            width: 200px;
+            height: 200px;
+            background: url('../LanaDelRey_BornToDie.jpg');
+            background-size: 200px;
+          }
+
+        }
+
+        .name {
+          display: inline-block;
+          color: white;
+        }
+
+      }
+
     }
 
   }
