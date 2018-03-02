@@ -1,7 +1,25 @@
-.button-icons {
+@import "fonts.css";
+* {
+  box-sizing: border-box;
+}
+.link-hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+.svg-icons-preset .svg {
+  width: 16px;
+  height: 16px;
+}
+.svg-icons-preset .svg:hover .svg-icon {
+  fill: white;
+}
+.buttons {
   width: 20px;
-  height: 15px;
-  background-size: contain;
+  height: 20px;
+  background: black;
+  cursor: pointer;
 }
 html,
 body {
@@ -20,109 +38,201 @@ body button {
   height: 100%;
 }
 #main-page #header-content-section {
-  height: 85%;
-  background: linear-gradient(to top, #0c0e12, #37446a);
+  height: 90%;
+  background: linear-gradient(to top, #0c0e12, #7e641a);
 }
 #main-page #header-content-section #header-section {
   display: flex;
-  justify-content: space-between;
-  height: 5%;
+  justify-content: center;
   background: black;
 }
-#main-page #header-content-section #header-section .header-text {
+#main-page #header-content-section #header-section .right {
+  position: absolute;
+  display: flex;
+  right: 50px;
+}
+#main-page #header-content-section #header-section .right #search-button {
+  display: flex;
+}
+#main-page #header-content-section #header-section .right #account-button {
+  display: flex;
+}
+#main-page #header-content-section #header-section .right .header-text {
+  color: #dce0e1;
+  font-size: 18px;
+  padding: 15px;
+  font-family: 'Main-bold';
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+#main-page #header-content-section #header-section .right .header-text:hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+#main-page #header-content-section #header-section .header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1400px;
+}
+#main-page #header-content-section #header-section .header-container #library-buttons {
+  display: flex;
+  cursor: pointer;
+}
+#main-page #header-content-section #header-section .header-container #library-buttons .header-text {
+  color: #dce0e1;
+  padding: 15px;
+  font-family: 'Main-bold';
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+#main-page #header-content-section #header-section .header-container #library-buttons .header-text:hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
   color: #ffffff;
 }
 #main-page #header-content-section #content-section {
   height: 95%;
+  display: flex;
+  justify-content: center;
+}
+#main-page #header-content-section #content-section .content-container {
+  padding: 0 50px;
+  width: 100%;
+  max-width: 1400px;
 }
 #main-page #header-content-section #content-section #content-header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 50px;
   color: white;
 }
-#main-page #header-content-section #content-section #content-header #content-menu {
-  display: flex;
-  width: 400px;
-  justify-content: space-between;
+#main-page #header-content-section #content-section #content-header .tags {
+  padding: 0;
 }
-#main-page #header-content-section #content-section #main-content {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+#main-page #header-content-section #content-section #content-header .tags .tag {
+  display: inline-block;
 }
-#main-page #header-content-section #content-section #main-content .playlist {
+#main-page #header-content-section #content-section #content-header .tags .tag a {
+  margin: 40px;
+  font-family: 'Main';
+  color: #dce0e1;
+  font-size: 17px;
+  letter-spacing: 2px;
+}
+#main-page #header-content-section #content-section #content-header .tags .tag a:hover {
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+#main-page #header-content-section #main-content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  flex-flow: row wrap;
+}
+#main-page #header-content-section #main-content .playlist {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  padding-top: 0;
 }
-#main-page #header-content-section #content-section #main-content .playlist .playlist-cover {
+#main-page #header-content-section #main-content .playlist .playlist-cover {
   width: 200px;
   height: 200px;
   background: url('../LanaDelRey_BornToDie.jpg');
   background-size: 200px;
 }
-#main-page #header-content-section #content-section #main-content .name {
+#main-page #header-content-section #main-content .name {
   display: inline-block;
   color: white;
+  font-family: 'Main';
 }
-#main-page footer {
+footer {
   display: flex;
   flex-direction: column;
-  height: 15%;
+  height: 10%;
   background: #2c2c2c;
   align-items: center;
   justify-content: center;
 }
-#main-page footer #player-section {
+footer #player-section {
   width: 550px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-#main-page footer #player-section #player-buttons {
+footer #player-section #player-buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  margin-bottom: 15px;
+  height: 50px;
 }
-#main-page footer #player-section #player-buttons #shuffle-song-button {
-  background: url("../icons/shuffle-icon.svg") no-repeat;
-  width: 20px;
+footer #player-section #player-buttons #shuffle-song-button .svg {
+  width: 16px;
+  height: 16px;
+}
+footer #player-section #player-buttons #shuffle-song-button .svg:hover .svg-icon {
+  fill: white;
+}
+footer #player-section #player-buttons #play-previous-song-button .svg {
+  width: 16px;
+  height: 16px;
+}
+footer #player-section #player-buttons #play-previous-song-button .svg:hover .svg-icon {
+  fill: white;
+}
+footer #player-section #player-buttons #play-previous-song-button .svg {
+  transform: rotate(180deg);
+}
+footer #player-section #player-buttons #play-song-button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #a9a9a9;
+  border-radius: 17px;
+  padding: 7px 1px 4px 4px;
+}
+footer #player-section #player-buttons #play-song-button:hover {
+  border-color: white;
+  width: 36px;
+  height: 36px;
+}
+footer #player-section #player-buttons #play-song-button:hover .svg {
+  width: 16px;
+  height: 16px;
+}
+footer #player-section #player-buttons #play-song-button:hover .svg-icon {
+  fill: white;
+}
+footer #player-section #player-buttons #play-song-button .svg {
+  width: 15px;
   height: 15px;
-  background-size: contain;
 }
-#main-page footer #player-section #player-buttons #previous-song-button {
-  background: url("../icons/play-next-button-icon.svg") no-repeat;
-  width: 20px;
-  height: 15px;
-  background-size: contain;
+footer #player-section #player-buttons #play-next-song-button .svg {
+  width: 16px;
+  height: 16px;
 }
-#main-page footer #player-section #player-buttons #play-song-button {
-  border: 1px solid white;
-  border-radius: 35px;
+footer #player-section #player-buttons #play-next-song-button .svg:hover .svg-icon {
+  fill: white;
 }
-#main-page footer #player-section #player-buttons #play-song-button:before {
-  font-size: 25px;
-  content: "\25B6";
+footer #player-section #player-buttons #repeat-song-button .svg {
+  width: 16px;
+  height: 16px;
 }
-#main-page footer #player-section #player-buttons #play-song-button:hover {
-  color: white;
+footer #player-section #player-buttons #repeat-song-button .svg:hover .svg-icon {
+  fill: white;
 }
-#main-page footer #player-section #player-buttons #next-song-button {
-  background: url("../icons/play-next-button-icon.svg") no-repeat;
-  width: 20px;
-  height: 15px;
-  background-size: contain;
-}
-#main-page footer #player-section #player-buttons #repeat-song-button {
-  background: url("../icons/repeat-icon.svg") no-repeat;
-  width: 20px;
-  height: 15px;
-  background-size: contain;
-}
-#main-page footer #player-section #progress-section {
+footer #player-section #progress-section {
   width: 100%;
   display: flex;
 }

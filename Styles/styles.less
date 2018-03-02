@@ -1,10 +1,34 @@
 @import "variables";
+@import "fonts.css";
 
-.button-icons {
+* {
+  box-sizing: border-box;
+}
+
+.link-hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: @text-color;
+}
+
+.svg-icons-preset {
+  .svg {
+    width: 16px;
+    height: 16px;
+    &:hover {
+      .svg-icon {
+        fill: white;
+      }
+    }
+  }
+}
+
+.buttons {
   width: 20px;
-  height: 15px;
-  background-size: contain;
-
+  height: 20px;
+  background: black;
+  cursor: pointer;
 }
 
 html, body {
@@ -24,129 +48,222 @@ html, body {
   height: 100%;
 
   #header-content-section {
-    height: 85%;
-    background: linear-gradient(to top, rgb(12, 14, 18), rgb(55, 68, 106));
+    height: 90%;
+    background: linear-gradient(to top, rgb(12, 14, 18), rgb(126, 100, 26));
 
     #header-section {
       display: flex;
-      justify-content: space-between;
-      height: 5%;
+      justify-content: center;
       background: black;
 
-      .header-text {
-        color: @text-color;
+      .right {
+        position: absolute;
+        display: flex;
+        right: 50px;
+
+        #search-button {
+          display: flex;
+        }
+
+        #account-button {
+          display: flex;
+        }
+
+        .header-text {
+          color: #dce0e1;
+          font-size: 18px;
+          padding: 15px;
+          font-family: 'Main-bold';
+          cursor: pointer;
+          letter-spacing: 1px;
+
+          &:hover {
+            .link-hover;
+          }
+        }
+      }
+
+      .header-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        max-width: @max-content-width;
+
+        #library-buttons {
+          display: flex;
+          cursor: pointer;
+
+          .header-text {
+            color: #dce0e1;
+            padding: 15px;
+            font-family: 'Main-bold';
+            letter-spacing: 1px;
+            font-size: 18px;
+
+            &:hover {
+              .link-hover;
+            }
+          }
+        }
       }
     }
 
     #content-section {
       height: 95%;
+      display: flex;
+      justify-content: center;
+
+      .content-container {
+        padding: 0 50px;
+        width: 100%;
+        max-width: @max-content-width;
+      }
 
       #content-header {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+        height: 50px;
         color: white;
 
-        #content-menu {
-          display: flex;
-          width: 400px;
-          justify-content: space-between;
+        .tags {
+          padding: 0;
+
+          .tag {
+            display: inline-block;
+
+            a {
+              margin: 40px;
+              font-family: 'Main';
+              color: #dce0e1;
+              font-size: 17px;
+              letter-spacing: 2px;
+
+              &:hover {
+                cursor: pointer;
+                .link-hover
+              }
+
+            }
+
+          }
+        }
+      }
+    }
+
+    #main-content {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+      flex-flow: row wrap;
+
+      .playlist {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        padding-top: 0;
+
+        .playlist-cover {
+          width: 200px;
+          height: 200px;
+          background: url('../LanaDelRey_BornToDie.jpg');
+          background-size: 200px;
         }
 
       }
 
-      #main-content {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-
-
-        .playlist {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          .playlist-cover {
-            width: 200px;
-            height: 200px;
-            background: url('../LanaDelRey_BornToDie.jpg');
-            background-size: 200px;
-          }
-
-        }
-
-        .name {
-          display: inline-block;
-          color: white;
-        }
-
+      .name {
+        display: inline-block;
+        color: white;
+        font-family: 'Main';
       }
 
     }
 
   }
 
-  footer {
-    display: flex;
-    flex-direction: column;
-    height: 15%;
-    background: @grey-color;
-    align-items: center;
-    justify-content: center;
+}
 
-    #player-section {
-      width: 550px;
+footer {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  background: @player-color;
+  align-items: center;
+  justify-content: center;
+
+  #player-section {
+    width: 550px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    #player-buttons {
       display: flex;
       align-items: center;
-      flex-direction: column;
+      justify-content: space-between;
+      width: 300px;
+      height: 50px;
 
-      #player-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 300px;
-        margin-bottom: 15px;
+      #shuffle-song-button {
+        .svg-icons-preset;
+      }
 
-        #shuffle-song-button {
-          background: url("../icons/shuffle-icon.svg") no-repeat;
-          .button-icons;
-        }
-
-        #previous-song-button {
-          background: url("../icons/play-next-button-icon.svg") no-repeat;
-          .button-icons;
-        }
-
-        #play-song-button {
-          border: 1px solid white;
-          border-radius: 35px;
-
-          &:before {
-            font-size: 25px;
-            content: "\25B6";
-
-          }
-          &:hover {
-            color: white;
-          }
-
-        }
-
-        #next-song-button {
-          background: url("../icons/play-next-button-icon.svg") no-repeat;
-          .button-icons;
-        }
-
-        #repeat-song-button {
-          background: url("../icons/repeat-icon.svg") no-repeat;
-          .button-icons;
+      #play-previous-song-button {
+        .svg-icons-preset;
+        .svg {
+          transform: rotate(180deg);
         }
       }
 
-      #progress-section {
-        width: 100%;
-        display: flex;
+      #play-song-button {
+        width: 35px;
+        height: 35px;
+        border: 1px solid @icons-color;
+        border-radius: 17px;
+        padding: 7px 1px 4px 4px;
+
+        &:hover {
+          border-color: white;
+          width: 36px;
+          height: 36px;
+
+          .svg {
+            width: 16px;
+            height: 16px;
+          }
+
+          .svg-icon {
+            fill: white;
+          }
+        }
+
+        .svg {
+          width: 15px;
+          height: 15px;
+        }
       }
+
+      #play-next-song-button {
+        .svg-icons-preset;
+      }
+
+      #repeat-song-button {
+        .svg-icons-preset;
+      }
+
+    }
+
+    #progress-section {
+      width: 100%;
+      display: flex;
     }
   }
+
 }
+
+
+
