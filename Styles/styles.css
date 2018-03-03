@@ -175,7 +175,7 @@ footer #player-section #player-buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 250px;
   height: 50px;
 }
 footer #player-section #player-buttons #shuffle-song-button .svg {
@@ -233,6 +233,13 @@ footer #player-section #player-buttons #repeat-song-button .svg:hover .svg-icon 
   fill: white;
 }
 footer #player-section #progress-section {
-  width: 100%;
+  width: 500px;
   display: flex;
+}
+footer #player-section #progress-section #song-progress-bar {
+  width: 400px;
+  background: #a9a9a9;
+}
+footer #player-section #progress-section .time {
+  color: white;
 }
