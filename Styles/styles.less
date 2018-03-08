@@ -1,15 +1,23 @@
 @import "variables";
 @import "fonts.css";
+@import "animations/animations";
+@import "search";
+@import "playlists";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  button {
+    outline: 0;
+    background: none;
+    border: none;
+  }
+}
 
 * {
   box-sizing: border-box;
-}
-
-.link-hover {
-  transition-property: color;
-  transition-duration: .2s;
-  transition-timing-function: linear;
-  color: @text-color;
 }
 
 .svg-icons-preset {
@@ -31,172 +39,137 @@
   cursor: pointer;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-
-  button {
-    outline: 0;
-    background: none;
-    border: none;
-  }
-}
-
 #main-page {
   width: 100%;
   height: 100%;
+  position: absolute;
 
-  #header-content-section {
-    height: 90%;
-    background: linear-gradient(to top, rgb(12, 14, 18), rgb(126, 100, 26));
+  #header-section {
+    display: flex;
+    justify-content: center;
+    background: black;
+    height: 5%;
 
-    #header-section {
+    .right {
+      position: absolute;
+      display: flex;
+      right: 50px;
+
+      #search-button {
+        display: flex;
+      }
+
+      #account-button {
+        display: flex;
+      }
+
+      .header-text {
+        color: #dce0e1;
+        font-size: 18px;
+        padding: 15px;
+        font-family: 'Main-bold';
+        cursor: pointer;
+        letter-spacing: 1px;
+        text-decoration: none;
+
+        &:hover {
+          .link-hover;
+        }
+      }
+    }
+
+    .header-container {
+      width: 100%;
       display: flex;
       justify-content: center;
-      background: black;
+      max-width: @max-content-width;
 
-      .right {
-        position: absolute;
+      #library-buttons {
         display: flex;
-        right: 50px;
-
-        #search-button {
-          display: flex;
-        }
-
-        #account-button {
-          display: flex;
-        }
+        cursor: pointer;
 
         .header-text {
           color: #dce0e1;
-          font-size: 18px;
           padding: 15px;
           font-family: 'Main-bold';
           cursor: pointer;
           letter-spacing: 1px;
+          font-size: 18px;
+          text-decoration: none;
 
           &:hover {
             .link-hover;
           }
         }
       }
+    }
+  }
 
-      .header-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        max-width: @max-content-width;
+  #content-section {
+    height: @content-height;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to top, rgb(12, 14, 18), rgb(126, 100, 26));
 
-        #library-buttons {
-          display: flex;
-          cursor: pointer;
 
-          .header-text {
+    #content-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 5%;
+      color: white;
+      padding: 0 50px;
+      width: 100%;
+
+      .tags {
+        padding: 0;
+
+        .tag {
+          display: inline-block;
+
+          a {
+            margin: 40px;
+            font-family: 'Main';
             color: #dce0e1;
-            padding: 15px;
-            font-family: 'Main-bold';
-            letter-spacing: 1px;
-            font-size: 18px;
+            font-size: 17px;
+            letter-spacing: 2px;
+            text-decoration: none;
 
             &:hover {
-              .link-hover;
-            }
-          }
-        }
-      }
-    }
-
-    #content-section {
-      height: 95%;
-      display: flex;
-      justify-content: center;
-
-      .content-container {
-        padding: 0 50px;
-        width: 100%;
-        max-width: @max-content-width;
-      }
-
-      #content-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 50px;
-        color: white;
-
-        .tags {
-          padding: 0;
-
-          .tag {
-            display: inline-block;
-
-            a {
-              margin: 40px;
-              font-family: 'Main';
-              color: #dce0e1;
-              font-size: 17px;
-              letter-spacing: 2px;
-
-              &:hover {
-                cursor: pointer;
-                .link-hover
-              }
-
+              cursor: pointer;
+              .link-hover
             }
 
           }
+
         }
       }
     }
 
     #main-content {
       display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
+      flex-direction: column;
       margin: 0 -10px;
       flex-flow: row wrap;
-
-      .playlist {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        padding-top: 0;
-
-        .playlist-cover {
-          width: 200px;
-          height: 200px;
-          background: url('../LanaDelRey_BornToDie.jpg');
-          background-size: 200px;
-        }
-
-      }
-
-      .name {
-        display: inline-block;
-        color: white;
-        font-family: 'Main';
-      }
+      height: 95%;
+      padding: 0 100px;
 
     }
-
   }
-
 }
 
 footer {
   display: flex;
   flex-direction: column;
-  height: 10%;
+  height: @footer-height;
   background: @player-color;
   align-items: center;
   justify-content: center;
 
   #player-section {
-    width: 550px;
+    width: 650px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -209,65 +182,94 @@ footer {
       height: 50px;
 
       #shuffle-song-button {
-        .svg-icons-preset;
+        width: 20px;
+        height: 20px;
+        background: url("../icons/shuffle.svg");
+        background-size: 15px;
+        background-repeat: no-repeat;
+
       }
 
       #play-previous-song-button {
-        .svg-icons-preset;
-        .svg {
-          transform: rotate(180deg);
-        }
+        width: 20px;
+        height: 20px;
+        background: url("../icons/next.svg");
+        background-size: 15px;
+        background-repeat: no-repeat;
       }
 
       #play-song-button {
         width: 35px;
         height: 35px;
-        border: 1px solid @icons-color;
-        border-radius: 17px;
-        padding: 7px 1px 4px 4px;
+        background: url("../icons/play.svg");
+        background-size: 20px;
+        background-repeat: no-repeat;
 
-        &:hover {
-          border-color: white;
-          width: 36px;
-          height: 36px;
-
-          .svg {
-            width: 16px;
-            height: 16px;
-          }
-
-          .svg-icon {
-            fill: white;
-          }
-        }
-
-        .svg {
-          width: 15px;
-          height: 15px;
+        &.active {
+          background: url("../icons/pause-button.svg");
+          background-size: 20px;
+          background-repeat: no-repeat;
         }
       }
 
       #play-next-song-button {
-        .svg-icons-preset;
+        width: 20px;
+        height: 20px;
+        background: url("../icons/next.svg");
+        background-size: 15px;
+        background-repeat: no-repeat;
       }
 
       #repeat-song-button {
-        .svg-icons-preset;
+        width: 20px;
+        height: 20px;
+        background: url("../icons/repeat.svg");
+        background-size: 15px;
+        background-repeat: no-repeat;
       }
-
     }
 
     #progress-section {
-      width: 500px;
+      width: 100%;
       display: flex;
 
       #song-progress-bar {
-        width: 400px;
+        width: 800px;
         background: @icons-color;
+        -webkit-appearance: none;
+        outline: none;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+
+        &::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 4px;
+          background: #424242;
+          border-radius: 9px;
+
+        }
+
+        &::-webkit-slider-thumb {
+          visibility: hidden;
+          -webkit-appearance: none;
+          height: 10px;
+          width: 10px;
+          border-radius: 10px;
+          background: white;
+          margin-top: -3px;
+        }
+
+        &:hover {
+          &::-webkit-slider-thumb {
+            visibility: visible;
+          }
+        }
       }
 
       .time {
-        color: white;
+        color: #a7a7a7;
+        font-size: 14px;
       }
 
       #current-song-time {

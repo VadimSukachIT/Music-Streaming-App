@@ -1,0 +1,50 @@
+[{
+  "id":"1",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "",
+  "genre": "Rock",
+  "albumId": "1"
+}, {
+  "id":"2",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "",
+  "genre": "Rock",
+  "albumId": "1"
+}, {
+  "id":"3",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "",
+  "genre": "Rock",
+  "albumId": "1"
+}, {
+  "id":"4",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "200",
+  "genreId": "1",
+  "albumId": "1"
+}, {
+  "id":"5",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "200",
+  "genreId": "1",
+  "albumId": "1"
+}, {
+  "id":"6",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "200",
+  "genreId": "1",
+  "albumId": "1"
+}, {
+  "id":"7",
+  "artistId": "1",
+  "title": "Song",
+  "durationInSec": "200",
+  "genreId": "1",
+  "albumId": "1"
+}]

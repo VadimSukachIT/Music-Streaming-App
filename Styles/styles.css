@@ -1,12 +1,102 @@
 @import "fonts.css";
-* {
-  box-sizing: border-box;
-}
 .link-hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
+}
+.play-song-button-hover {
+  transition: all 0.2s ease-in-out;
+}
+#main-page #search-section {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 90%;
+  z-index: 5;
+}
+#main-page #search-section .search {
+  position: relative;
+  background: #242424;
+  height: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#main-page #search-section .search .search-content {
+  width: 800px;
+}
+#main-page #search-section .search .search-content label {
+  color: white;
+  font-size: 14px;
+}
+#main-page #search-section .search .search-content #search-bar {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #242424;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 36px;
+}
+#main-page #search-section .search .search-content #search-bar::-webkit-search-cancel-button {
+  display: none;
+}
+#main-page #search-section .search .search-content #search-bar::placeholder {
+  color: #a9a9a9;
+}
+#main-page #search-section .search #closeSearchButton {
+  position: absolute;
+  right: 60px;
+  font-size: 25px;
+  color: white;
+  cursor: pointer;
+}
+#main-page #search-section .search-layout {
+  background: black;
+  position: relative;
+  height: 87%;
+}
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
+#main-content .playlists {
+  width: 200px;
+  height: 300px;
+}
+#main-content .playlists .playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-content .playlists .playlist .playlist-cover {
+  width: 220px;
+  height: 220px;
+}
+#main-content .playlists .playlist .playlist-name {
+  color: white;
+  margin: 5px 0;
+}
+#main-content .playlists .playlist .playlist-author {
+  color: #a9a9a9;
+  margin: 5px;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+html button,
+body button {
+  outline: 0;
+  background: none;
+  border: none;
+}
+* {
+  box-sizing: border-box;
 }
 .svg-icons-preset .svg {
   width: 16px;
@@ -21,141 +111,113 @@
   background: black;
   cursor: pointer;
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-html button,
-body button {
-  outline: 0;
-  background: none;
-  border: none;
-}
 #main-page {
   width: 100%;
   height: 100%;
+  position: absolute;
 }
-#main-page #header-content-section {
-  height: 90%;
-  background: linear-gradient(to top, #0c0e12, #7e641a);
-}
-#main-page #header-content-section #header-section {
+#main-page #header-section {
   display: flex;
   justify-content: center;
   background: black;
+  height: 5%;
 }
-#main-page #header-content-section #header-section .right {
+#main-page #header-section .right {
   position: absolute;
   display: flex;
   right: 50px;
 }
-#main-page #header-content-section #header-section .right #search-button {
+#main-page #header-section .right #search-button {
   display: flex;
 }
-#main-page #header-content-section #header-section .right #account-button {
+#main-page #header-section .right #account-button {
   display: flex;
 }
-#main-page #header-content-section #header-section .right .header-text {
+#main-page #header-section .right .header-text {
   color: #dce0e1;
   font-size: 18px;
   padding: 15px;
   font-family: 'Main-bold';
   cursor: pointer;
   letter-spacing: 1px;
+  text-decoration: none;
 }
-#main-page #header-content-section #header-section .right .header-text:hover {
+#main-page #header-section .right .header-text:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
 }
-#main-page #header-content-section #header-section .header-container {
+#main-page #header-section .header-container {
   width: 100%;
   display: flex;
   justify-content: center;
   max-width: 1400px;
 }
-#main-page #header-content-section #header-section .header-container #library-buttons {
+#main-page #header-section .header-container #library-buttons {
   display: flex;
   cursor: pointer;
 }
-#main-page #header-content-section #header-section .header-container #library-buttons .header-text {
+#main-page #header-section .header-container #library-buttons .header-text {
   color: #dce0e1;
   padding: 15px;
   font-family: 'Main-bold';
+  cursor: pointer;
   letter-spacing: 1px;
   font-size: 18px;
+  text-decoration: none;
 }
-#main-page #header-content-section #header-section .header-container #library-buttons .header-text:hover {
+#main-page #header-section .header-container #library-buttons .header-text:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
 }
-#main-page #header-content-section #content-section {
-  height: 95%;
+#main-page #content-section {
+  height: 85%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  background: linear-gradient(to top, #0c0e12, #7e641a);
 }
-#main-page #header-content-section #content-section .content-container {
-  padding: 0 50px;
-  width: 100%;
-  max-width: 1400px;
-}
-#main-page #header-content-section #content-section #content-header {
+#main-page #content-section #content-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 5%;
   color: white;
+  padding: 0 50px;
+  width: 100%;
 }
-#main-page #header-content-section #content-section #content-header .tags {
+#main-page #content-section #content-header .tags {
   padding: 0;
 }
-#main-page #header-content-section #content-section #content-header .tags .tag {
+#main-page #content-section #content-header .tags .tag {
   display: inline-block;
 }
-#main-page #header-content-section #content-section #content-header .tags .tag a {
+#main-page #content-section #content-header .tags .tag a {
   margin: 40px;
   font-family: 'Main';
   color: #dce0e1;
   font-size: 17px;
   letter-spacing: 2px;
+  text-decoration: none;
 }
-#main-page #header-content-section #content-section #content-header .tags .tag a:hover {
+#main-page #content-section #content-header .tags .tag a:hover {
   cursor: pointer;
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
 }
-#main-page #header-content-section #main-content {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  margin: 0 -10px;
-  flex-flow: row wrap;
-}
-#main-page #header-content-section #main-content .playlist {
+#main-page #content-section #main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  padding-top: 0;
-}
-#main-page #header-content-section #main-content .playlist .playlist-cover {
-  width: 200px;
-  height: 200px;
-  background: url('../LanaDelRey_BornToDie.jpg');
-  background-size: 200px;
-}
-#main-page #header-content-section #main-content .name {
-  display: inline-block;
-  color: white;
-  font-family: 'Main';
+  margin: 0 -10px;
+  flex-flow: row wrap;
+  height: 95%;
+  padding: 0 100px;
 }
 footer {
   display: flex;
@@ -166,7 +228,7 @@ footer {
   justify-content: center;
 }
 footer #player-section {
-  width: 550px;
+  width: 650px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -178,68 +240,78 @@ footer #player-section #player-buttons {
   width: 250px;
   height: 50px;
 }
-footer #player-section #player-buttons #shuffle-song-button .svg {
-  width: 16px;
-  height: 16px;
+footer #player-section #player-buttons #shuffle-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/shuffle.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
 }
-footer #player-section #player-buttons #shuffle-song-button .svg:hover .svg-icon {
-  fill: white;
-}
-footer #player-section #player-buttons #play-previous-song-button .svg {
-  width: 16px;
-  height: 16px;
-}
-footer #player-section #player-buttons #play-previous-song-button .svg:hover .svg-icon {
-  fill: white;
-}
-footer #player-section #player-buttons #play-previous-song-button .svg {
-  transform: rotate(180deg);
+footer #player-section #player-buttons #play-previous-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/next.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
 }
 footer #player-section #player-buttons #play-song-button {
   width: 35px;
   height: 35px;
-  border: 1px solid #a9a9a9;
-  border-radius: 17px;
-  padding: 7px 1px 4px 4px;
+  background: url("../icons/play.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
-footer #player-section #player-buttons #play-song-button:hover {
-  border-color: white;
-  width: 36px;
-  height: 36px;
+footer #player-section #player-buttons #play-song-button.active {
+  background: url("../icons/pause-button.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
 }
-footer #player-section #player-buttons #play-song-button:hover .svg {
-  width: 16px;
-  height: 16px;
+footer #player-section #player-buttons #play-next-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/next.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
 }
-footer #player-section #player-buttons #play-song-button:hover .svg-icon {
-  fill: white;
-}
-footer #player-section #player-buttons #play-song-button .svg {
-  width: 15px;
-  height: 15px;
-}
-footer #player-section #player-buttons #play-next-song-button .svg {
-  width: 16px;
-  height: 16px;
-}
-footer #player-section #player-buttons #play-next-song-button .svg:hover .svg-icon {
-  fill: white;
-}
-footer #player-section #player-buttons #repeat-song-button .svg {
-  width: 16px;
-  height: 16px;
-}
-footer #player-section #player-buttons #repeat-song-button .svg:hover .svg-icon {
-  fill: white;
+footer #player-section #player-buttons #repeat-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/repeat.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
 }
 footer #player-section #progress-section {
-  width: 500px;
+  width: 100%;
   display: flex;
 }
 footer #player-section #progress-section #song-progress-bar {
-  width: 400px;
+  width: 800px;
   background: #a9a9a9;
+  -webkit-appearance: none;
+  outline: none;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+footer #player-section #progress-section #song-progress-bar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #424242;
+  border-radius: 9px;
+}
+footer #player-section #progress-section #song-progress-bar::-webkit-slider-thumb {
+  visibility: hidden;
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background: white;
+  margin-top: -3px;
+}
+footer #player-section #progress-section #song-progress-bar:hover::-webkit-slider-thumb {
+  visibility: visible;
 }
 footer #player-section #progress-section .time {
-  color: white;
+  color: #a7a7a7;
+  font-size: 14px;
 }

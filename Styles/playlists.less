@@ -1,0 +1,33 @@
+@import "variables";
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+
+  .playlists {
+    width: 200px;
+    height: 300px;
+
+    .playlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .playlist-cover {
+        width: 220px;
+        height: 220px;
+      }
+
+      .playlist-name {
+        color: white;
+        margin: 5px 0;
+      }
+
+      .playlist-author {
+        color: @icons-color;
+        margin: 5px;
+      }
+    }
+  }
+
+}

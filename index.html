@@ -5,114 +5,63 @@
     <title>Player</title>
     <link rel="stylesheet" href="Styles/styles.css">
     <script defer src="scripts/audio-player.js"></script>
+    <script defer src="scripts/header.js"></script>
+    <script defer src="scripts/content-hash-changes.js"></script>
 
 </head>
 <body>
 <div id="main-page">
-    <div id="header-content-section">
-        <div id="header-section">
-            <div class="header-container">
-                <div id="library-buttons">
-                    <span id="library" class="header-text">Медиатека</span>
-                    <span id="recommendations" class="header-text">Рекоммендации</span>
-                </div>
+    <div id="search-section">
+        <div class="search">
+            <div class="search-content">
+                <label for="search-bar">Ищите исполнителей, песни, альбомы и плейлисты</label>
+                <input type="search" id="search-bar" placeholder="Начните печатать...">
             </div>
-            <div class="right">
-                <div id="search-button">
-                    <button type="button" name="search" class="header-text">Поиск</button>
-                </div>
-                <div id="account-button">
-                    <span id="account-name" class="header-text">Дмитрий Кардис</span>
-                </div>
+            <button type="button" id="closeSearchButton">Закрыть</button>
+        </div>
+        <div class="search-layout"></div>
+    </div>
+    <div id="header-section">
+        <div class="header-container">
+            <div id="library-buttons">
+                <a href="#library" class="header-text">Медиатека</a>
+                <a href="#recommendations" id="recommendations" class="header-text">Рекоммендации</a>
             </div>
         </div>
-        <div id="content-section">
-            <div class="content-container">
-                <div id="content-header">
-                    <ul class="tags">
-                        <li class="featured tag"><a>Для вас</a></li>
-                        <li class="genres tag"><a>Жанры</a></li>
-                        <li class="new-releases tag"><a>Новое</a></li>
-                    </ul>
-                </div>
-                <div id="main-content">
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                    <div class="playlist">
-                        <div class="playlist-cover"></div>
-                        <span class="name playlist-name">A Thousand Suns</span>
-                        <span class="name playlist-owner">Linkin Park</span>
-                    </div>
-                </div>
+        <div class="right">
+            <div id="search-button">
+                <button type="button" name="search" class="header-text">Поиск</button>
             </div>
+            <div id="account-button">
+                <span id="account-name" class="header-text">Дмитрий Кардис</span>
+            </div>
+        </div>
+    </div>
+    <div id="content-section">
+        <div id="content-header"></div>
+        <div id="main-content">
+           <div class="playlists">
+               <div class="playlist">
+                   <img src="covers/album-covers/LanaDelRey_BornToDie.jpg" class="playlist-cover" />
+                   <span class="playlist-name">Lana Del Ray</span>
+                   <span class="playlist-author">Lana Del Ray</span>
+               </div>
+           </div>
         </div>
     </div>
     <footer>
         <div id="player-section">
             <div id="player-buttons">
-                <button type="button" id="shuffle-song-button" class="icon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg class="svg" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path class="svg-icon" d="m506.24 371.7l-96-80c-4.768-4-11.424-4.8-17.024-2.208-5.632 2.656-9.216 8.288-9.216 14.496v48h-26.784c-22.208 0-42.496-11.264-54.272-30.08l-103.62-165.76c-23.52-37.664-64.096-60.16-108.54-60.16h-90.784v64h90.784c22.208 0 42.496 11.264 54.272 30.08l103.62 165.76c23.552 37.664 64.128 60.16 108.54 60.16h26.784v48c0 6.208 3.584 11.84 9.216 14.496 2.144 0.992 4.48 1.504 6.784 1.504 3.68 0 7.328-1.248 10.24-3.712l96-80c3.68-3.04 5.76-7.552 5.76-12.288s-2.08-9.248-5.76-12.288z" fill="#a9a9a9"></path>
-                        <path class="svg-icon" d="m506.24 115.7l-96-80c-4.768-3.968-11.424-4.8-17.024-2.176-5.632 2.592-9.216 8.256-9.216 14.464v48h-26.784c-44.448 0-85.024 22.496-108.54 60.16l-5.792 9.28 37.728 60.384 22.336-35.744c11.776-18.816 32.064-30.08 54.272-30.08h26.784v48c0 6.208 3.584 11.872 9.216 14.496 2.144 0.992 4.48 1.504 6.784 1.504 3.68 0 7.328-1.28 10.24-3.712l96-80c3.68-3.04 5.76-7.552 5.76-12.288s-2.08-9.248-5.76-12.288z" fill="#a9a9a9"></path>
-                        <path class="svg-icon" d="m167.39 286.16l-22.304 35.744c-11.776 18.816-32.096 30.08-54.304 30.08h-90.784v64h90.784c44.416 0 84.992-22.496 108.54-60.16l5.792-9.28-37.728-60.384z" fill="#a9a9a9"></path>
-                    </svg>
-                </button>
-                <button type="button" id="play-previous-song-button" class="icon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg class='svg' width="512px" height="512px" enable-background="new 0 0 57 57" version="1.1" viewBox="0 0 57 57" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path class="svg-icon" d="M56.575,27.683l-27-19c-0.306-0.216-0.703-0.242-1.036-0.07C28.208,8.784,28,9.127,28,9.5v17.777L1.575,8.694  C1.27,8.481,0.872,8.453,0.539,8.625C0.208,8.797,0,9.14,0,9.513v37.975c0,0.373,0.208,0.716,0.539,0.888  C0.685,48.45,0.843,48.487,1,48.487c0.202,0,0.403-0.062,0.575-0.182L28,29.723V47.5c0,0.373,0.208,0.716,0.539,0.888  C28.685,48.463,28.843,48.5,29,48.5c0.202,0,0.404-0.062,0.575-0.183l27-19C56.842,29.131,57,28.825,57,28.5  S56.842,27.869,56.575,27.683z" fill="#a9a9a9"></path>
-                    </svg>
-                </button>
-                <button type="button" id="play-song-button" class="icon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg class='svg' width="512px" height="512px" enable-background="new 0 0 373.008 373.008" version="1.1" viewBox="0 0 373.008 373.008" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path class="svg-icon" d="m61.792 2.588c2.979-1.724 6.313-2.588 9.652-2.588 3.33 0 6.663 0.864 9.655 2.588l230.12 167.2c5.963 3.445 9.656 9.823 9.656 16.719 0 6.895-3.683 13.272-9.656 16.713l-230.12 167.21c-5.972 3.441-13.334 3.441-19.302 0-5.973-3.453-9.66-9.833-9.66-16.724v-334.4c0-6.892 3.681-13.269 9.655-16.717z" fill="#a9a9a9"></path></svg>
-
-                </button>
-                <button type="button" id="play-next-song-button" class="icon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg class='svg' width="512px" height="512px" enable-background="new 0 0 57 57" version="1.1" viewBox="0 0 57 57" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-                        <path class="svg-icon" d="M56.575,27.683l-27-19c-0.306-0.216-0.703-0.242-1.036-0.07C28.208,8.784,28,9.127,28,9.5v17.777L1.575,8.694  C1.27,8.481,0.872,8.453,0.539,8.625C0.208,8.797,0,9.14,0,9.513v37.975c0,0.373,0.208,0.716,0.539,0.888  C0.685,48.45,0.843,48.487,1,48.487c0.202,0,0.403-0.062,0.575-0.182L28,29.723V47.5c0,0.373,0.208,0.716,0.539,0.888  C28.685,48.463,28.843,48.5,29,48.5c0.202,0,0.404-0.062,0.575-0.183l27-19C56.842,29.131,57,28.825,57,28.5  S56.842,27.869,56.575,27.683z" fill="#a9a9a9"></path>
-                    </svg>
-                </button>
-                <button type="button" id="repeat-song-button" class="icon">
-                    <?xml version="1.0" encoding="UTF-8"?>
-                    <svg class="svg" width="512px" height="512px" enable-background="new 0 0 489.688 489.688" version="1.1" viewBox="0 0 489.688 489.688" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
-	<g fill="#a9a9a9">
-		<path class="svg-icon" d="m485.65 84.294l-111.9-75.3c-6.1-4.1-14.3 0.3-14.3 7.6v40.7h-318.8c-19.1 0-34.6 15.5-34.6 34.6v183.9h69.2v-149.2h284.1v40.8c0 7.4 8.2 11.7 14.3 7.6l111.9-75.4c5.5-3.6 5.5-11.6 0.1-15.3z"/>
-		<path class="svg-icon" d="m414.45 362.99h-284.1v-40.7c0-7.4-8.2-11.7-14.3-7.6l-112 75.3c-5.4 3.6-5.4 11.6 0 15.3l111.9 75.4c6.1 4.1 14.3-0.3 14.3-7.6v-40.8h318.7c19.1 0 34.6-15.5 34.6-34.6v-183.9h-69.2v149.2h0.1z"/>
-	</g>
-</svg>
-                </button>
+                <button type="button" id="shuffle-song-button" class="icon"></button>
+                <button type="button" id="play-previous-song-button" class="icon"></button>
+                <button type="button" id="play-song-button" class="icon"></button>
+                <button type="button" id="play-next-song-button" class="icon"></button>
+                <button type="button" id="repeat-song-button" class="icon"></button>
             </div>
             <div id="progress-section">
-                <span id="current-song-time" class="time">0:00</span>
+                <div id="current-song-time" class="time">0:00</div>
                 <input type="range" id="song-progress-bar">
-                <span id="song-duration" class="time">0:00</span>
+                <div id="song-duration" class="time">0:00</div>
             </div>
         </div>
     </footer>
