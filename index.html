@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+    <link rel="stylesheet" href="Styles/styles.css">
+    <script defer src="scripts/pages classes and hash/recommendations.js"></script>
+    <script defer src="scripts/pages%20classes%20and%20hash/library.js"></script>
+    <script defer src="scripts/pages%20classes%20and%20hash/router.js"></script>
+    <script defer src="scripts/header.js"></script>
+    <script defer src="scripts/pages classes and hash/hash.js"></script>
+    <script defer src="scripts/audio-player.js"></script>
+
+
+</head>
+<body>
+<div id="main-page">
+    <div id="search-section">
+        <div class="search">
+            <div class="search-content">
+                <label for="search-bar">Ищите исполнителей, песни, альбомы и плейлисты</label>
+                <input type="search" id="search-bar" placeholder="Начните печатать...">
+            </div>
+            <button type="button" id="closeSearchButton">Закрыть</button>
+        </div>
+        <div class="search-layout"></div>
+    </div>
+    <div id="header-section">
+        <div class="header-container">
+            <div id="library-buttons">
+                <a href="#library-playlists" class="header-text">Медиатека</a>
+                <a href="#recommendations-forYou" id="recommendations" class="header-text">Рекоммендации</a>
+            </div>
+        </div>
+        <div class="right">
+            <div id="search-button">
+                <button type="button" name="search" class="header-text">Поиск</button>
+            </div>
+            <div id="account-button">
+                <span id="account-name" class="header-text">Дмитрий Кардис</span>
+            </div>
+        </div>
+    </div>
+    <div id="content-section">
+        <div id="content-header"></div>
+        <div id="main-content">
+        </div>
+    </div>
+    <footer>
+        <div id="player-section">
+            <div id="player-buttons">
+                <button type="button" id="shuffle-song-button" class="icon"></button>
+                <button type="button" id="play-previous-song-button" class="icon"></button>
+                <button type="button" id="play-song-button" class="icon"></button>
+                <button type="button" id="play-next-song-button" class="icon"></button>
+                <button type="button" id="repeat-song-button" class="icon"></button>
+            </div>
+            <div id="progress-section">
+                <div id="current-song-time" class="time">0:00</div>
+                <input type="range" id="song-progress-bar">
+                <div id="song-duration" class="time">0:00</div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

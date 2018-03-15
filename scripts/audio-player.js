@@ -12,21 +12,19 @@
         shuffleSongsButton = document.getElementById('shuffle-song-button');
 
 
-    let myAudio = new Audio("songs/Linkin Park/01 - The Requiem.mp3"),
+    let myAudio = new Audio("songs/Linkin Park/BurnItDown.mp3"),
         duration = myAudio.duration;
 
     playerButtonsSection.addEventListener('click', function (event) {
         let target = event.target;
-        playButton.classList.toggle('active');
-        if (target.closest('#play-song-button')) {
+        console.log(target);
+        if (target.id ='play-song-button') {
             myAudio.play();
+            playButton.classList.toggle('active');
 
-        } else if (target.closest('repeat-song-button')) {
-            let onRepeat = myAudio.loop;
-            onRepeat = true;
-            repeatSongButton.classList.toggle('active');
+        }
 
-        } else if (target.closest('play-previous-song-button')) {
+            else if (target.closest('play-previous-song-button')) {
 
         } else if (target.closest('play-next-song-button')) {
 
