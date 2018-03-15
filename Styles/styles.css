@@ -58,18 +58,18 @@
   position: relative;
   height: 87%;
 }
-#main-content {
-  display: flex;
-  flex-direction: column;
-}
 #main-content .playlists {
-  width: 200px;
-  height: 300px;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
 }
 #main-content .playlists .playlist {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 230px;
+  height: 300px;
+  margin-right: 20px;
 }
 #main-content .playlists .playlist .playlist-cover {
   width: 220px;
@@ -97,19 +97,6 @@ body button {
 }
 * {
   box-sizing: border-box;
-}
-.svg-icons-preset .svg {
-  width: 16px;
-  height: 16px;
-}
-.svg-icons-preset .svg:hover .svg-icon {
-  fill: white;
-}
-.buttons {
-  width: 20px;
-  height: 20px;
-  background: black;
-  cursor: pointer;
 }
 #main-page {
   width: 100%;
@@ -178,7 +165,7 @@ body button {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(to top, #0c0e12, #7e641a);
+  background: linear-gradient(to top, #7e641a, #0c0e12);
 }
 #main-page #content-section #content-header {
   display: flex;
@@ -188,6 +175,7 @@ body button {
   height: 5%;
   color: white;
   padding: 0 50px;
+  margin: 10px 0 25px 0;
   width: 100%;
 }
 #main-page #content-section #content-header .tags {
@@ -214,8 +202,8 @@ body button {
 #main-page #content-section #main-content {
   display: flex;
   flex-direction: column;
-  margin: 0 -10px;
   flex-flow: row wrap;
+  justify-content: center;
   height: 95%;
   padding: 0 100px;
 }
@@ -247,12 +235,28 @@ footer #player-section #player-buttons #shuffle-song-button {
   background-size: 15px;
   background-repeat: no-repeat;
 }
+footer #player-section #player-buttons #shuffle-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/shuffle-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
 footer #player-section #player-buttons #play-previous-song-button {
+  transform: rotate(180deg);
   width: 20px;
   height: 20px;
   background: url("../icons/next.svg");
   background-size: 15px;
   background-repeat: no-repeat;
+  background-position: bottom;
+}
+footer #player-section #player-buttons #play-previous-song-button:hover {
+  transform: scale(1.1) rotate(180deg);
+  background: url("../icons/next-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 3px;
 }
 footer #player-section #player-buttons #play-song-button {
   width: 35px;
@@ -260,11 +264,36 @@ footer #player-section #player-buttons #play-song-button {
   background: url("../icons/play.svg");
   background-size: 20px;
   background-repeat: no-repeat;
+  background-position-x: 8px;
+  background-position-y: 6px;
+  border: 1px solid #a9a9a9;
+  border-radius: 18px;
+  margin-bottom: 6px;
+}
+footer #player-section #player-buttons #play-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/play-white.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 8px;
+  background-position-y: 6px;
+  border-color: white;
 }
 footer #player-section #player-buttons #play-song-button.active {
   background: url("../icons/pause-button.svg");
   background-size: 20px;
   background-repeat: no-repeat;
+  background-position-x: 6px;
+  background-position-y: 6px;
+}
+footer #player-section #player-buttons #play-song-button.active:hover {
+  transform: scale(1.1);
+  background: url("../icons/pause-button-white.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 6px;
+  background-position-y: 6px;
+  border-color: white;
 }
 footer #player-section #player-buttons #play-next-song-button {
   width: 20px;
@@ -273,10 +302,22 @@ footer #player-section #player-buttons #play-next-song-button {
   background-size: 15px;
   background-repeat: no-repeat;
 }
+footer #player-section #player-buttons #play-next-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/next-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
 footer #player-section #player-buttons #repeat-song-button {
   width: 20px;
   height: 20px;
   background: url("../icons/repeat.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #repeat-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/repeat-white.svg");
   background-size: 15px;
   background-repeat: no-repeat;
 }

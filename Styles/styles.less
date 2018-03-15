@@ -20,23 +20,8 @@ html, body {
   box-sizing: border-box;
 }
 
-.svg-icons-preset {
-  .svg {
-    width: 16px;
-    height: 16px;
-    &:hover {
-      .svg-icon {
-        fill: white;
-      }
-    }
-  }
-}
+.button-icons {
 
-.buttons {
-  width: 20px;
-  height: 20px;
-  background: black;
-  cursor: pointer;
 }
 
 #main-page {
@@ -110,7 +95,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(to top, rgb(12, 14, 18), rgb(126, 100, 26));
+    background: linear-gradient(to top, rgb(126, 100, 26), rgb(12, 14, 18));
 
 
     #content-header {
@@ -121,6 +106,7 @@ html, body {
       height: 5%;
       color: white;
       padding: 0 50px;
+      margin: 10px 0 25px 0;
       width: 100%;
 
       .tags {
@@ -151,8 +137,8 @@ html, body {
     #main-content {
       display: flex;
       flex-direction: column;
-      margin: 0 -10px;
       flex-flow: row wrap;
+      justify-content: center;
       height: 95%;
       padding: 0 100px;
 
@@ -188,14 +174,31 @@ footer {
         background-size: 15px;
         background-repeat: no-repeat;
 
+        &:hover {
+          transform: scale(1.1);
+          background: url("../icons/shuffle-white.svg") ;
+          background-size: 15px;
+          background-repeat: no-repeat;
+        }
       }
 
       #play-previous-song-button {
+        transform: rotate(180deg);
         width: 20px;
         height: 20px;
         background: url("../icons/next.svg");
         background-size: 15px;
         background-repeat: no-repeat;
+        background-position: bottom;
+
+        &:hover {
+          transform: scale(1.1) rotate(180deg);
+          background: url("../icons/next-white.svg") ;
+          background-size: 15px;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-bottom: 3px;
+        }
       }
 
       #play-song-button {
@@ -204,11 +207,41 @@ footer {
         background: url("../icons/play.svg");
         background-size: 20px;
         background-repeat: no-repeat;
+        background-position-x: 8px;
+        background-position-y: 6px;
+        border: 1px solid @icons-color;
+        border-radius: 18px;
+        margin-bottom: 6px;
+
+        &:hover {
+          transform: scale(1.1);
+          background: url("../icons/play-white.svg") ;
+          background-size: 20px;
+          background-repeat: no-repeat;
+          background-position-x: 8px;
+          background-position-y: 6px;
+          border-color: white;
+        }
+
 
         &.active {
           background: url("../icons/pause-button.svg");
           background-size: 20px;
           background-repeat: no-repeat;
+          background-position-x: 6px;
+          background-position-y: 6px;
+
+          &:hover {
+            transform: scale(1.1);
+            background: url("../icons/pause-button-white.svg") ;
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position-x: 6px;
+            background-position-y: 6px;
+            border-color: white;
+          }
+
+
         }
       }
 
@@ -218,6 +251,13 @@ footer {
         background: url("../icons/next.svg");
         background-size: 15px;
         background-repeat: no-repeat;
+
+        &:hover {
+          transform: scale(1.1);
+          background: url("../icons/next-white.svg") ;
+          background-size: 15px;
+          background-repeat: no-repeat;
+        }
       }
 
       #repeat-song-button {
@@ -226,6 +266,14 @@ footer {
         background: url("../icons/repeat.svg");
         background-size: 15px;
         background-repeat: no-repeat;
+
+        &:hover {
+          transform: scale(1.1);
+          background: url("../icons/repeat-white.svg") ;
+          background-size: 15px;
+          background-repeat: no-repeat;
+        }
+
       }
     }
 
