@@ -1,0 +1,37 @@
+[{
+  "id": "1",
+  "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+  "title": "A Thousand Suns",
+  "songs": [
+    "1",
+    "2",
+    "3"
+  ]
+}, {
+  "id": "2",
+  "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+  "title": "A Thousand Suns",
+  "songs": [
+    "3",
+    "4",
+    "5"
+  ]
+}, {
+  "id": "3",
+  "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+  "title": "A Thousand Suns",
+  "songs": [
+    "2",
+    "5",
+    "6"
+  ]
+}, {
+  "id": "4",
+  "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+  "title": "A Thousand Suns",
+  "songs": [
+    "2",
+    "4",
+    "6"
+  ]
+}]
