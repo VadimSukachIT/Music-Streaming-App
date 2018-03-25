@@ -1,0 +1,149 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  background: #2c2c2c;
+  align-items: center;
+  justify-content: center;
+}
+footer #player-section {
+  width: 650px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+footer #player-section #player-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 50px;
+}
+footer #player-section #player-buttons #shuffle-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/shuffle.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #shuffle-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/shuffle-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #play-previous-song-button {
+  transform: rotate(180deg);
+  width: 20px;
+  height: 20px;
+  background: url("../icons/next.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+footer #player-section #player-buttons #play-previous-song-button:hover {
+  transform: scale(1.1) rotate(180deg);
+  background: url("../icons/next-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 3px;
+}
+footer #player-section #player-buttons #play-song-button {
+  width: 35px;
+  height: 35px;
+  background: url("../icons/play.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 8px;
+  background-position-y: 6px;
+  border: 1px solid #a9a9a9;
+  border-radius: 18px;
+  margin-bottom: 6px;
+}
+footer #player-section #player-buttons #play-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/play-white.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 8px;
+  background-position-y: 6px;
+  border-color: white;
+}
+footer #player-section #player-buttons #play-song-button.active {
+  background: url("../icons/pause-button.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 6px;
+  background-position-y: 6px;
+}
+footer #player-section #player-buttons #play-song-button.active:hover {
+  transform: scale(1.1);
+  background: url("../icons/pause-button-white.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position-x: 6px;
+  background-position-y: 6px;
+  border-color: white;
+}
+footer #player-section #player-buttons #play-next-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/next.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #play-next-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/next-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #repeat-song-button {
+  width: 20px;
+  height: 20px;
+  background: url("../icons/repeat.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #player-buttons #repeat-song-button:hover {
+  transform: scale(1.1);
+  background: url("../icons/repeat-white.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+footer #player-section #progress-section {
+  width: 100%;
+  display: flex;
+}
+footer #player-section #progress-section #song-progress-bar {
+  width: 800px;
+  background: #a9a9a9;
+  -webkit-appearance: none;
+  outline: none;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+footer #player-section #progress-section #song-progress-bar::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #424242;
+  border-radius: 9px;
+}
+footer #player-section #progress-section #song-progress-bar::-webkit-slider-thumb {
+  visibility: hidden;
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background: white;
+  margin-top: -3px;
+}
+footer #player-section #progress-section #song-progress-bar:hover::-webkit-slider-thumb {
+  visibility: visible;
+}
+footer #player-section #progress-section .time {
+  color: #a7a7a7;
+  font-size: 14px;
+}

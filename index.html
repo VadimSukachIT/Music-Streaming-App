@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Player</title>
-    <link rel="stylesheet" href="Styles/styles.css">
-    <script defer src="scripts/pages classes and hash/recommendations.js"></script>
-    <script defer src="scripts/pages%20classes%20and%20hash/library.js"></script>
-    <script defer src="scripts/pages%20classes%20and%20hash/router.js"></script>
+    <link rel="stylesheet" href="Styles/content.css">
+    <script defer src="classes/library.js"></script>
+
+    <script defer src="classes/recommendations.js"></script>
+    <script defer src="scripts/router.js"></script>
     <script defer src="scripts/header.js"></script>
-    <script defer src="scripts/pages classes and hash/hash.js"></script>
-    <script defer src="scripts/audio-player.js"></script>
 
 
 </head>
@@ -28,8 +27,8 @@
     <div id="header-section">
         <div class="header-container">
             <div id="library-buttons">
-                <a href="#library-playlists" class="header-text">Медиатека</a>
-                <a href="#recommendations-forYou" id="recommendations" class="header-text">Рекоммендации</a>
+                <a href="#library/playlists" class="header-text">Медиатека</a>
+                <a href="#recommendations/for-you" id="recommendations" class="header-text">Рекоммендации</a>
             </div>
         </div>
         <div class="right">
@@ -42,9 +41,15 @@
         </div>
     </div>
     <div id="content-section">
-        <div id="content-header"></div>
-        <div id="main-content">
+        <div id="content-header">
+            <ul class="tags">
+                <li class="playlists tag"><a href="#/library/playlists">Плейлисты</a></li>
+                <li class="albums tag"><a href="#/library/albums">Альбомы</a></li>
+                <li class="songs tag"><a href="#/library/songs">Песни</a></li>
+                <li class="artists tag"><a href="#/library/artists">Исполнители</a></li>
+            </ul>
         </div>
+        <div id="main-content"></div>
     </div>
     <footer>
         <div id="player-section">

@@ -12,26 +12,10 @@
         shuffleSongsButton = document.getElementById('shuffle-song-button');
 
 
-    let myAudio = new Audio("songs/Linkin Park/BurnItDown.mp3"),
-        duration = myAudio.duration;
 
     playerButtonsSection.addEventListener('click', function (event) {
         let target = event.target;
         console.log(target);
-        if (target.id ='play-song-button') {
-            myAudio.play();
-            playButton.classList.toggle('active');
-
-        }
-
-            else if (target.closest('play-previous-song-button')) {
-
-        } else if (target.closest('play-next-song-button')) {
-
-        } else if (target.closest('shuffle-song-button')) {
-
-        }
-
 
     });
     progressBar.addEventListener('change', function (event) {
