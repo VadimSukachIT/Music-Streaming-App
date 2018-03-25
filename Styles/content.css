@@ -83,130 +83,6 @@
   color: #a9a9a9;
   margin: 5px;
 }
-html,
-body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-}
-html button,
-body button {
-  outline: 0;
-  background: none;
-  border: none;
-}
-* {
-  box-sizing: border-box;
-}
-#main-page {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-#main-page #header-section {
-  display: flex;
-  justify-content: center;
-  background: black;
-  height: 5%;
-}
-#main-page #header-section .right {
-  position: absolute;
-  display: flex;
-  right: 50px;
-}
-#main-page #header-section .right #search-button {
-  display: flex;
-}
-#main-page #header-section .right #account-button {
-  display: flex;
-}
-#main-page #header-section .right .header-text {
-  color: #dce0e1;
-  font-size: 18px;
-  padding: 15px;
-  font-family: 'Main-bold';
-  cursor: pointer;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-#main-page #header-section .right .header-text:hover {
-  transition-property: color;
-  transition-duration: .2s;
-  transition-timing-function: linear;
-  color: #ffffff;
-}
-#main-page #header-section .header-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  max-width: 1400px;
-}
-#main-page #header-section .header-container #library-buttons {
-  display: flex;
-  cursor: pointer;
-}
-#main-page #header-section .header-container #library-buttons .header-text {
-  color: #dce0e1;
-  padding: 15px;
-  font-family: 'Main-bold';
-  cursor: pointer;
-  letter-spacing: 1px;
-  font-size: 18px;
-  text-decoration: none;
-}
-#main-page #header-section .header-container #library-buttons .header-text:hover {
-  transition-property: color;
-  transition-duration: .2s;
-  transition-timing-function: linear;
-  color: #ffffff;
-}
-#main-page #content-section {
-  height: 85%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(to top, #7e641a, #0c0e12);
-}
-#main-page #content-section #content-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 5%;
-  color: white;
-  padding: 0 50px;
-  margin: 10px 0 25px 0;
-  width: 100%;
-}
-#main-page #content-section #content-header .tags {
-  padding: 0;
-}
-#main-page #content-section #content-header .tags .tag {
-  display: inline-block;
-}
-#main-page #content-section #content-header .tags .tag a {
-  margin: 40px;
-  font-family: 'Main';
-  color: #dce0e1;
-  font-size: 17px;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
-#main-page #content-section #content-header .tags .tag a:hover {
-  cursor: pointer;
-  transition-property: color;
-  transition-duration: .2s;
-  transition-timing-function: linear;
-  color: #ffffff;
-}
-#main-page #content-section #main-content {
-  display: flex;
-  flex-direction: column;
-  flex-flow: row wrap;
-  justify-content: center;
-  height: 95%;
-  padding: 0 100px;
-}
 footer {
   display: flex;
   flex-direction: column;
@@ -355,4 +231,129 @@ footer #player-section #progress-section #song-progress-bar:hover::-webkit-slide
 footer #player-section #progress-section .time {
   color: #a7a7a7;
   font-size: 14px;
+}
+#header-section {
+  display: flex;
+  justify-content: center;
+  background: black;
+  height: 5%;
+}
+#header-section .right {
+  position: absolute;
+  display: flex;
+  right: 50px;
+}
+#header-section .right #search-button {
+  display: flex;
+}
+#header-section .right #account-button {
+  display: flex;
+}
+#header-section .right .header-text {
+  color: #dce0e1;
+  font-size: 18px;
+  padding: 15px;
+  font-family: 'Main-bold';
+  cursor: pointer;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+#header-section .right .header-text:hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+#header-section .header-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1400px;
+}
+#header-section .header-container #library-buttons {
+  display: flex;
+  cursor: pointer;
+}
+#header-section .header-container #library-buttons .header-text {
+  color: #dce0e1;
+  padding: 15px;
+  font-family: 'Main-bold';
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 18px;
+  text-decoration: none;
+}
+#header-section .header-container #library-buttons .header-text:hover {
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+html button,
+body button {
+  outline: 0;
+  background: none;
+  border: none;
+}
+* {
+  box-sizing: border-box;
+}
+#main-page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+#main-page #content-section {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(to top, #7e641a, #0c0e12);
+  overflow: auto;
+}
+#main-page #content-section #content-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 5%;
+  color: white;
+  padding: 0 50px;
+  margin: 10px 0 25px 0;
+  width: 100%;
+}
+#main-page #content-section #content-header .tags {
+  padding: 0;
+}
+#main-page #content-section #content-header .tags .tag {
+  display: inline-block;
+}
+#main-page #content-section #content-header .tags .tag a {
+  margin: 40px;
+  font-family: 'Main';
+  color: #dce0e1;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+#main-page #content-section #content-header .tags .tag a:hover {
+  cursor: pointer;
+  transition-property: color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  color: #ffffff;
+}
+#main-page #content-section #main-content {
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+  justify-content: center;
+  height: 95%;
+  padding: 0 100px;
 }

@@ -1,0 +1,63 @@
+@import "variables";
+@import "animations/animations";
+
+#header-section {
+  display: flex;
+  justify-content: center;
+  background: black;
+  height: 5%;
+
+  .right {
+    position: absolute;
+    display: flex;
+    right: 50px;
+
+    #search-button {
+      display: flex;
+    }
+
+    #account-button {
+      display: flex;
+    }
+
+    .header-text {
+      color: #dce0e1;
+      font-size: 18px;
+      padding: 15px;
+      font-family: 'Main-bold';
+      cursor: pointer;
+      letter-spacing: 1px;
+      text-decoration: none;
+
+      &:hover {
+        .link-hover;
+      }
+    }
+  }
+
+  .header-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: @max-content-width;
+
+    #library-buttons {
+      display: flex;
+      cursor: pointer;
+
+      .header-text {
+        color: #dce0e1;
+        padding: 15px;
+        font-family: 'Main-bold';
+        cursor: pointer;
+        letter-spacing: 1px;
+        font-size: 18px;
+        text-decoration: none;
+
+        &:hover {
+          .link-hover;
+        }
+      }
+    }
+  }
+}
