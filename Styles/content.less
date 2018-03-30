@@ -5,6 +5,10 @@
 @import "playlists";
 @import "footer";
 @import "header";
+@import "albums";
+@import "songs";
+@import "genres&moods";
+@import "artists";
 
 html, body {
   width: 100%;
@@ -35,7 +39,6 @@ html, body {
     height: @content-height;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background: linear-gradient(to top, rgb(126, 100, 26), rgb(12, 14, 18));
     overflow: auto;
 
@@ -82,6 +85,7 @@ html, body {
       justify-content: center;
       height: 95%;
       padding: 0 100px;
+      position: relative;
 
     }
   }

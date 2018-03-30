@@ -2,6 +2,7 @@
   "id": "1",
   "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
   "title": "A Thousand Suns",
+  "artist": "Linkin Park",
   "songs": [
     "1",
     "2",
@@ -10,7 +11,8 @@
 }, {
   "id": "2",
   "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
-  "title": "A Thousand Suns",
+  "title": "Born To Die",
+  "artist": "Lana Del Ray",
   "songs": [
     "3",
     "4",
@@ -20,6 +22,7 @@
   "id": "3",
   "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
   "title": "A Thousand Suns",
+  "artist": "Linkin Park",
   "songs": [
     "2",
     "5",
@@ -29,9 +32,56 @@
   "id": "4",
   "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
   "title": "A Thousand Suns",
+  "artist": "Linkin Park",
   "songs": [
     "2",
     "4",
     "6"
   ]
-}]
+},
+  {
+    "id": "4",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+    "title": "A Thousand Suns",
+    "artist": "Linkin Park",
+    "songs": [
+      "2",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "id": "4",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+    "title": "A Thousand Suns",
+    "artist": "Linkin Park",
+    "songs": [
+      "2",
+      "4",
+      "6"
+    ]
+  },
+  {
+    "id": "4",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+    "title": "A Thousand Suns",
+    "artist": "Linkin Park",
+    "songs": [
+      "2",
+      "4",
+      "6"
+    ]
+  },
+  {
+  "id": "4",
+  "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg",
+  "title": "A Thousand Suns",
+  "artist": "Linkin Park",
+  "songs": [
+    "2",
+    "4",
+    "6"
+  ]
+}
+
+]

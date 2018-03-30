@@ -1,5 +1,7 @@
 class Router {
     constructor() {
+        this.currentPage = null;
+        this.currentPageData = {};
         this.routes = new Map;
         this.root = '/';
     }
@@ -18,29 +20,52 @@ class Router {
     }
 
     add(regular, classPage) {
-        this.routes.set(new RegExp(regular), new classPage);
+        this.routes.set(regular, new classPage);
         return this;
     }
 
     check(frag) {
         let fragment = frag || this.getFragment();
-        console.log(fragment);
         for (let [reg, PageObject] of this.routes.entries()) {
-            if (reg.exec(fragment)) {
-                return PageObject
+            if (reg.test(fragment)) {
+                return PageObject;
             }
         }
-        return false;
     }
 
     listen() {
         let current = this.getFragment();
         let page = this.check(current);
-        if (page) {
-            page.init();
+        let {pageName, sectionName, sectionHandler} = page.getPageData(current);
+        if (!this.currentPage) {
+            page.init(sectionHandler);
+        } else if (this.currentPage) {
+            if (pageName === this.currentPageData.pageName && sectionName !== this.currentPageData.sectionName) {
+                this.currentPage.destroyContent();
+                page.init(sectionHandler);
+            } else if (pageName !== this.currentPageData.pageName) {
+                this.currentPage.destroyHeader();
+                this.currentPage.destroyContent();
+                page.init(sectionHandler);
+            }
         }
-
+        this.currentPage = page;
+        this.currentPageData = {
+            pageName,
+            sectionName,
+            sectionHandler
+        };
     }
+
+    onLoad() {
+        if (!this.getFragment()){
+            this.navigate('recommendations/for-you');
+            this.listen();
+        } else {
+            this.listen();
+        }
+    }
+
 
     navigate(path) {
         path = path ? path : '';
@@ -50,5 +75,13 @@ class Router {
 }
 
 let router = new Router();
-router.add("library/playlists", Library);
+router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
+router.add(/(recommendations)\/(for-you|genres|new|popular)/, Recommendations);
+window.addEventListener('load', router.onLoad.bind(router));
 window.addEventListener("hashchange", router.listen.bind(router));
+
+// let section = document.getElementById('content-section');
+// section.addEventListener('click', function (event) {
+//     event.preventDefault();
+//     console.log('hi');
+// });

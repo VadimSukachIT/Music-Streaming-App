@@ -7,24 +7,24 @@
 .play-song-button-hover {
   transition: all 0.2s ease-in-out;
 }
-#header-section {
+#main-page #header-section {
   display: flex;
   justify-content: center;
   background: black;
   height: 5%;
 }
-#header-section .right {
+#main-page #header-section .right {
   position: absolute;
   display: flex;
   right: 50px;
 }
-#header-section .right #search-button {
+#main-page #header-section .right #search-button {
   display: flex;
 }
-#header-section .right #account-button {
+#main-page #header-section .right #account-button {
   display: flex;
 }
-#header-section .right .header-text {
+#main-page #header-section .right .header-text {
   color: #dce0e1;
   font-size: 18px;
   padding: 15px;
@@ -33,23 +33,23 @@
   letter-spacing: 1px;
   text-decoration: none;
 }
-#header-section .right .header-text:hover {
+#main-page #header-section .right .header-text:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
 }
-#header-section .header-container {
+#main-page #header-section .header-container {
   width: 100%;
   display: flex;
   justify-content: center;
   max-width: 1400px;
 }
-#header-section .header-container #library-buttons {
+#main-page #header-section .header-container #library-buttons {
   display: flex;
   cursor: pointer;
 }
-#header-section .header-container #library-buttons .header-text {
+#main-page #header-section .header-container #library-buttons .header-text {
   color: #dce0e1;
   padding: 15px;
   font-family: 'Main-bold';
@@ -58,7 +58,7 @@
   font-size: 18px;
   text-decoration: none;
 }
-#header-section .header-container #library-buttons .header-text:hover {
+#main-page #header-section .header-container #library-buttons .header-text:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
