@@ -11,7 +11,6 @@ class Library {
     }
 
     init(contentLoadFunction) {
-
         let contentSection = document.getElementById('content-section'),
             mainContent = document.getElementById('main-content');
         return new Promise((resolve) => {
@@ -19,7 +18,6 @@ class Library {
                 resolve();
             } else {
                 let xhr = new XMLHttpRequest();
-
                 xhr.responseType = 'document';
                 xhr.open('GET', 'html/library-header.html', true);
                 xhr.onload = function () {
@@ -118,15 +116,14 @@ class Library {
                     const PLAYLIST = `
                      <div class="playlist">
                        <div class="hovered-part">
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}">
+                             <a href="#/darkavatar21/playlist/${playlistData.id}">
                                   <div class="icon">
                                     <button type="button" class="play-icon"></button> 
                                   </div>  
                                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
                                   <span class="playlist-title">${playlistData.title}</span>
                              </a>
-                            
-                        </div>
+                       </div>
                         <a href="#/user/darkavatar21" class="playlist-artist">${playlistData.artist}</a>
                     </div>`;
 
