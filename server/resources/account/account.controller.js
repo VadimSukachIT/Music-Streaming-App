@@ -1,4 +1,4 @@
-const accountService = require('resources/account/account.service');
+const accountService = require('./account.service');
 const securityUtil = require('../../security.util');
 
 async function createAccount(userData) {
