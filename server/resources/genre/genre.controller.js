@@ -1,5 +1,5 @@
 const genreService = require('./genre.service');
-const trackService = require('resources/track/track.service');
+const trackService = require('../track/track.service');
 
 module.exports.getAllGenres = (ctx, next) => {
   ctx.body = genreService.find();

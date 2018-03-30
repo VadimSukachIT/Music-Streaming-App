@@ -1,5 +1,5 @@
 const playlistService = require('./playlist.service');
-const trackService = require('resources/track/track.service');
+const trackService = require('../track/track.service');
 
 module.exports.getPlaylistById = (ctx, next) => {
   const playlist = playlistService.findOne({ _id: ctx.params.id });
@@ -11,7 +11,7 @@ module.exports.getPlaylistById = (ctx, next) => {
 };
 
 module.exports.getUserPlaylists = (ctx, next) => {
-  ctx.body = playlistService.find({ userId: ctx.state.user._id });
+  ctx.body = playlistService.find({ userId: '1' });
 };
 
 module.exports.createPlaylist = (ctx, next) => {

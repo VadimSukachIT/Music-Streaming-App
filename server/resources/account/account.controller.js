@@ -1,5 +1,5 @@
-const accountService = require('resources/account/account.service');
-const securityUtil = require('security.util');
+const accountService = require('./account.service');
+const securityUtil = require('../../security.util');
 
 async function createAccount(userData) {
   const salt = await securityUtil.generateSalt();

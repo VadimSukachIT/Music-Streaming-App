@@ -1,4 +1,4 @@
-const generateId = require('helpers/idGenerator');
+const generateId = require('../../helpers/idGenerator');
 
 let playlists = [{
   _id: '1',

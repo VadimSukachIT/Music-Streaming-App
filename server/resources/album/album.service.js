@@ -1,4 +1,4 @@
-const generateId = require('helpers/idGenerator');
+const generateId = require('../../helpers/idGenerator');
 
 let albums = [{
   _id: '1',

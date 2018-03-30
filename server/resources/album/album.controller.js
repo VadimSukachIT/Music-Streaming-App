@@ -1,6 +1,6 @@
 const albumService = require('./album.service');
-const trackService = require('resources/track/track.service');
-const genreService = require('resources/genre/genre.service');
+const trackService = require('../track/track.service');
+const genreService = require('../genre/genre.service');
 
 module.exports.getAlbumById = (ctx, next) => {
   const album = albumService.findOne({ _id: ctx.params.id });
