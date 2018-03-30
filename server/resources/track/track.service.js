@@ -1,4 +1,4 @@
-const generateId = require('helpers/idGenerator');
+const generateId = require('../../helpers/idGenerator');
 
 let tracks = [{
   _id: '1',
