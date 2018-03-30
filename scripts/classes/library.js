@@ -123,7 +123,7 @@ class Library {
                                     <button type="button" class="play-icon"></button> 
                                   </div>  
                                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
-                                  <a class="playlist-title">${playlistData.title}</a>
+                                  <span class="playlist-title">${playlistData.title}</span>
                              </a>
                             
                         </div>
