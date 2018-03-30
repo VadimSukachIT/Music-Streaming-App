@@ -1,20 +1,6 @@
 const generateId = require('helpers/idGenerator');
 
-let accounts = [{
-  _id: '',
-  name: '',
-  email: '',
-  passwordHash: '',
-  playlists: [
-    '',
-  ],
-  albums: [
-    '',
-  ],
-  accounts: [
-    '',
-  ],
-}];
+let accounts = [];
 
 const service = {};
 

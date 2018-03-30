@@ -1,19 +1,6 @@
 const generateId = require('helpers/idGenerator');
 
 let albums = [{
-  _id: '10',
-  title: '',
-  artistId: '',
-  artist: '',
-  date: '',
-  tracks: [
-    '',
-  ],
-  genres: [
-    '1',
-  ],
-  cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
-}, {
   _id: '1',
   title: 'A Thousand Suns',
   artist: 'Linkin Park',
@@ -29,7 +16,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
 }, {
-  _id: '1',
+  _id: '2',
   title: 'DAMN.',
   artist: 'Kendrick Lamar',
   artistId: '1',
@@ -44,7 +31,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Kendrick_Lamar_Damn_cover.jpg/230px-Kendrick_Lamar_Damn_cover.jpg',
 }, {
-  _id: '1',
+  _id: '3',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -59,7 +46,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '4',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -74,7 +61,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '5',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -89,7 +76,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '6',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -104,7 +91,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '7',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -119,7 +106,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '8',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -134,7 +121,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '9',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',
@@ -149,7 +136,7 @@ let albums = [{
   genres: ['1'],
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg',
 }, {
-  _id: '1',
+  _id: '10',
   title: 'Born To Die',
   artist: 'Lana Del Rey',
   artistId: '1',

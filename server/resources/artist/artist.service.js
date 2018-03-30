@@ -4,9 +4,6 @@ let artists = [{
   id: '1',
   name: 'Linkin Park',
   cover: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/LPLogo-black.svg/200px-LPLogo-black.svg.png',
-  artists: [
-    '1',
-  ],
   socials: {
     twitter: 'https://twitter.com/linkinpark',
     facebook: 'https://ru-ru.facebook.com/linkinpark',
@@ -14,8 +11,8 @@ let artists = [{
   genres: [
     '1',
   ],
-  tracks: [
-    '',
+  albums: [
+    '1',
   ],
 }];
 

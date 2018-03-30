@@ -46,7 +46,7 @@ let playlists = [{
   ],
 },
 {
-  _id: '4',
+  _id: '8',
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
   title: 'A Thousand Suns',
   artist: 'Linkin Park',
@@ -58,7 +58,7 @@ let playlists = [{
   ],
 },
 {
-  _id: '4',
+  _id: '5',
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
   title: 'A Thousand Suns',
   artist: 'Linkin Park',
@@ -70,7 +70,7 @@ let playlists = [{
   ],
 },
 {
-  _id: '4',
+  _id: '6',
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
   title: 'A Thousand Suns',
   artist: 'Linkin Park',
@@ -82,7 +82,7 @@ let playlists = [{
   ],
 },
 {
-  _id: '4',
+  _id: '7',
   cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
   title: 'A Thousand Suns',
   artist: 'Linkin Park',

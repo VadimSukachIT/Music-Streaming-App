@@ -1,14 +1,14 @@
 const generateId = require('helpers/idGenerator');
 
 let tracks = [{
-  _id: '',
-  name: '',
+  _id: '1',
+  name: 'Rebellion',
   genres: [
-    '',
+    '1',
   ],
-  artistId: '',
-  artist: '',
-  durationInSec: 0,
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
 }];
 
 const service = {};

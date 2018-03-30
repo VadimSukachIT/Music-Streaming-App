@@ -1,10 +1,10 @@
 const generateId = require('helpers/idGenerator');
 
 let genres = [{
-  _id: '',
-  name: '',
+  _id: '1',
+  name: 'Rock',
   tracks: [
-    '',
+    '1',
   ],
 }];
 
