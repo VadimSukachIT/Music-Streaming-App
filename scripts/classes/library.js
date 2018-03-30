@@ -78,9 +78,10 @@ class Library {
                              <div class="icon">
                                  <button type="button" class="play-icon"></button> 
                              </div>   
-                             <div class="album-cover" style="background-image: url(${albumData.cover});"></div>     
+                             <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
+                              <span class="album-title">${albumData.title}</span>  
                        </a>
-                        <a class="album-title" href="#/album/${albumData.id}">${albumData.title}</a>
+                       
                     </div>
                         <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
                     </div>`;
@@ -122,8 +123,9 @@ class Library {
                                     <button type="button" class="play-icon"></button> 
                                   </div>  
                                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+                                  <a class="playlist-title">${playlistData.title}</a>
                              </a>
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}"  class="playlist-title">${playlistData.title}</a>
+                            
                         </div>
                         <a href="#/user/darkavatar21" class="playlist-artist">${playlistData.artist}</a>
                     </div>`;
