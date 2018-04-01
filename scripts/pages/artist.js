@@ -6,15 +6,16 @@ class Artist {
         let contentSection = document.getElementById('content-section');
         let artistSection = document.createElement('div');
         let artistId = this.getArtistId();
-        console.log(artistId);
 
         artistSection.id = "artist-section";
 
         let artistHeader = await this.loadHeader(artistId);
         let artistSongs = await this.loadArtistSongs(artistId);
+        let artistAlbums = await this.loadArtistAlbums(artistId);
 
         artistSection.append(artistHeader);
         artistSection.append(artistSongs);
+        artistSection.append(artistAlbums);
         contentSection.append(artistSection);
         console.log()
     }
@@ -25,7 +26,7 @@ class Artist {
             xhr.open('GET', `http://localhost:3000/api/artist/${id}`, true);
             xhr.onload = function () {
                 let artistInfo = JSON.parse(xhr.responseText);
-                    console.log(artistInfo)
+                console.log(artistInfo)
                 let artistHeader = `
                      <div id="artist-header" style="background: url(${artistInfo.bigCover}) no-repeat center; background-size: cover">
             <h1 class="artist-name">${artistInfo.name}</h1>
@@ -43,10 +44,62 @@ class Artist {
                 resolve(frag);
             };
             xhr.send();
-        })
+        });
     }
 
-    loadArtistSongs() {
+    loadArtistAlbums(id) {
+        return new Promise((resolve, reject) => {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', 'json/album.json', true);
+            xhr.onload = function () {
+
+                function createPlaylist(albumData) {
+                    const ALBUM = `
+                    <div class="album">
+                    <div class="hovered-part">
+                       <a href="#/album/${albumData.id}"> 
+                             <div class="icon">
+                                 <button type="button" class="play-icon"></button> 
+                             </div>   
+                             <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
+                              <span class="album-title">${albumData.title}</span>  
+                       </a>                      
+                    </div>
+                    </div>`;
+
+                    let div = document.createElement('div');
+                    div.innerHTML = ALBUM.trim();
+                    return div.firstChild;
+                }
+
+                let albums = document.createElement('div');
+                albums.id = 'albums';
+
+                let albumData = JSON.parse(xhr.responseText);
+
+                albumData.forEach(function (albumData) {
+                    let playlist = createPlaylist(albumData);
+                    albums.append(playlist);
+                });
+
+
+                let albumSection = document.createElement('div');
+                albumSection.id = "artist-albums";
+
+                let albumSectionHeader = document.createElement('h2');
+                albumSectionHeader.classList.add('artist-album-header');
+                albumSectionHeader.innerText = "Альбомы";
+
+                albumSection.append(albumSectionHeader);
+                albumSection.append(albums);
+
+                resolve(albumSection);
+            };
+            xhr.send();
+        });
+    }
+
+    loadArtistSongs(id) {
         return new Promise(resolve => {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', 'json/songs.json', true);
@@ -86,6 +139,12 @@ class Artist {
 
                 let songSection = document.createElement('div');
                 songSection.id = "artist-songs";
+
+                let songSectionHeader = document.createElement('h2');
+                songSectionHeader.classList.add('artist-songs-header');
+                songSectionHeader.innerText = "Популярные песни";
+
+                songSection.append(songSectionHeader);
                 songSection.append(songs);
 
                 resolve(songSection);
@@ -104,7 +163,7 @@ class Artist {
         };
     }
 
-    getArtistId () {
+    getArtistId() {
         let reg = /\/artist\/(.*)/;
         return reg.exec(location.hash)[1];
     }

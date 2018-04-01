@@ -159,6 +159,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  z-index: 5;
 }
 footer #player-section {
   width: 650px;
@@ -305,6 +306,9 @@ footer #player-section #progress-section .time {
   justify-content: center;
   background: black;
   height: 5%;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 }
 #main-page #header-section .right {
   position: absolute;
@@ -1302,17 +1306,12 @@ footer #player-section #progress-section .time {
 #artist-section {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   overflow-y: scroll;
 }
 #artist-section #artist-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: cover;
-  background-position-y: -150px;
-  min-height: 350px;
   position: relative;
 }
 #artist-section #artist-header::before {
@@ -1403,6 +1402,28 @@ footer #player-section #progress-section .time {
   flex-direction: column;
   align-items: center;
   background: #181818;
+  min-height: 80%;
+}
+#artist-section #artist-songs .artist-songs-header {
+  color: white;
+  font-family: 'Main';
+  letter-spacing: 3px;
+}
+#artist-section #artist-albums {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #121212;
+  width: 100%;
+}
+#artist-section #artist-albums #albums {
+  width: 100%;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+#artist-section #artist-albums .artist-album-header {
+  color: white;
+  font-family: "Main";
 }
 html,
 body {
@@ -1423,17 +1444,19 @@ body button {
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow: hidden;
 }
 #main-page ::-webkit-scrollbar {
   display: none;
 }
 #main-page #content-section {
-  height: 100%;
+  height: 85%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   background: linear-gradient(to top, #7e641a, #0c0e12);
   overflow: auto;
+  top: 5%;
+  position: relative;
 }
 #main-page #content-section #content-header {
   display: flex;

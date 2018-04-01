@@ -3,17 +3,12 @@
 #artist-section {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   overflow-y: scroll;
 
   #artist-header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-size: cover;
-    background-position-y: -150px;
-    min-height: 350px;
     position: relative;
 
     &::before {
@@ -118,5 +113,32 @@
     flex-direction: column;
     align-items: center;
     background: #181818;
+    min-height: 80%;
+
+    .artist-songs-header {
+      color: white;
+      font-family: 'Main';
+      letter-spacing: 3px;
+    }
+  }
+
+  #artist-albums {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(18, 18, 18);
+    width: 100%;
+
+    #albums {
+      width: 100%;
+      padding-right: 80px;
+      padding-left: 80px;
+    }
+
+    .artist-album-header {
+
+      color: white;
+      font-family: "Main";
+    }
   }
 }

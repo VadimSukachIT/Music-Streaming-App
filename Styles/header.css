@@ -12,6 +12,9 @@
   justify-content: center;
   background: black;
   height: 5%;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 }
 #main-page #header-section .right {
   position: absolute;

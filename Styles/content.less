@@ -37,18 +37,21 @@ html, body {
   width: 100%;
   height: 100%;
   position: absolute;
-  overflow: hidden;
+
 
   ::-webkit-scrollbar {
     display: none;
   }
 
   #content-section {
-    height: 100%;
+    height: @content-height;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background: linear-gradient(to top, rgb(126, 100, 26), rgb(12, 14, 18));
     overflow: auto;
+    top: @header-height;
+    position: relative;
 
     #content-header {
       display: flex;

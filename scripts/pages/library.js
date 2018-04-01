@@ -98,7 +98,7 @@ class Library {
                 mainContentSection.append(fragment);
             };
             xhr.send();
-        })
+        });
     }
 
 

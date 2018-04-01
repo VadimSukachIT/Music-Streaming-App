@@ -1,17 +1,12 @@
 #artist-section {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   overflow-y: scroll;
 }
 #artist-section #artist-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-size: cover;
-  background-position-y: -150px;
-  min-height: 350px;
   position: relative;
 }
 #artist-section #artist-header::before {
@@ -102,4 +97,26 @@
   flex-direction: column;
   align-items: center;
   background: #181818;
+  min-height: 80%;
+}
+#artist-section #artist-songs .artist-songs-header {
+  color: white;
+  font-family: 'Main';
+  letter-spacing: 3px;
+}
+#artist-section #artist-albums {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #121212;
+  width: 100%;
+}
+#artist-section #artist-albums #albums {
+  width: 100%;
+  padding-right: 80px;
+  padding-left: 80px;
+}
+#artist-section #artist-albums .artist-album-header {
+  color: white;
+  font-family: "Main";
 }
