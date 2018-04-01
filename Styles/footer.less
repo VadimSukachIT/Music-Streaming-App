@@ -6,6 +6,9 @@ footer {
   background: @player-color;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 
   #player-section {
     width: 650px;
@@ -23,9 +26,9 @@ footer {
       #shuffle-song-button {
         width: 20px;
         height: 20px;
-        background: url("../icons/shuffle.svg");
+        background: url("../icons/shuffle.svg") no-repeat;
         background-size: 15px;
-        background-repeat: no-repeat;
+
 
         &:hover {
           transform: scale(1.1);

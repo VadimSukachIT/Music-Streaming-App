@@ -1,13 +1,13 @@
-class Album {
+class Playlist {
     constructor() {
     }
 
     async init() {
         let contentSection = document.getElementById('content-section');
-        let albumPage = await this.loadAlbum();
+        let playlistPage = await this.loadAlbum();
         let songs = await this.loadSongs();
-        contentSection.innerHTML = albumPage;
-        document.getElementById('songs').append(songs)
+        contentSection.innerHTML = playlistPage;
+        document.getElementById('songs').append(songs);
     }
 
     getPageData() {
@@ -23,23 +23,22 @@ class Album {
     loadAlbum() {
         return new Promise(resolve => {
             let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:3000/api/album/1', true);
+            xhr.open('GET', 'http://localhost:3000/api/playlist/1', true);
             xhr.onload = function () {
-                let albumInfo = JSON.parse(xhr.responseText);
+                let playlistInfo = JSON.parse(xhr.responseText);
 
-                let albumPage = `
-                <div id="album-content">
-                    <div id="album-info">
-                    <div class="album-cover" style="background-image: url(${albumInfo.cover}) "></div>
-                    <span class="album-title">${albumInfo.title}</span>
-                    <a class="album-artist" href="#album-artist">${albumInfo.artist}</a>
-                    <span class="date-and-songs"><span class="album-date">${albumInfo.date}</span>    <span class="album-separator">•</span>    <span class="album-songs-number">${albumInfo.tracks.length} ПЕСНИ</span></span>
-                    <button type="button" id="play-album-button">ИГРАТЬ</button>
-                    <button type="button" id="save-album-button">СОХРАНИТЬ</button>
-                </div>
+                let playlistPage = `
+                <div id="playlist-content">
+                    <div id="playlist-info">
+                    <div class="playlist-cover" style="background-image: url(${playlistInfo.cover}) "></div>
+                    <span class="playlist-title">${playlistInfo.title}</span>
+                    <a class="playlist-artist" href="#album-artist">${playlistInfo.artist}</a>
+                    <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
+                    <button type="button" id="play-playlist-button">ИГРАТЬ</button>
+                      </div>
                     <div id="songs"></div>
                 </div>`;
-                resolve(albumPage);
+                resolve(playlistPage);
             };
             xhr.send();
         });

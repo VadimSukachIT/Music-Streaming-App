@@ -78,6 +78,8 @@ let router = new Router();
 router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
 router.add(/(recommendations)\/(for-you|genres|new|popular)/, Recommendations);
 router.add(/album\/[0-9]/, Album);
+router.add(/playlist\/[0-9]/, Playlist);
+router.add(/artist\/[0-9]/, Artist);
 window.addEventListener('load', router.onLoad.bind(router));
 window.addEventListener("hashchange", router.listen.bind(router));
 

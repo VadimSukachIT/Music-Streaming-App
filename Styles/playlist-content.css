@@ -265,13 +265,13 @@
   text-align: center;
   color: #a9a9a9;
 }
-#album-content {
+#playlist-content {
   width: 100%;
   height: 100%;
   padding: 0 300px 0 300px;
   display: flex;
 }
-#album-content #album-info {
+#playlist-content #playlist-info {
   max-width: 400px;
   height: 600px;
   padding: 80px 40px 0 40px;
@@ -280,49 +280,49 @@
   align-items: center;
   text-align: center;
 }
-#album-content #album-info .album-cover {
+#playlist-content #playlist-info .playlist-cover {
   min-width: 320px;
   min-height: 320px;
   background-repeat: no-repeat;
   background-size: contain;
 }
-#album-content #album-info .album-title {
+#playlist-content #playlist-info .playlist-title {
   color: #ffffff;
   font-size: 28px;
   margin: 12px 0 4px;
   text-decoration: none;
   display: inline-block;
 }
-#album-content #album-info .album-artist {
+#playlist-content #playlist-info .playlist-artist {
   color: #a9a9a9;
   margin: 1px 0 10px 0;
   text-decoration: none;
 }
-#album-content #album-info .album-artist:hover {
+#playlist-content #playlist-info .playlist-artist:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
   color: #ffffff;
   color: white;
 }
-#album-content #album-info .date-and-songs {
+#playlist-content #playlist-info .date-and-songs {
   width: 100%;
   cursor: text;
 }
-#album-content #album-info .date-and-songs .album-date {
+#playlist-content #playlist-info .date-and-songs .playlist-date {
   font-size: 15px;
   color: #a9a9a9;
 }
-#album-content #album-info .date-and-songs .album-separator {
+#playlist-content #playlist-info .date-and-songs .playlist-separator {
   color: #a9a9a9;
   font-size: 13px;
   pointer-events: none;
 }
-#album-content #album-info .date-and-songs .album-songs-number {
+#playlist-content #playlist-info .date-and-songs .playlist-songs-number {
   font-size: 15px;
   color: #a9a9a9;
 }
-#album-content #album-info #play-album-button {
+#playlist-content #playlist-info #play-playlist-button {
   color: white;
   width: 120px;
   height: 40px;
@@ -339,11 +339,11 @@
   background: #1ed760;
   cursor: pointer;
 }
-#album-content #album-info #play-album-button:hover {
+#playlist-content #playlist-info #play-playlist-button:hover {
   transform: scale(1.06);
   transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
 }
-#album-content #album-info #save-album-button {
+#playlist-content #playlist-info #save-playlist-button {
   color: white;
   width: 120px;
   height: 40px;
@@ -359,16 +359,16 @@
   padding: 13px;
   cursor: pointer;
 }
-#album-content #album-info #save-album-button:hover {
+#playlist-content #playlist-info #save-playlist-button:hover {
   transform: scale(1.06);
   transition: all 33ms cubic-bezier(0.3, 0, 0, 1);
 }
-#album-content #songs {
+#playlist-content #songs {
   width: 60%;
   justify-content: center;
   align-items: center;
 }
-#album-content #songs .song {
+#playlist-content #songs .song {
   height: 60px;
   padding: 10px 0 10px 0;
   transition-property: background-color;
@@ -382,30 +382,30 @@
   -ms-user-select: none;
   user-select: none;
 }
-#album-content #songs .song:hover {
+#playlist-content #songs .song:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
-#album-content #songs .song:hover .options-block .options-menu .song-options-button {
+#playlist-content #songs .song:hover .options-block .options-menu .song-options-button {
   display: block;
 }
-#album-content #songs .song:hover .play-block .play-song {
+#playlist-content #songs .song:hover .play-block .play-song {
   display: block;
 }
-#album-content #songs .song:hover .play-block .song-index {
+#playlist-content #songs .song:hover .play-block .song-index {
   display: none;
 }
-#album-content #songs .song .play-block {
+#playlist-content #songs .song .play-block {
   height: 100%;
   width: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-#album-content #songs .song .play-block .song-index {
+#playlist-content #songs .song .play-block .song-index {
   color: #a9a9a9;
   display: block;
 }
-#album-content #songs .song .play-block .play-song {
+#playlist-content #songs .song .play-block .play-song {
   display: none;
   width: 20px;
   height: 20px;
@@ -413,32 +413,32 @@
   background-size: 14px;
   cursor: pointer;
 }
-#album-content #songs .song .play-block .play-song:hover {
+#playlist-content #songs .song .play-block .play-song:hover {
   transform: scale(1.2);
 }
-#album-content #songs .song .name-block {
+#playlist-content #songs .song .name-block {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-#album-content #songs .song .name-block .song-name {
+#playlist-content #songs .song .name-block .song-name {
   font-size: 15px;
   color: #ffffff;
   font-family: 'Main';
   cursor: default;
 }
-#album-content #songs .song .name-block .artist-and-album {
+#playlist-content #songs .song .name-block .artist-and-album {
   cursor: default;
   margin-top: 4px;
 }
-#album-content #songs .song .name-block .artist-and-album .song-artist {
+#playlist-content #songs .song .name-block .artist-and-album .song-artist {
   font-size: 15px;
   color: #a9a9a9;
   font-family: 'Main';
   cursor: pointer;
 }
-#album-content #songs .song .name-block .artist-and-album .song-artist:hover {
+#playlist-content #songs .song .name-block .artist-and-album .song-artist:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
@@ -446,19 +446,19 @@
   color: white;
   border-bottom: 1px solid white;
 }
-#album-content #songs .song .name-block .artist-and-album .separator {
+#playlist-content #songs .song .name-block .artist-and-album .separator {
   color: #a9a9a9;
   font-size: 13px;
   pointer-events: none;
 }
-#album-content #songs .song .name-block .artist-and-album .song-album {
+#playlist-content #songs .song .name-block .artist-and-album .song-album {
   height: 20px;
   font-size: 15px;
   color: #a9a9a9;
   font-family: 'Main';
   cursor: pointer;
 }
-#album-content #songs .song .name-block .artist-and-album .song-album:hover {
+#playlist-content #songs .song .name-block .artist-and-album .song-album:hover {
   transition-property: color;
   transition-duration: .2s;
   transition-timing-function: linear;
@@ -466,19 +466,19 @@
   color: white;
   border-bottom: 1px solid white;
 }
-#album-content #songs .song .options-block {
+#playlist-content #songs .song .options-block {
   width: 100px;
   height: 100%;
   display: flex;
 }
-#album-content #songs .song .options-block .options-menu {
+#playlist-content #songs .song .options-block .options-menu {
   width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#album-content #songs .song .options-block .options-menu .song-options-button {
+#playlist-content #songs .song .options-block .options-menu .song-options-button {
   display: none;
   width: 30px;
   height: 30px;
@@ -487,12 +487,12 @@
   background-position: center;
   cursor: pointer;
 }
-#album-content #songs .song .options-block .song-duration-block {
+#playlist-content #songs .song .options-block .song-duration-block {
   width: 50px;
   text-align: center;
   color: #a9a9a9;
 }
-#album-content #songs {
+#playlist-content #songs {
   width: 100%;
   padding-top: 27px;
 }

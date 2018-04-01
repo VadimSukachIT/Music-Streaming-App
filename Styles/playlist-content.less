@@ -2,13 +2,13 @@
 @import "animations/animations";
 @import "songs";
 
-#album-content {
+#playlist-content {
   width: 100%;
   height: 100%;
   padding: 0 300px 0 300px;
   display: flex;
 
-  #album-info {
+  #playlist-info {
     max-width: 400px;
     height: 600px;
     padding: 80px 40px 0 40px;
@@ -17,14 +17,14 @@
     align-items: center;
     text-align: center;
 
-    .album-cover {
+    .playlist-cover {
       min-width: 320px;
       min-height: 320px;
       background-repeat: no-repeat;
       background-size: contain;
     }
 
-    .album-title {
+    .playlist-title {
       color: @text-color;
       font-size: 28px;
       margin: 12px 0 4px;
@@ -33,7 +33,7 @@
 
     }
 
-    .album-artist {
+    .playlist-artist {
       color: @icons-color;
       margin: 1px 0 10px 0;
       text-decoration: none;
@@ -49,25 +49,25 @@
       width: 100%;
       cursor: text;
 
-      .album-date {
+      .playlist-date {
         font-size: 15px;
         color: #a9a9a9;
       }
 
-      .album-separator {
+      .playlist-separator {
         color: @icons-color;
         font-size: 13px;
         pointer-events: none;
 
       }
 
-      .album-songs-number {
+      .playlist-songs-number {
         font-size: 15px;
         color: #a9a9a9;
       }
     }
 
-    #play-album-button {
+    #play-playlist-button {
       color: white;
       width: 120px;
       height: 40px;
@@ -90,7 +90,7 @@
       }
     }
 
-    #save-album-button {
+    #save-playlist-button {
       color: white;
       width: 120px;
       height: 40px;
