@@ -20,13 +20,17 @@ class Artist {
         console.log()
     }
 
+    destroy() {
+        document.getElementById('artist-section').remove();
+    }
+
     loadHeader(id) {
         return new Promise(resolve => {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', `http://localhost:3000/api/artist/${id}`, true);
             xhr.onload = function () {
                 let artistInfo = JSON.parse(xhr.responseText);
-                console.log(artistInfo)
+                console.log(artistInfo);
                 let artistHeader = `
                      <div id="artist-header" style="background: url(${artistInfo.bigCover}) no-repeat center; background-size: cover">
             <h1 class="artist-name">${artistInfo.name}</h1>
@@ -50,7 +54,7 @@ class Artist {
     loadArtistAlbums(id) {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/album.json', true);
+            xhr.open('GET', `json/${id}-album.json`, true);
             xhr.onload = function () {
 
                 function createPlaylist(albumData) {
@@ -102,7 +106,7 @@ class Artist {
     loadArtistSongs(id) {
         return new Promise(resolve => {
             let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/songs.json', true);
+            xhr.open('GET', `json/${id}-songs.json`, true);
             xhr.onload = function () {
 
                 function createSong(songData) {
@@ -127,7 +131,7 @@ class Artist {
                     return div.firstChild;
                 }
 
-                let songData = JSON.parse(xhr.responseText);
+                let songData = JSON.parse(xhr.responseText).slice(0, 5);
 
                 let songs = document.createElement('div');
                 songs.id = "songs";
@@ -153,13 +157,11 @@ class Artist {
         });
     }
 
-    getPageData() {
+    getPageData(fragment) {
+        let reg = /(artist)\/.*/;
+        let results = reg.exec(fragment);
         return {
-            pageName: "asd",
-            sectionName: "asdasd",
-            sectionHandler: function () {
-
-            }
+            pageName: results[1],
         };
     }
 

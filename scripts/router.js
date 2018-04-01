@@ -36,30 +36,28 @@ class Router {
     listen() {
         let current = this.getFragment();
         let page = this.check(current);
-        let {pageName, sectionName, sectionHandler} = page.getPageData(current);
+       let {pageName, sectionName} = page.getPageData(current);
         if (!this.currentPage) {
-            page.init(sectionHandler);
+            page.init();
         } else if (this.currentPage) {
             if (pageName === this.currentPageData.pageName && sectionName !== this.currentPageData.sectionName) {
                 this.currentPage.destroyContent();
-                page.init(sectionHandler);
+                page.init();
             } else if (pageName !== this.currentPageData.pageName) {
-                this.currentPage.destroyHeader();
-                this.currentPage.destroyContent();
-                page.init(sectionHandler);
+                this.currentPage.destroy();
+                page.init();
             }
         }
         this.currentPage = page;
         this.currentPageData = {
             pageName,
             sectionName,
-            sectionHandler
         };
     }
 
     onLoad() {
         if (!this.getFragment()){
-            this.navigate('recommendations/for-you');
+            this.navigate('/recommendations/for-you');
             this.listen();
         } else {
             this.listen();

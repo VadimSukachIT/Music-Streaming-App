@@ -12,6 +12,17 @@
   justify-content: center;
   align-items: center;
 }
+.songs-styles #songs #song-menu {
+  position: absolute;
+  left: 70%;
+  height: 150px;
+  background: #282828;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
 .songs-styles #songs .song {
   height: 60px;
   padding: 10px 0 10px 0;
@@ -126,9 +137,8 @@
   display: none;
   width: 30px;
   height: 30px;
-  background: url("../icons/options.svg") no-repeat;
+  background: url("../icons/options.svg") no-repeat center;
   background-size: 20px;
-  background-position: center;
   cursor: pointer;
 }
 .songs-styles #songs .song .options-block .song-duration-block {
@@ -140,6 +150,17 @@
   width: 60%;
   justify-content: center;
   align-items: center;
+}
+#songs #song-menu {
+  position: absolute;
+  left: 70%;
+  height: 150px;
+  background: #282828;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 #songs .song {
   height: 60px;
@@ -255,9 +276,8 @@
   display: none;
   width: 30px;
   height: 30px;
-  background: url("../icons/options.svg") no-repeat;
+  background: url("../icons/options.svg") no-repeat center;
   background-size: 20px;
-  background-position: center;
   cursor: pointer;
 }
 #songs .song .options-block .song-duration-block {
@@ -268,7 +288,7 @@
 #album-content {
   width: 100%;
   height: 100%;
-  padding: 0 300px 0 300px;
+  padding: 0px 250px 0 250px;
   display: flex;
 }
 #album-content #album-info {
@@ -367,6 +387,17 @@
   width: 60%;
   justify-content: center;
   align-items: center;
+}
+#album-content #songs #song-menu {
+  position: absolute;
+  left: 70%;
+  height: 150px;
+  background: #282828;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 #album-content #songs .song {
   height: 60px;
@@ -482,9 +513,8 @@
   display: none;
   width: 30px;
   height: 30px;
-  background: url("../icons/options.svg") no-repeat;
+  background: url("../icons/options.svg") no-repeat center;
   background-size: 20px;
-  background-position: center;
   cursor: pointer;
 }
 #album-content #songs .song .options-block .song-duration-block {

@@ -10,6 +10,10 @@ class Playlist {
         document.getElementById('songs').append(songs);
     }
 
+    destroy() {
+        document.getElementById('playlist-content').remove();
+    }
+
     getPageData() {
         return {
             pageName: "asd",

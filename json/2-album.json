@@ -1,0 +1,114 @@
+[
+  {
+    "id": "1",
+    "title": "One More Light",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2017",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/f/f8/One_More_Light.jpg/230px-One_More_Light.jpg"
+  },
+  {
+    "id": "2",
+    "title": "The Hunting Party",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2014",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/3/3c/The_Hunting_Party_2014.jpg/1200px-The_Hunting_Party_2014.jpg"
+  },
+  {
+    "id": "3",
+    "title": "Living Things",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2012",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/0/00/Living_Things.jpg/230px-Living_Things.jpg"
+  },
+  {
+    "id": "4",
+    "title": "A Thousand Suns",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2010",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Minutes To Midnight",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2007",
+    "genreId": "1",
+    "cover": "https://avatars.yandex.net/get-music-content/34131/6dedd789.a.339859-1/m1000x1000"
+  },
+  {
+    "id": "6",
+    "title": "Meteora",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2003",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/bf/Meteora.jpg/230px-Meteora.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Hybrid Theory",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2000",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/archive/8/8e/20100228151217%21Linkin_Park_Hybrid_Theory.png"
+  }
+]

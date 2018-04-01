@@ -10,9 +10,11 @@ class Library {
         );
     }
 
-    init(contentLoadFunction) {
+    init() {
         let contentSection = document.getElementById('content-section'),
             mainContent = document.getElementById('main-content');
+        let contentLoadFunction = this.getSectionHandler();
+
         return new Promise((resolve) => {
             if (document.getElementById('content-header')) {
                 resolve();
@@ -33,10 +35,29 @@ class Library {
             } else {
                 mainContent = document.createElement('div');
                 mainContent.id = 'main-content';
+
                 contentSection.append(mainContent);
                 contentLoadFunction();
             }
         })
+    }
+
+    destroy() {
+        return new Promise(resolve => {
+            let contentHeader = document.getElementById('content-header');
+            let mainContent = document.getElementById('main-content');
+
+            if (mainContent) {
+                mainContent.remove();
+            }
+
+            if (contentHeader) {
+                contentHeader.remove();
+            }
+
+            window.removeEventListener('click', Library.menuHandler);
+            resolve();
+        });
     }
 
     destroyHeader() {
@@ -55,6 +76,7 @@ class Library {
             if (mainContent) {
                 mainContent.remove();
             }
+            window.removeEventListener('click', Library.menuHandler);
             resolve();
         });
     }
@@ -96,9 +118,12 @@ class Library {
                     fragment.append(playlist);
                 });
                 mainContentSection.append(fragment);
+                resolve();
+
             };
             xhr.send();
         });
+
     }
 
 
@@ -184,6 +209,8 @@ class Library {
                     fragment.append(song);
                 });
                 mainContentSection.append(fragment);
+                document.getElementById('main-content').addEventListener('click', Library.songsListener, false);
+                window.addEventListener('click', Library.menuHandler);
             };
             xhr.send();
         });
@@ -232,7 +259,9 @@ class Library {
         })
     }
 
-    getSectionHandler(section) {
+    getSectionHandler() {
+        let reg = /\/library\/(.*)/;
+        let section = reg.exec(location.hash)[1];
         if (this.sections.has(section)) {
             return this.sections.get(section);
         } else {
@@ -246,7 +275,39 @@ class Library {
         return {
             pageName: results[1],
             sectionName: results[2],
-            sectionHandler: this.getSectionHandler(results[2])
         };
     }
+
+    static songsListener(event) {
+        let target = event.target;
+        if (target.matches('.song-options-button')) {
+            event.stopPropagation();
+            let songFragment = target.closest('.song');
+
+            let currentMenu = document.getElementById('song-menu');
+
+            if (currentMenu) {
+                currentMenu.remove();
+            }
+
+            let menu = document.createElement('div');
+            menu.id = 'song-menu';
+
+            menu.innerHTML = `
+            <div class="song-menu"></div> 
+            `;
+
+            songFragment.append(menu);
+
+        }
+    };
+
+    static menuHandler() {
+        let menu = document.getElementById('song-menu');
+        console.log('hi');
+        if (menu) {
+            menu.remove();
+        }
+    }
 }
+

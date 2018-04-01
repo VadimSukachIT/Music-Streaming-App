@@ -10,6 +10,73 @@ class Recommendations {
         );
     }
 
+    init() {
+        let contentSection = document.getElementById('content-section'),
+            mainContent = document.getElementById('main-content');
+
+        let contentLoadFunction = this.getSectionHandler();
+
+        return new Promise((resolve) => {
+            if (document.getElementById('content-header')) {
+                resolve();
+            } else {
+                let xhr = new XMLHttpRequest();
+                xhr.responseType = 'document';
+                xhr.open('GET', 'html/recommendations-header.html', true);
+                xhr.onload = function () {
+                    let header = xhr.response.querySelector('#content-header');
+                    let contentSection = document.getElementById('content-section');
+                    contentSection.append(header);
+                    resolve();
+                };
+                xhr.send();
+            }
+        }).then(() => {
+            if (mainContent) {
+                contentLoadFunction();
+            } else {
+                mainContent = document.createElement('div');
+                mainContent.id = 'main-content';
+                contentSection.append(mainContent);
+                contentLoadFunction();
+            }
+        })
+    }
+
+    destroy() {
+        return new Promise(resolve => {
+            let contentHeader = document.getElementById('content-header');
+            let mainContent = document.getElementById('main-content');
+
+            if (mainContent) {
+                mainContent.remove();
+            }
+
+            if (contentHeader) {
+                contentHeader.remove();
+            }
+            resolve();
+        });
+    }
+
+
+
+
+    destroyHeader() {
+        let contentHeader = document.getElementById('content-header');
+        if (contentHeader) {
+            contentHeader.remove();
+        }
+    }
+
+    destroyContent() {
+        let mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            mainContent.remove();
+        }
+    }
+
+
     loadForYouContent() {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
@@ -173,54 +240,9 @@ class Recommendations {
         })
     }
 
-
-    init(contentLoadFunction) {
-        let contentSection = document.getElementById('content-section'),
-            mainContent = document.getElementById('main-content');
-        return new Promise((resolve) => {
-            if (document.getElementById('content-header')) {
-                resolve();
-            } else {
-                let xhr = new XMLHttpRequest();
-                xhr.responseType = 'document';
-                xhr.open('GET', 'html/recommendations-header.html', true);
-                xhr.onload = function () {
-                    let header = xhr.response.querySelector('#content-header');
-                    let contentSection = document.getElementById('content-section');
-                    contentSection.append(header);
-                    resolve();
-                };
-                xhr.send();
-            }
-        }).then(() => {
-            if (mainContent) {
-                contentLoadFunction();
-            } else {
-                mainContent = document.createElement('div');
-                mainContent.id = 'main-content';
-                contentSection.append(mainContent);
-                contentLoadFunction();
-            }
-        })
-    }
-
-
-    destroyHeader() {
-        let contentHeader = document.getElementById('content-header');
-        if (contentHeader) {
-            contentHeader.remove();
-        }
-    }
-
-    destroyContent() {
-        let mainContent = document.getElementById('main-content');
-        if (mainContent) {
-            mainContent.remove();
-        }
-    }
-
-
-    getSectionHandler(section) {
+    getSectionHandler() {
+        let reg = /\/recommendations\/(.*)/;
+        let section = reg.exec(location.hash)[1];
         if (this.sections.has(section)) {
             return this.sections.get(section);
         } else {

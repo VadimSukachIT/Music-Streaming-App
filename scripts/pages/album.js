@@ -10,6 +10,10 @@ class Album {
         document.getElementById('songs').append(songs)
     }
 
+    destroy() {
+        document.getElementById('album-content').remove();
+    }
+
     getPageData() {
         return {
             pageName: "asd",

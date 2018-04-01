@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "title": "Revival",
+    "artist": "Eminem",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2017",
+    "genreId": "1",
+    "cover": "http://ru.recordshopx.com/cover/normal/5/56/560588.jpg?cd"
+  },
+  {
+    "id": "2",
+    "title": "Recovery",
+    "artist": "Eminem",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2010",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/archive/8/80/20100526093203%21Eminem_recovery_cover_a.jpg"
+  },
+  {
+    "id": "3",
+    "title": "The Marshall Mathers LP 2",
+    "artist": "Eminem",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2013",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/2/23/Cover_art_Eminem_-_The_Marshall_Mathers_LP_2.jpg/230px-Cover_art_Eminem_-_The_Marshall_Mathers_LP_2.jpg"
+  },
+  {
+    "id": "4",
+    "title": "Relapse",
+    "artist": "Eminem",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2009",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/8/81/Relapse_cover.jpg"
+  },
+  {
+    "id": "5",
+    "title": "The Slim Shady LP",
+    "artist": "Eminem",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2009",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/f/f9/The_Slim_Shady_LP.jpg/230px-The_Slim_Shady_LP.jpg"
+  }
+]

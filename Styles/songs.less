@@ -7,6 +7,18 @@
     justify-content: center;
     align-items: center;
 
+    #song-menu {
+      position: absolute;
+      left: 70%;
+      height: 150px;
+      background: #282828;
+      border: 1px solid rgba(0,0,0,.15);
+      min-width: 160px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+
     .song {
       height: 60px;
       display: flex;
@@ -137,9 +149,8 @@
             display: none;
             width: 30px;
             height: 30px;
-            background: url("../icons/options.svg") no-repeat;
+            background: url("../icons/options.svg") no-repeat center;
             background-size: 20px;
-            background-position: center;
             cursor: pointer;
 
           }

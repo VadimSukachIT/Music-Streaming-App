@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "artistId": "2",
+    "title": "Numb",
+    "durationInSec": "",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "albumId": "1",
+    "duration": "3:06"
+  },
+  {
+    "id": "2",
+    "artistId": "2",
+    "title": "In The End",
+    "durationInSec": "",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "albumId": "1",
+    "duration": "3:38"
+  },
+  {
+    "id": "3",
+    "artistId": "2",
+    "title": "What I've Done",
+    "durationInSec": "",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "albumId": "1",
+    "duration": "3:28"
+  },
+  {
+    "id": "4",
+    "artistId": "2",
+    "title": "Burn It Down",
+    "durationInSec": "",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "albumId": "1",
+    "duration": "3:54"
+  },
+  {
+    "id": "5",
+    "artistId": "2",
+    "title": "Breaking The Habit",
+    "durationInSec": "",
+    "artist": "Linkin Park",
+    "genre": "Rock",
+    "albumId": "1",
+    "duration": "3:19"
+  }
+]

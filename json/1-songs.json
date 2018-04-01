@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "artistId": "1",
+    "title": "River",
+    "durationInSec": "",
+    "artist": "Eminem",
+    "genre": "Rap",
+    "albumId": "1",
+    "duration": "3:42"
+  },
+  {
+    "id": "2",
+    "artistId": "1",
+    "title": "Lose Youself",
+    "durationInSec": "",
+    "artist": "Eminem",
+    "genre": "Rap",
+    "albumId": "1",
+    "duration": "5:28"
+  },  {
+  "id": "3",
+  "artistId": "1",
+  "title": "Not Afraid",
+  "durationInSec": "",
+  "artist": "Eminem",
+  "genre": "Rap",
+  "albumId": "1",
+  "duration": "4:18"
+},
+  {
+    "id": "4",
+    "artistId": "1",
+    "title": "Rap God",
+    "durationInSec": "",
+    "artist": "Eminem",
+    "genre": "Rap",
+    "albumId": "1",
+    "duration": "6:09"
+  },
+  {
+    "id": "5",
+    "artistId": "1",
+    "title": "Without Me",
+    "durationInSec": "",
+    "artist": "Eminem",
+    "genre": "Rap",
+    "albumId": "1",
+    "duration": "4:59"
+  }
+]
