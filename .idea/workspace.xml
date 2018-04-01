@@ -6,14 +6,6 @@
       <change beforePath="$PROJECT_DIR$/Styles/artist-content.css" afterPath="$PROJECT_DIR$/Styles/artist-content.css" />
       <change beforePath="$PROJECT_DIR$/Styles/artist-content.less" afterPath="$PROJECT_DIR$/Styles/artist-content.less" />
       <change beforePath="$PROJECT_DIR$/Styles/content.css" afterPath="$PROJECT_DIR$/Styles/content.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/content.less" afterPath="$PROJECT_DIR$/Styles/content.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/footer.css" afterPath="$PROJECT_DIR$/Styles/footer.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/footer.less" afterPath="$PROJECT_DIR$/Styles/footer.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/header.css" afterPath="$PROJECT_DIR$/Styles/header.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/header.less" afterPath="$PROJECT_DIR$/Styles/header.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/variables.less" afterPath="$PROJECT_DIR$/Styles/variables.less" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/artist.js" afterPath="$PROJECT_DIR$/scripts/pages/artist.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/library.js" afterPath="$PROJECT_DIR$/scripts/pages/library.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
@@ -37,13 +29,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artist-content.less" pinned="false" current-in-tab="false">
+      <file leaf-file-name="artist-content.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Styles/artist-content.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="134" column="25" lean-forward="false" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
+            <state relative-caret-position="442">
+              <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
               <folding>
-                <element signature="e#1519#2546#0" expanded="false" />
+                <element signature="e#1518#2545#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,6 +65,30 @@
                 <marker date="1522605124212" expanded="true" signature="4499:4869" ph="..." />
                 <marker date="1522605124212" expanded="true" signature="4572:4708" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Styles/content.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+              <folding>
+                <element signature="e#487#491#0" expanded="false" />
+                <element signature="e#890#1524#0" expanded="false" />
+                <element signature="e#1544#1730#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="artists.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Styles/artists.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -188,8 +204,8 @@
         <option value="$PROJECT_DIR$/Styles/variables.less" />
         <option value="$PROJECT_DIR$/Styles/songs.less" />
         <option value="$PROJECT_DIR$/scripts/pages/library.js" />
-        <option value="$PROJECT_DIR$/Styles/artist-content.less" />
         <option value="$PROJECT_DIR$/scripts/pages/artist.js" />
+        <option value="$PROJECT_DIR$/Styles/artist-content.less" />
       </list>
     </option>
   </component>
@@ -334,7 +350,7 @@
       <workItem from="1522402839582" duration="22975000" />
       <workItem from="1522434754182" duration="8727000" />
       <workItem from="1522471802790" duration="18855000" />
-      <workItem from="1522596691179" duration="6854000" />
+      <workItem from="1522596691179" duration="6935000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1519850907071</created>
@@ -420,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522597002650</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="02.03.2018">
+      <created>1522605538700</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1522605538700</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254741000" />
+    <option name="totallyTimeSpent" value="254822000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -754,18 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Styles/content.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding>
-            <element signature="e#487#491#0" expanded="false" />
-            <element signature="e#890#1524#0" expanded="false" />
-            <element signature="e#1544#1730#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Styles/footer.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -862,24 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Styles/artists.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-129">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Styles/artist-content.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="134" column="25" lean-forward="false" selection-start-line="134" selection-start-column="25" selection-end-line="134" selection-end-column="25" />
-          <folding>
-            <element signature="e#1519#2546#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/pages/artist.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -906,11 +899,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Styles/content.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+          <folding>
+            <element signature="e#487#491#0" expanded="false" />
+            <element signature="e#890#1524#0" expanded="false" />
+            <element signature="e#1544#1730#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Styles/artists.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Styles/artist-content.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="113" column="24" lean-forward="false" selection-start-line="113" selection-start-column="24" selection-end-line="113" selection-end-column="24" />
+          <folding>
+            <element signature="e#1518#2545#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

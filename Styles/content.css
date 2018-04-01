@@ -1402,7 +1402,6 @@ footer #player-section #progress-section .time {
   flex-direction: column;
   align-items: center;
   background: #181818;
-  min-height: 80%;
 }
 #artist-section #artist-songs .artist-songs-header {
   color: white;
