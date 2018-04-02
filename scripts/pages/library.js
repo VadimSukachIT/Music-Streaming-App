@@ -81,67 +81,45 @@ class Library {
         });
     }
 
-    loadAlbums() {
-        return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/album.json', true);
-            xhr.onload = function () {
-                let mainContentSection = document.getElementById('main-content');
-                let fragment = document.createElement('div');
-                fragment.id = 'albums';
+    async loadAlbums() {
+            function createAlbum(albumData) {
+              const ALBUM = `
+                <div class="album">
+                  <div class="hovered-part">
+                    <a href="#/album/${albumData._id}"> 
+                      <div class="icon">
+                        <button type="button" class="play-icon"></button> 
+                      </div>   
+                      <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
+                      <span class="album-title">${albumData.title}</span>  
+                    </a>
+                  </div>
+                  <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
+                </div>`;
+              let div = document.createElement('div');
+              div.innerHTML = ALBUM.trim();
+              return div.firstChild;
+            }
 
-                function createPlaylist(albumData) {
-                    const ALBUM = `
-                    <div class="album">
-                    <div class="hovered-part">
-                       <a href="#/album/${albumData.id}"> 
-                             <div class="icon">
-                                 <button type="button" class="play-icon"></button> 
-                             </div>   
-                             <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
-                              <span class="album-title">${albumData.title}</span>  
-                       </a>
-                       
-                    </div>
-                        <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
-                    </div>`;
+        const songData = await getRequest(`api/user/${window.user}/albums`);
 
-                    let div = document.createElement('div');
-                    div.innerHTML = ALBUM.trim();
-                    return div.firstChild;
-                }
-
-                let albumData = JSON.parse(xhr.responseText);
-
-                albumData.forEach(function (albumData) {
-                    let playlist = createPlaylist(albumData);
-                    fragment.append(playlist);
-                });
-                mainContentSection.append(fragment);
-                resolve();
-
-            };
-            xhr.send();
+        let mainContentSection = document.getElementById('main-content');
+        let fragment = document.createElement('div');
+        fragment.id = 'albums';
+        albumData.forEach((albumInfo) => {
+            let album = createAlbum(albumInfo);
+            fragment.append(album);
         });
-
+        mainContentSection.append(fragment);
     }
 
 
-    loadPlaylists() {
-        return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/playlists.json', true);
-            xhr.onload = function () {
-
-                let mainContentSection = document.getElementById('main-content');
-                let fragment = document.createElement('div');
-                fragment.id = 'playlists';
-
-                function createPlaylist(playlistData) {
-                    const PLAYLIST = `
+    async loadPlaylists() {
+        function createPlaylist(playlistData) {
+        const PLAYLIST = `
                      <div class="playlist">
                        <div class="hovered-part">
-                             <a href="#/darkavatar21/playlist/${playlistData.id}">
+                             <a href="#/darkavatar21/playlist/${playlistData._id}">
                                   <div class="icon">
                                     <button type="button" class="play-icon"></button> 
                                   </div>  
@@ -157,86 +135,73 @@ class Library {
                     return div.firstChild;
                 }
 
-                let playlistsData = JSON.parse(xhr.responseText);
+        const playlistsData = await getRequest(`api/user/${window.user}/playlists`);
+        
+        let mainContentSection = document.getElementById('main-content');
+        let fragment = document.createElement('div');
+        fragment.id = 'playlists';
 
-                playlistsData.forEach(function (playlistsData) {
-                    let playlist = createPlaylist(playlistsData);
-                    fragment.append(playlist);
-                });
-                mainContentSection.append(fragment);
-            };
-            xhr.send();
-        })
-    }
 
-    loadSongs() {
-        return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/songs.json', true);
-            xhr.onload = function () {
-
-                let mainContentSection = document.getElementById('main-content');
-                let fragment = document.createElement('div');
-                fragment.id = 'songs';
-
-                function createSong(songData) {
-                    const SONG = `<div class="song">
-                    <div class="play-block">
-                       <span class="song-index">${songData.id}.</span>
-                       <button type="button" class="play-song"></button>
-                    </div>
-                    <div class="name-block">
-                            <span class="song-name">${songData.title}</span>
-                            <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
-                        </div>
-                        <div class="options-block">              
-                                <div class="options-menu">
-                                     <button type="button" class="song-options-button"></button>
-                                </div>  
-                                <div class="song-duration-block"><span class="song-duration">${songData.duration}</div>        
-                        </div>
-                </div>`;
-
-                    let div = document.createElement('div');
-                    div.innerHTML = SONG.trim();
-                    return div.firstChild;
-                }
-
-                let songData = JSON.parse(xhr.responseText);
-
-                songData.forEach(function (songData) {
-                    let song = createSong(songData);
-                    fragment.append(song);
-                });
-                mainContentSection.append(fragment);
-                document.getElementById('main-content').addEventListener('click', Library.songsListener, false);
-                window.addEventListener('click', Library.menuHandler);
-            };
-            xhr.send();
+        playlistsData.forEach(function (playlistInfo) {
+            let playlist = createPlaylist(playlistInfo);
+            fragment.append(playlist);
         });
+        mainContentSection.append(fragment);
     }
 
-    loadArtists() {
-        return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/artists.json', true);
-            xhr.onload = function () {
+    async loadSongs() {
+      function createSong(songData) {
+        songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`
+          const SONG = `<div class="song">
+          <div class="play-block">
+             <span class="song-index">${songData.number}</span>
+             <button type="button" class="play-song"></button>
+          </div>
+          <div class="name-block">
+                  <span class="song-name">${songData.name}</span>
+                  <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
+              </div>
+              <div class="options-block">              
+                      <div class="options-menu">
+                           <button type="button" class="song-options-button"></button>
+                      </div>  
+                      <div class="song-duration-block"><span class="song-duration">${songData.duration}</div>        
+              </div>
+      </div>`;
 
-                let mainContentSection = document.getElementById('main-content');
-                let fragment = document.createElement('div');
-                fragment.id = 'artists';
+          let div = document.createElement('div');
+          div.innerHTML = SONG.trim();
+          return div.firstChild;
+      }
 
+      const songData = await getRequest(`api/user/${window.user}/tracks`);
+        
+      let mainContentSection = document.getElementById('main-content');
+      let fragment = document.createElement('div');
+      fragment.id = 'songs';
+
+      songData.forEach(function (songInfo, i) {
+          songInfo.number = i + 1;
+          let song = createSong(songInfo);
+          fragment.append(song);
+      });
+      mainContentSection.append(fragment);
+      document.getElementById('main-content').addEventListener('click', Library.songsListener, false);
+      window.addEventListener('click', Library.menuHandler);
+    }
+
+    async loadArtists() {
                 function createArtist(artistData) {
                     const ARTIST = `
                      <div class="artist">
                        <div class="hovered-part">
-                             <a href="#/artist/${artistData.id}">
+                             <a href="#/artist/${artistData._id}">
                                   <div class="icon">
                                     <button type="button" class="play-icon"></button> 
                                   </div>  
                                  <div class="artist-cover" style="background-image: url(${artistData.cover});"></div>
                              </a>
-                             <a href="#/artist/${artistData.id}"  class="artist-title">${artistData.name}</a>
+                             <a href="#/artist/${artistData._id}"  class="artist-title">${artistData.name}</a>
                         </div>
                  
                     </div>`;
@@ -247,16 +212,16 @@ class Library {
                     return div.firstChild;
                 }
 
-                let artistData = JSON.parse(xhr.responseText);
+        const artistData = await getRequest(`api/user/${window.user}/artists`);
+        let mainContentSection = document.getElementById('main-content');
+        let fragment = document.createElement('div');
+        fragment.id = 'artists';
 
-                artistData.forEach(function (artistData) {
-                    let artist = createArtist(artistData);
-                    fragment.append(artist);
-                    mainContentSection.append(fragment);
-                });
-            };
-            xhr.send();
-        })
+        artistData.forEach(function (artistInfo) {
+            let artist = createArtist(artistInfo);
+            fragment.append(artist);
+            mainContentSection.append(fragment);
+        });
     }
 
     getSectionHandler() {

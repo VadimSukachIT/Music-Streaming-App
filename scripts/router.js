@@ -72,6 +72,7 @@ class Router {
     }
 }
 
+window.user = 'darkavatar21';
 let router = new Router();
 router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
 router.add(/(recommendations)\/(for-you|genres|new|popular)/, Recommendations);

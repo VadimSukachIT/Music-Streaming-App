@@ -9,14 +9,11 @@ let artists = [
         genres: [
             '1',
         ],
-        // albums: [
-        //     '1',
-        // ],
         albums: [
-          "1-album"
+            '1',
         ],
-        songs: [
-          "1-songs"
+        tracks: [
+          '1',
         ],
         followers: "5200",
     },
@@ -32,10 +29,10 @@ let artists = [
         //     '1',
         // ],
         albums: [
-            "2-albums"
+            "2"
         ],
         songs: [
-            "2-songs"
+            "2"
         ],
         followers: "5200",
     },

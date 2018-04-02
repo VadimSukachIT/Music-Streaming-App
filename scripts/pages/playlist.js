@@ -3,15 +3,15 @@ class Playlist {
     }
 
     async init() {
-        let contentSection = document.getElementById('content-section');
-        let playlistPage = await this.loadAlbum();
-        let songs = await this.loadSongs();
-        contentSection.innerHTML = playlistPage;
-        document.getElementById('songs').append(songs);
+        const playlistInfo = await getRequest('api/playlist/1');
+        this.loadPlaylist(playlistInfo);
     }
 
     destroy() {
-        document.getElementById('playlist-content').remove();
+        const el = document.getElementById('playlist-content');
+        if (el) {
+            el.remove();
+        }
     }
 
     getPageData() {
@@ -24,14 +24,34 @@ class Playlist {
         };
     }
 
-    loadAlbum() {
-        return new Promise(resolve => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'http://localhost:3000/api/playlist/1', true);
-            xhr.onload = function () {
-                let playlistInfo = JSON.parse(xhr.responseText);
+    loadPlaylist(playlistInfo) {
+        const createSong = (songData) => {
+            songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`
+              const SONG = `<div class="song">
+              <div class="play-block">
+                 <span class="song-index">${songData.number}</span>
+                 <button type="button" class="play-song"></button>
+              </div>
+              <div class="name-block">
+                      <span class="song-name">${songData.name}</span>
+                      <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
+                  </div>
+                  <div class="options-block">              
+                          <div class="options-menu">
+                               <button type="button" class="song-options-button"></button>
+                          </div>  
+                          <div class="song-duration-block"><span class="song-duration">${songData.duration}</div>        
+                  </div>
+          </div>`;
 
-                let playlistPage = `
+            let div = document.createElement('div');
+            div.innerHTML = SONG.trim();
+            return div.firstChild;
+        }
+
+        const showPlaylist = (playlistInfo) => {
+            const contentSection = document.getElementById('content-section');
+            const res = `
                 <div id="playlist-content">
                     <div id="playlist-info">
                     <div class="playlist-cover" style="background-image: url(${playlistInfo.cover}) "></div>
@@ -39,56 +59,23 @@ class Playlist {
                     <a class="playlist-artist" href="#album-artist">${playlistInfo.artist}</a>
                     <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
                     <button type="button" id="play-playlist-button">ИГРАТЬ</button>
-                      </div>
+                    </div>
                     <div id="songs"></div>
                 </div>`;
-                resolve(playlistPage);
-            };
-            xhr.send();
+            contentSection.innerHTML = res;
+        }
+
+        showPlaylist(playlistInfo);
+
+        let songData = playlistInfo.tracks;
+        let songs = document.createDocumentFragment();
+
+        songData.forEach(function (songInfo, i) {
+            songInfo.number = i + 1;
+            let song = createSong(songInfo);
+            songs.append(song);
         });
-    }
 
-    loadSongs() {
-        return new Promise((resolve, reject) => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('GET', 'json/songs.json', true);
-            xhr.onload = function () {
-
-                function createSong(songData) {
-                    const SONG = `<div class="song">
-                    <div class="play-block">
-                       <span class="song-index">${songData.id}.</span>
-                       <button type="button" class="play-song"></button>
-                    </div>
-                    <div class="name-block">
-                            <span class="song-name">${songData.title}</span>
-                            <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
-                        </div>
-                        <div class="options-block">              
-                                <div class="options-menu">
-                                     <button type="button" class="song-options-button"></button>
-                                </div>  
-                                <div class="song-duration-block"><span class="song-duration">${songData.duration}</div>        
-                        </div>
-                </div>`;
-
-                    let div = document.createElement('div');
-                    div.innerHTML = SONG.trim();
-                    return div.firstChild;
-                }
-
-                let songData = JSON.parse(xhr.responseText);
-
-                let songs = document.createDocumentFragment();
-
-                songData.forEach(function (songData) {
-                    let song = createSong(songData);
-                    songs.append(song);
-                });
-
-                resolve(songs);
-            };
-            xhr.send();
-        });
+        document.getElementById('songs').append(songs);
     }
 }

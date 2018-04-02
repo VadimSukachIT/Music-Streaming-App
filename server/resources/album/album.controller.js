@@ -2,11 +2,13 @@ const albumService = require('./album.service');
 const trackService = require('../track/track.service');
 const genreService = require('../genre/genre.service');
 
-module.exports.getAlbumById = (ctx, next) => {
-  const album = albumService.findOne({ _id: ctx.params.id });
-  album.tracks = album.tracks.map(id =>
-    trackService.findOne({ _id: id }));
-  album.genres = album.genres.map(id =>
+module.exports.getAlbumById = async (ctx, next) => {
+  const album = { ...await albumService.findOne({ _id: ctx.params.id }) };
+  album.tracks = await album.tracks.map((id) => {
+    const doc = trackService.findOne({ _id: id });
+    return doc || {};
+  });
+  album.genres = await album.genres.map(id =>
     genreService.findOne({ _id: id }));
 
   ctx.body = album;

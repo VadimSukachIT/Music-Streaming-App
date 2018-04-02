@@ -1,17 +1,15 @@
 const playlistService = require('./playlist.service');
 const trackService = require('../track/track.service');
 
-module.exports.getPlaylistById = (ctx, next) => {
-  const playlist = playlistService.findOne({ _id: ctx.params.id });
+module.exports.getPlaylistById = async (ctx, next) => {
+  const playlist = { ...await playlistService.findOne({ _id: ctx.params.id }) };
 
-  playlist.tracks = playlist.tracks.map(id =>
-    trackService.findOne({ _id: id }));
+  playlist.tracks = await playlist.tracks.map((id) => {
+    const doc = trackService.findOne({ _id: id });
+    return doc || {};
+  });
 
   ctx.body = playlist;
-};
-
-module.exports.getUserPlaylists = (ctx, next) => {
-  ctx.body = playlistService.find({ userId: '1' });
 };
 
 module.exports.createPlaylist = (ctx, next) => {

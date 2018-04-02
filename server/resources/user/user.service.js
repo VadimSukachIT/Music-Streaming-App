@@ -1,6 +1,22 @@
 const generateId = require('../../helpers/idGenerator');
 
-let accounts = [];
+let accounts = [{
+  _id: '1',
+  email: 'darkavatar21',
+  login: 'darkavatar21',
+  playlists: [
+    '1',
+  ],
+  albums: [
+    '1',
+  ],
+  tracks: [
+    '1',
+  ],
+  artists: [
+    '1',
+  ],
+}];
 
 const service = {};
 

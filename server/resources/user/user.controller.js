@@ -1,0 +1,90 @@
+const userService = require('./user.service');
+const securityUtil = require('../../security.util');
+const albumService = require('../album/album.service');
+const trackService = require('../track/track.service');
+const playlistService = require('../playlist/playlist.service');
+const artistService = require('../artist/artist.service');
+
+async function createAccount(userData) {
+  const salt = await securityUtil.generateSalt();
+  const hash = await securityUtil.getHash(userData.password, salt);
+
+  const user = await userService.create({
+    login: userData.login,
+    passwordHash: hash.toString(),
+    passwordSalt: salt.toString(),
+    email: userData.email,
+    playlists: [],
+    albums: [],
+    tracks: [],
+  });
+
+  return user;
+}
+
+exports.signup = async (ctx) => {
+  const userData = ctx.request.body;
+
+  await createAccount(userData);
+  this.status = 200;
+};
+
+module.exports.signin = async (ctx) => {
+  let isPasswordMatch = false;
+
+  const user = userService.findOne({ email: ctx.request.body.email });
+
+  if (user) {
+    isPasswordMatch = await securityUtil
+      .compareTextWithHash(ctx.request.body.password, user.passwordHash, user.passwordSalt);
+  } else {
+    ctx.errors.push({ email: 'User with such email doesn\'t exist' });
+  }
+
+  if (!isPasswordMatch) {
+    ctx.errors.push({ password: 'Invalid password' });
+  } else {
+    ctx.state.user = user;
+    this.status = 200;
+  }
+};
+
+module.exports.logout = (ctx) => {
+  ctx.state.user = {};
+};
+
+module.exports.getUserAlbums = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  const albums = user.albums.map(id =>
+    albumService.findOne({ _id: id }));
+
+  ctx.body = albums;
+};
+
+module.exports.getUserPlaylists = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  const playlists = user.playlists.map(id =>
+    playlistService.findOne({ _id: id }));
+
+  ctx.body = playlists;
+};
+
+module.exports.getUserTracks = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  const tracks = user.tracks.map(id =>
+    trackService.findOne({ _id: id }));
+
+  ctx.body = tracks;
+};
+
+module.exports.getUserArtists = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  const artists = user.artists.map(id =>
+    artistService.findOne({ _id: id }));
+
+  ctx.body = artists;
+};

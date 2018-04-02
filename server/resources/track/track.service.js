@@ -1,11 +1,101 @@
 const generateId = require('../../helpers/idGenerator');
 
 let tracks = [{
+  _id: '0',
+  name: 'The Requiem',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
   _id: '1',
+  name: 'The Radiance',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '2',
+  name: 'Burning in the Skies',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '3',
+  name: 'Empty Spaces',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '4',
+  name: 'When They Come for Me',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '5',
+  name: 'Robot Boy',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '6',
+  name: 'Jornada del Muerto',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '7',
   name: 'Rebellion',
   genres: [
     '1',
   ],
+  albumId: '1',
+  album: 'A Thousand Suns',
+  artistId: '1',
+  artist: 'Linkin Park',
+  durationInSec: 200,
+}, {
+  _id: '8',
+  name: 'Waiting for the End',
+  genres: [
+    '1',
+  ],
+  albumId: '1',
+  album: 'A Thousand Suns',
   artistId: '1',
   artist: 'Linkin Park',
   durationInSec: 200,
