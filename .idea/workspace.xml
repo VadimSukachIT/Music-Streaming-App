@@ -2,33 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/json/1-album.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/json/1-songs.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/json/2-album.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/json/2-songs.json" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Styles/album-content.css" afterPath="$PROJECT_DIR$/Styles/album-content.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/album-content.less" afterPath="$PROJECT_DIR$/Styles/album-content.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/albums.css" afterPath="$PROJECT_DIR$/Styles/albums.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/albums.less" afterPath="$PROJECT_DIR$/Styles/albums.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/artist-content.css" afterPath="$PROJECT_DIR$/Styles/artist-content.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/artist-content.less" afterPath="$PROJECT_DIR$/Styles/artist-content.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/content.css" afterPath="$PROJECT_DIR$/Styles/content.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/playlist-content.css" afterPath="$PROJECT_DIR$/Styles/playlist-content.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/playlist-content.less" afterPath="$PROJECT_DIR$/Styles/playlist-content.less" />
-      <change beforePath="$PROJECT_DIR$/Styles/songs.css" afterPath="$PROJECT_DIR$/Styles/songs.css" />
-      <change beforePath="$PROJECT_DIR$/Styles/songs.less" afterPath="$PROJECT_DIR$/Styles/songs.less" />
-      <change beforePath="$PROJECT_DIR$/html/recommendations-header.html" afterPath="$PROJECT_DIR$/html/recommendations-header.html" />
-      <change beforePath="$PROJECT_DIR$/icons/PP_Lec2.pdf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/album.js" afterPath="$PROJECT_DIR$/scripts/pages/album.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/artist.js" afterPath="$PROJECT_DIR$/scripts/pages/artist.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/library.js" afterPath="$PROJECT_DIR$/scripts/pages/library.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/playlist.js" afterPath="$PROJECT_DIR$/scripts/pages/playlist.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/pages/recommendations.js" afterPath="$PROJECT_DIR$/scripts/pages/recommendations.js" />
-      <change beforePath="$PROJECT_DIR$/scripts/router.js" afterPath="$PROJECT_DIR$/scripts/router.js" />
-      <change beforePath="$PROJECT_DIR$/server/resources/artist/artist.controller.js" afterPath="$PROJECT_DIR$/server/resources/artist/artist.controller.js" />
-      <change beforePath="$PROJECT_DIR$/server/resources/artist/artist.service.js" afterPath="$PROJECT_DIR$/server/resources/artist/artist.service.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,8 +29,8 @@
       <file leaf-file-name="library.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/pages/library.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="47" column="70" lean-forward="false" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+            <state relative-caret-position="204">
+              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <marker date="1522621867492" expanded="true" signature="3042:3734" ph="..." />
                 <marker date="1522621867492" expanded="true" signature="3089:3597" ph="..." />
@@ -389,7 +363,7 @@
       <workItem from="1522434754182" duration="8727000" />
       <workItem from="1522471802790" duration="18855000" />
       <workItem from="1522596691179" duration="13786000" />
-      <workItem from="1522613052323" duration="9004000" />
+      <workItem from="1522613052323" duration="9091000" />
     </task>
     <task id="LOCAL-00001" summary="A">
       <created>1519850907071</created>
@@ -489,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522605624103</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="02.03.2018">
+      <created>1522622085665</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1522622085665</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270677000" />
+    <option name="totallyTimeSpent" value="270764000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,6 +736,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -769,6 +751,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -971,8 +954,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/pages/library.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="47" column="70" lean-forward="false" selection-start-line="47" selection-start-column="70" selection-end-line="47" selection-end-column="70" />
+        <state relative-caret-position="204">
+          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <marker date="1522621867492" expanded="true" signature="3042:3734" ph="..." />
             <marker date="1522621867492" expanded="true" signature="3089:3597" ph="..." />
