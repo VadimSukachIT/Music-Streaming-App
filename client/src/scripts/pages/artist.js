@@ -1,23 +1,23 @@
-import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
+import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
 
 class Artist {
-  async init() {
-    const artistId = this.getArtistId();
-    const artistData = await getRequest(`api/artist/${artistId}`);
-    this.loadArtist(artistData);
-  }
-
-  destroy() {
-    document.getElementById('follow-artist-button').removeEventListener('click', Artist.followButton, false);
-    const el = document.getElementById('artist-section');
-    if (el) {
-      el.remove();
+    async init() {
+        const artistId = this.getArtistId();
+        const artistData = await getRequest(`api/artist/${artistId}`);
+        this.loadArtist(artistData);
     }
-  }
 
-  loadArtist(artistData) {
-    function createAlbum(albumData) {
-      const ALBUM = `
+    destroy() {
+        document.getElementById('follow-artist-button').removeEventListener('click', Artist.followButton, false);
+        const el = document.getElementById('artist-section');
+        if (el) {
+            el.remove();
+        }
+    }
+
+    loadArtist(artistData) {
+        function createAlbum(albumData) {
+            const ALBUM = `
         <div class="album">
           <div class="hovered-part">
               <a href="#/album/${albumData._id}"> 
@@ -30,14 +30,14 @@ class Artist {
           </div>
         </div>`;
 
-      const div = document.createElement('div');
-      div.innerHTML = ALBUM.trim();
-      return div.firstChild;
-    }
+            const div = document.createElement('div');
+            div.innerHTML = ALBUM.trim();
+            return div.firstChild;
+        }
 
-    function createSong(songData) {
-      songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
-      const SONG = `<div class="song">
+        function createSong(songData) {
+            songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
+            const SONG = `<div class="song" id="${songData._id}">
                       <div class="play-block">
                          <span class="song-index">${songData.number}</span>
                          <button type="button" class="play-song"></button>
@@ -54,13 +54,13 @@ class Artist {
                           </div>
                   </div>`;
 
-      const div = document.createElement('div');
-      div.innerHTML = SONG.trim();
-      return div.firstChild;
-    }
+            const div = document.createElement('div');
+            div.innerHTML = SONG.trim();
+            return div.firstChild;
+        }
 
-    const showHeader = (artistInfo) => {
-      const artistHeader = `
+        const showHeader = (artistInfo) => {
+            const artistHeader = `
             <div id="artist-header" style="background: url(${artistInfo.bigCover}) no-repeat center; background-size: cover">
                 <h1 class="artist-name">${artistInfo.name}</h1>
                 <div class="header-buttons">
@@ -72,116 +72,123 @@ class Artist {
                 <span class="artist-followers">${artistInfo.followers} ПОДПИСЧИКОВ</span>
             </div>`;
 
-      const temp = document.createElement('template');
-      temp.innerHTML = artistHeader;
+            const temp = document.createElement('template');
+            temp.innerHTML = artistHeader;
 
-      const frag = temp.content;
-      return frag;
-    };
+            const frag = temp.content;
+            return frag;
+        };
 
-    const showAlbums = (albumData) => {
-      const albums = document.createElement('div');
-      albums.id = 'albums';
+        const showAlbums = (albumData) => {
+            const albums = document.createElement('div');
+            albums.id = 'albums';
 
-      albumData.forEach((albumInfo) => {
-        const playlist = createAlbum(albumInfo);
-        albums.append(playlist);
-      });
+            albumData.forEach((albumInfo) => {
+                const playlist = createAlbum(albumInfo);
+                albums.append(playlist);
+            });
 
 
-      const albumSection = document.createElement('div');
-      albumSection.id = 'artist-albums';
+            const albumSection = document.createElement('div');
+            albumSection.id = 'artist-albums';
 
-      const albumSectionHeader = document.createElement('h2');
-      albumSectionHeader.classList.add('artist-album-header');
-      albumSectionHeader.innerText = 'Альбомы';
+            const albumSectionHeader = document.createElement('h2');
+            albumSectionHeader.classList.add('artist-album-header');
+            albumSectionHeader.innerText = 'Альбомы';
 
-      albumSection.append(albumSectionHeader);
-      albumSection.append(albums);
+            albumSection.append(albumSectionHeader);
+            albumSection.append(albums);
 
-      return albumSection;
-    };
+            return albumSection;
+        };
 
-    const showSongs = (songData) => {
-      const songs = document.createElement('div');
-      songs.id = 'songs';
+        const showSongs = (songData) => {
+            const songs = document.createElement('div');
+            songs.id = 'songs';
 
-      songData.forEach((songInfo, i) => {
-        songInfo.number = i + 1;
-        const song = createSong(songInfo);
-        songs.append(song);
-      });
+            songData.forEach((songInfo, i) => {
+                songInfo.number = i + 1;
+                const song = createSong(songInfo);
+                songs.append(song);
+            });
 
-      const songSection = document.createElement('div');
-      songSection.id = 'artist-songs';
+            const songSection = document.createElement('div');
+            songSection.id = 'artist-songs';
 
-      const songSectionHeader = document.createElement('h2');
-      songSectionHeader.classList.add('artist-songs-header');
-      songSectionHeader.innerText = 'Популярные песни';
+            const songSectionHeader = document.createElement('h2');
+            songSectionHeader.classList.add('artist-songs-header');
+            songSectionHeader.innerText = 'Популярные песни';
 
-      songSection.append(songSectionHeader);
-      songSection.append(songs);
-      return songSection;
-    };
+            songSection.append(songSectionHeader);
+            songSection.append(songs);
+            return songSection;
+        };
 
-    const contentSection = document.getElementById('content-section');
-    const artistSection = document.createElement('div');
+        const contentSection = document.getElementById('content-section');
+        const artistSection = document.createElement('div');
 
-    artistSection.id = 'artist-section';
+        artistSection.id = 'artist-section';
 
-    const artistHeader = showHeader(artistData);
-    const artistAlbums = showAlbums(artistData.albums);
-    const artistSongs = showSongs(artistData.tracks);
+        const artistHeader = showHeader(artistData);
+        const artistAlbums = showAlbums(artistData.albums);
+        const artistSongs = showSongs(artistData.tracks);
 
-    artistSection.append(artistHeader);
-    artistSection.append(artistSongs);
-    artistSection.append(artistAlbums);
-    contentSection.append(artistSection);
-    const isFollowed = window.user.artists.indexOf(artistData._id) !== -1;
-    document.getElementById('follow-artist-button').addEventListener(
-      'click',
-      (event) => { this.followButton(event, this.getArtistId(), isFollowed); },
-      false,
-    );
-  }
-
-  getPageData(fragment) {
-    const reg = /(artist)\/.*/;
-    const results = reg.exec(fragment);
-    return {
-      pageName: results[1],
-    };
-  }
-
-  getArtistId() {
-    const reg = /\/artist\/(.*)/;
-    return reg.exec(location.hash)[1];
-  }
-
-  followButton(event, id, isFollowed) {
-    const { target } = event;
-
-    async function stopFollowing() {
-      await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
-      window.user.artists = window.user.artists.filter(item => item !== id);
-      target.classList.toggle('.followed');
+        artistSection.append(artistHeader);
+        artistSection.append(artistSongs);
+        artistSection.append(artistAlbums);
+        contentSection.append(artistSection);
+        const isFollowed = window.user.artists.indexOf(artistData._id) !== -1;
+        document.getElementById('follow-artist-button').addEventListener(
+            'click',
+            (event) => {
+                this.followButton(event, this.getArtistId(), isFollowed)
+            },
+            false,
+        );
     }
 
-    async function startFollowing() {
-      const artist = JSON.stringify({
-        _id: id,
-      });
-      await postRequest(`api/user/${window.user.login}/artists`, artist);
-      window.user.artists.push(id);
-      target.classList.toggle('.followed');
+    getPageData(fragment) {
+        const reg = /(artist)\/.*/;
+        const results = reg.exec(fragment);
+        return {
+            pageName: results[1],
+        };
     }
 
-    if (isFollowed) {
-      stopFollowing();
-    } else {
-      startFollowing();
+    getArtistId() {
+        const reg = /\/artist\/(.*)/;
+        return reg.exec(location.hash)[1];
     }
-  }
+
+    followButton(event, id, isFollowed) {
+        const {target} = event;
+
+        async function stopFollowing() {
+            console.log('stop');
+            target.classList.toggle('followed');
+            target.innerText = "Подписаться";
+            await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
+            window.user = await getRequest('api/user/darkavatar21');
+        }
+
+        async function startFollowing() {
+            console.log('1');
+            target.classList.toggle('followed');
+            target.innerText = "Отписаться";
+            const artist = JSON.stringify({
+                _id: id,
+            });
+            await postRequest(`api/user/${window.user.login}/artists`, artist);
+            window.user = await getRequest('api/user/darkavatar21');
+
+        }
+
+        if (target.classList.contains('followed')) {
+            stopFollowing();
+        } else {
+            startFollowing();
+        }
+    }
 }
 
 export default Artist;

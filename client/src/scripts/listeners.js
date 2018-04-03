@@ -1,3 +1,5 @@
+import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+
 class Listener {
   static destroySongMenu() {
     const menu = document.getElementById('song-menu');
@@ -42,22 +44,26 @@ class Listener {
       console.log('added');
     }
 
-    function saveSong() {
-      console.log('saved');
+    async function saveSong(target) {
+      let songId = target.closest(".song").id;
+
+        const track = JSON.stringify({
+            _id: songId,
+        });
+        await postRequest(`api/user/${window.user.login}/tracks`, track);
     }
 
     const { target } = event;
 
     if (target.closest('.save-song')) {
-      saveSong();
+      saveSong(target);
       Listener.destroySongMenu();
     } else if (target.closest('.add-song-to-playlist')) {
-      addSongToPlaylist();
+      addSongToPlaylist(target);
     }
   }
 
   static playButtonsListener(event) {
-    console.log(1);
     const { target } = event;
 
     if (target.matches('.play')) {
@@ -72,6 +78,10 @@ class Listener {
       }
     }
   }
+
+
+
+
 }
 window.addEventListener('click', Listener.playButtonsListener, false);
 window.addEventListener('click', Listener.destroySongMenu);

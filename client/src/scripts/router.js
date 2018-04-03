@@ -76,10 +76,4 @@ class Router {
   }
 }
 
-// let section = document.getElementById('content-section');
-// section.addEventListener('click', (event) => {
-//     event.preventDefault();
-//     console.log('hi');
-// });
-
 export default Router;

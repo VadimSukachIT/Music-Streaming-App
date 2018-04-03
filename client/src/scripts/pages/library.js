@@ -1,4 +1,4 @@
-import { getRequest } from 'scripts/requestHelper';
+import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
 
 class Library {
   constructor() {
@@ -58,8 +58,6 @@ class Library {
       if (contentHeader) {
         contentHeader.remove();
       }
-
-      // window.removeEventListener('click', Listener.createSongMenu);
       resolve();
     });
   }
@@ -156,7 +154,7 @@ class Library {
     function createSong(songData) {
       songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
       const SONG = `
-        <div class="song">
+        <div class="song" id="${songData._id}">
           <div class="play-block">
             <span class="song-index">${songData.number}</span>
             <button type="button" class="play-song play play-song"></button>
@@ -185,14 +183,12 @@ class Library {
     fragment.id = 'songs';
 
     songData.forEach((songInfo, i) => {
+      console.log(songData);
       songInfo.number = i + 1;
       const song = createSong(songInfo);
       fragment.append(song);
     });
     mainContentSection.append(fragment);
-    // document.getElementById('main-content')
-    // .addEventListener('click', Listener.destroySongMenu, false);
-    // window.addEventListener('click', Listener.createSongMenu);
   }
 
   async loadArtists() {

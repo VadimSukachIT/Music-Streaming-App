@@ -1,12 +1,16 @@
-import { getRequest } from 'scripts/requestHelper';
+import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import { Listener } from  'client/src/scripts/listeners.js';
+import Playlist from "./playlist";
 
 class Album {
   async init() {
-    const album = await getRequest(`api/album/${this.getAlbumId()}`);
+    const album = await getRequest(`api/album/${Album.getAlbumId()}`);
     this.loadAlbum(album);
+    document.getElementById('save-album-button').addEventListener('click', Album.saveAlbumButtonListener);
   }
 
   destroy() {
+    document.getElementById('save-album-button').removeEventListener('click', Album.saveAlbumButtonListener);
     const el = document.getElementById('album-content');
     if (el) {
       el.remove();
@@ -26,7 +30,7 @@ class Album {
   async loadAlbum(album) {
     function createSong(songData) {
       songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
-      const SONG = `<div class="song">
+      const SONG = `<div class="song" id="${songData._id}">
               <div class="play-block">
                  <span class="song-index">${songData.number}</span>
                  <button type="button" class="play-song"></button>
@@ -89,10 +93,19 @@ class Album {
     document.getElementById('songs').append(songs);
   }
 
-  getAlbumId() {
+  static getAlbumId() {
     const reg = /\/album\/(.*)/;
     return reg.exec(location.hash)[1];
   }
+
+    static async saveAlbumButtonListener() {
+       let albumId = Album.getAlbumId();
+
+        const album = JSON.stringify({
+            _id: albumId,
+        });
+        await postRequest(`api/user/${window.user.login}/albums`, album);
+    }
 }
 
 export default Album;

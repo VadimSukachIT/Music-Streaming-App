@@ -1,16 +1,21 @@
-import { getRequest } from 'scripts/requestHelper';
+import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import Album from "./album";
+
 
 class Playlist {
   async init() {
     const playlistInfo = await getRequest('api/playlist/1');
     this.loadPlaylist(playlistInfo);
+    document.getElementById('save-playlist-button').addEventListener('click', Playlist.savePlaylistButtonListener);
   }
 
   destroy() {
+    document.getElementById('save-playlist-button').removeEventListener('click', Playlist.savePlaylistButtonListener);
     const el = document.getElementById('playlist-content');
     if (el) {
       el.remove();
     }
+
   }
 
   getPageData() {
@@ -26,7 +31,7 @@ class Playlist {
   loadPlaylist(playlist) {
     const createSong = (songData) => {
       songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
-      const SONG = `<div class="song">
+      const SONG = `<div class="song" id="${songData._id}">
               <div class="play-block">
                  <span class="song-index">${songData.number}</span>
                  <button type="button" class="play-song"></button>
@@ -57,6 +62,7 @@ class Playlist {
               <span class="playlist-title">${playlistInfo.title}</span>
               <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
               <button type="button" class="play play-playlist" id="play-playlist-button">ИГРАТЬ</button>
+                <button type="button" id="save-playlist-button">СОХРАНИТЬ</button>
             </div>
           <div id="songs"></div>
         </div>`;
@@ -76,6 +82,21 @@ class Playlist {
 
     document.getElementById('songs').append(songs);
   }
+
+
+    static getPlaylistId() {
+        const reg = /\/playlist\/(.*)/;
+        return reg.exec(location.hash)[1];
+    }
+
+    static async savePlaylistButtonListener() {
+        let playlistId = Playlist.getPlaylistId();
+
+        const album = JSON.stringify({
+            _id: playlistId,
+        });
+        await postRequest(`api/user/${window.user.login}/playlists`, album);
+    }
 }
 
 export default Playlist;
