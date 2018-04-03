@@ -7,6 +7,7 @@ import Album from 'scripts/pages/album';
 import Playlist from 'scripts/pages/playlist';
 import Artist from 'scripts/pages/artist';
 import { getRequest } from 'scripts/requestHelper';
+import 'scripts/listeners';
 
 import './index.less';
 

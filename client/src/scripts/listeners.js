@@ -1,11 +1,5 @@
 class Listener {
-  constructor() {
-    window.addEventListener('click', this.playButtonsListener, false);
-    window.addEventListener('click', this.destroySongMenu);
-    window.addEventListener('click', this.createSongMenu);
-  }
-
-  destroySongMenu() {
+  static destroySongMenu() {
     const menu = document.getElementById('song-menu');
 
     if (menu) {
@@ -14,7 +8,7 @@ class Listener {
     }
   }
 
-  createSongMenu(event) {
+  static createSongMenu(event) {
     const { target } = event;
 
     if (target.matches('.song-options-button')) {
@@ -43,7 +37,7 @@ class Listener {
     }
   }
 
-  songMenuListener(event) {
+  static songMenuListener(event) {
     function addSongToPlaylist() {
       console.log('added');
     }
@@ -62,7 +56,8 @@ class Listener {
     }
   }
 
-  playButtonsListener(event) {
+  static playButtonsListener(event) {
+    console.log(1);
     const { target } = event;
 
     if (target.matches('.play')) {
@@ -78,5 +73,8 @@ class Listener {
     }
   }
 }
+window.addEventListener('click', Listener.playButtonsListener, false);
+window.addEventListener('click', Listener.destroySongMenu);
+window.addEventListener('click', Listener.createSongMenu);
 
 export default Listener;
