@@ -162,19 +162,17 @@ class Artist {
     const { target } = event;
 
     async function stopFollowing() {
-      console.log('unfollowed');
       await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
-      window.user = await getRequest('api/user/darkavatar21');
+      window.user.artists = window.user.artists.filter(item => item !== id);
       target.classList.toggle('.followed');
     }
 
     async function startFollowing() {
-      console.log('follow');
       const artist = JSON.stringify({
         _id: id,
       });
       await postRequest(`api/user/${window.user.login}/artists`, artist);
-      window.user = await getRequest('api/user/darkavatar21');
+      window.user.artists.push(id);
       target.classList.toggle('.followed');
     }
 
