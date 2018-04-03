@@ -42,7 +42,7 @@ let artists = [
       '11',
       '12',
     ],
-    songs: [
+    tracks: [
       '6',
       '7',
       '8',
