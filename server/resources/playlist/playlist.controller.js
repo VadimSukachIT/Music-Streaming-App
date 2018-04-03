@@ -12,6 +12,13 @@ module.exports.getPlaylistById = async (ctx, next) => {
   ctx.body = playlist;
 };
 
+
+module.exports.getAllPlaylists = async (ctx, next) => {
+  const playlists = await playlistService.find();
+  console.log(playlists);
+  ctx.body = playlists;
+};
+
 module.exports.createPlaylist = (ctx, next) => {
   const playlist = ctx.request.body;
   playlist.userId = ctx.state.user._id;

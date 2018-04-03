@@ -1,6 +1,29 @@
-import Player from 'scripts/audio-player.js';
-import Header from 'scripts/header.js';
-import Router from 'scripts/router.js';
-import Page from 'scripts/page.js';
+import Player from 'scripts/audio-player';
+import Header from 'scripts/header';
+import Router from 'scripts/router';
+import Library from 'scripts/pages/library';
+import Recommendations from 'scripts/pages/recommendations';
+import Album from 'scripts/pages/album';
+import Playlist from 'scripts/pages/playlist';
+import Artist from 'scripts/pages/artist';
+import { getRequest } from 'scripts/requestHelper';
 
 import './index.less';
+
+const getUser = async () => {
+  window.user = await getRequest('api/user/darkavatar21');
+  const accountName = document.getElementById('account-name');
+  accountName.innerText = window.user.login;
+};
+
+getUser();
+Player();
+Header();
+const router = new Router();
+router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
+router.add(/(recommendations)\/(for-you|genres|new|popular)/, Recommendations);
+router.add(/album\/[0-9]/, Album);
+router.add(/playlist\/[0-9]/, Playlist);
+router.add(/artist\/[0-9]/, Artist);
+window.addEventListener('load', router.onLoad.bind(router));
+window.addEventListener('hashchange', router.listen.bind(router));

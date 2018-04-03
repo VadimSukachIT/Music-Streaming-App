@@ -25,27 +25,30 @@ module.exports = {
     }, {
       test: /\.less$/,
       use: [{
-        loader: "style-loader"
+        loader: 'style-loader',
       }, {
-        loader: "css-loader"
+        loader: 'css-loader',
       }, {
-        loader: "less-loader"
-      }]
+        loader: 'less-loader',
+      }],
     }, {
       test: /\.html$/,
-      use: [ "html-loader" ]
+      use: ['html-loader'],
     }, {
       test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      use: ['url-loader?limit=5000&name=[name].[hash].[ext]?'] },
-    ],
+      use: ['url-loader?limit=5000&name=[name].[hash].[ext]?'],
+    }, {
+      test: /\.mp3$/,
+      loader: 'file-loader',
+    }],
   },
 
   devtool: 'source-map',
 
   devServer: {
-    contentBase: path.join(__dirname, "static"),
+    contentBase: path.join(__dirname, 'static'),
     compress: true,
-    port: 3000
+    port: 8081,
   },
 
   resolve: {

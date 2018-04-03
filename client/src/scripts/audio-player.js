@@ -1,42 +1,22 @@
-export default function () {
-    'use strict';
+export default () => {
+  const playerButtonsSection = document.getElementById('player-buttons');
+  const progressBar = document.getElementById('song-progress-bar');
 
-    let playerButtonsSection = document.getElementById('player-buttons');
-    let progressBar = document.getElementById('song-progress-bar');
+  const playButton = document.getElementById('play-song-button');
+  const pauseButton = document.getElementById('');
+  const nextSongButton = document.getElementById('play-next-song-button');
+  const priviousSongButton = document.getElementById('play-previous-song-button');
+  const repeatSongButton = document.getElementById('repeat-song-button');
+  const shuffleSongsButton = document.getElementById('shuffle-song-button');
 
-    let playButton = document.getElementById('play-song-button'),
-        pauseButton = document.getElementById(''),
-        nextSongButton = document.getElementById('play-next-song-button'),
-        priviousSongButton = document.getElementById('play-previous-song-button'),
-        repeatSongButton = document.getElementById('repeat-song-button'),
-        shuffleSongsButton = document.getElementById('shuffle-song-button');
+  playerButtonsSection.addEventListener('click', (event) => {
+    const { target } = event;
+    console.log(target);
+  });
 
-
-    let myAudio = new Audio("songs/Linkin Park/BurnItDown.mp3"),
-        duration = myAudio.duration;
-
-    playerButtonsSection.addEventListener('click', function (event) {
-        let target = event.target;
-        console.log(target);
-        if (target.id ='play-song-button') {
-            myAudio.play();
-            playButton.classList.toggle('active');
-
-        }
-
-            else if (target.closest('play-previous-song-button')) {
-
-        } else if (target.closest('play-next-song-button')) {
-
-        } else if (target.closest('shuffle-song-button')) {
-
-        }
-
-
-    });
-    progressBar.addEventListener('change', function (event) {
-            myAudio.currentTime = progressBar.value;
-            console.log(progressBar.value);
-    });
-
+  progressBar.addEventListener('change', (event) => {
+    const myAudio = {};
+    myAudio.currentTime = progressBar.value;
+    console.log(progressBar.value);
+  });
 };

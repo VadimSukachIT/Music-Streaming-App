@@ -1,10 +1,169 @@
-[{
-  "id": "1",
-  "name": "Rock",
-  "songs": [
-    "1",
-    "2",
-    "3",
-    "4"
-  ]
-}]
+[
+  {
+    "id": "1",
+    "title": "A Thousand Suns",
+    "artist": "Linkin Park",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "icon": "icons/rock-genre.svg",
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg"
+  },
+  {
+    "id": "1",
+    "title": "DAMN.",
+    "artist": "Kendrick Lamar",
+    "artistId": "1",
+    "icon": "icons/rock-genre.svg",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/a/a7/Kendrick_Lamar_Damn_cover.jpg/230px-Kendrick_Lamar_Damn_cover.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "icon": "icons/rock-genre.svg",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "icon": "icons/rock-genre.svg",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "icon": "icons/rock-genre.svg",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  },
+  {
+    "id": "1",
+    "title": "Born To Die",
+    "artist": "Lana Del Rey",
+    "artistId": "1",
+    "songs": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "date": "2015",
+    "genreId": "1",
+    "cover": "https://upload.wikimedia.org/wikipedia/ru/thumb/4/47/LanaDelRey_BornToDie.jpg/230px-LanaDelRey_BornToDie.jpg"
+  }
+
+]
+

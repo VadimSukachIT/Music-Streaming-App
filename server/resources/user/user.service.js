@@ -13,9 +13,7 @@ let accounts = [{
   tracks: [
     '1',
   ],
-  artists: [
-    '1',
-  ],
+  artists: [],
 }];
 
 const service = {};

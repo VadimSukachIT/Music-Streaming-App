@@ -13,6 +13,7 @@ module.exports = {
     "import/no-unresolved": 0,
     "import/prefer-default-export": 0,
     "react/forbid-prop-types": "off",
+    "class-methods-use-this": [0, {}],
     "no-unused-vars": ["error", { "args": "none" }],
     "react/prefer-stateless-function": 0
   },

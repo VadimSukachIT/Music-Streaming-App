@@ -1,22 +1,18 @@
-export default function () {
-    'use strict';
+export default () => {
+  const headerSection = document.getElementById('header-section');
+  const searchSection = document.getElementById('search-section');
+  const closeButton = document.getElementById('closeSearchButton');
 
-    let headerSection = document.getElementById('header-section'),
-        searchSection = document.getElementById('search-section'),
-        closeButton = document.getElementById('closeSearchButton');
+  closeButton.addEventListener('click', () => {
+    searchSection.style.display = 'none';
+  });
 
+  headerSection.addEventListener('click', (event) => {
+    const { target } = event;
 
-    closeButton.addEventListener('click', function () {
-        searchSection.style.display = 'none';
-    });
-
-    headerSection.addEventListener('click', function (event) {
-        let target = event.target;
-
-        if (target.closest('#search-button')) {
-            searchSection.style.display = 'block';
-        }
-    });
+    if (target.closest('#search-button')) {
+      searchSection.style.display = 'block';
+    }
+  });
 };
-
 

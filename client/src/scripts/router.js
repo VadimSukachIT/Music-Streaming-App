@@ -1,33 +1,85 @@
-import Recommendations from 'scripts/recommendations.js';
-import Library from 'scripts/library.js';
-
 class Router {
-    constructor() {
-        this.routes = new Map();
-        this.routes.set(new RegExp('#library-playlists'), new Library());
-        this.routes.set(new RegExp('#recommendations-forYou'), new Recommendations());
-    }
+  constructor() {
+    this.currentPage = null;
+    this.currentPageData = {};
+    this.routes = new Map();
+    this.root = '/';
+  }
 
-    listen() {
-        this.currentLocation = location.hash;
-        for (let [reg, pageClass] of this.routes.entries()) {
-            if (reg.test(this.currentLocation)) {
-                let currentPage = pageClass;
-                currentPage.init();
-                currentPage.display();
-            }
-        }
+  clearSlashes(path) {
+    return path.toString().replace(/\/$/, '').replace(/^\//, '');
+  }
+
+  getFragment() {
+    let fragment = '';
+    const match = window.location.href.match(/#(.*)$/);
+
+    fragment = match ? match[1] : '';
+
+    return this.clearSlashes(fragment);
+  }
+
+  add(regular, ClassPage) {
+    this.routes.set(regular, new ClassPage());
+    return this;
+  }
+
+  check(frag) {
+    const fragment = frag || this.getFragment();
+    console.log(fragment);
+    for (const [reg, PageObject] of this.routes.entries()) {
+      if (reg.test(fragment)) {
+        return PageObject;
+      }
     }
+    return {};
+  }
+
+  listen() {
+    const current = this.getFragment();
+    const page = this.check(current);
+    console.log(page);
+    const { pageName, sectionName } = page.getPageData(current);
+    if (!this.currentPage) {
+      page.init();
+    } else if (this.currentPage) {
+      if (pageName === this.currentPageData.pageName
+        && sectionName !== this.currentPageData.sectionName) {
+        this.currentPage.destroyContent();
+        page.init();
+      } else if (pageName !== this.currentPageData.pageName) {
+        this.currentPage.destroy();
+        page.init();
+      }
+    }
+    this.currentPage = page;
+    this.currentPageData = {
+      pageName,
+      sectionName,
+    };
+  }
+
+  onLoad() {
+    if (!this.getFragment()) {
+      this.navigate('/recommendations/for-you');
+      this.listen();
+    } else {
+      this.listen();
+    }
+  }
+
+
+  navigate(path) {
+    const newPath = path || '';
+    window.location.href = `${window.location.href.replace(/#(.*)$/, '')}#${newPath}`;
+    return this;
+  }
 }
 
-let router = new Router();
-window.addEventListener('hashchange', router.listen.bind(router));
-window.addEventListener('load', function () {
-    if (!location.hash) {
-       router.currentLocation = location.hash = '#recommendations-forYou';
-       router.listen()
-    } else {
-        router.currentLocation = location.hash;
-        router.listen();
-    }
-});
+// let section = document.getElementById('content-section');
+// section.addEventListener('click', (event) => {
+//     event.preventDefault();
+//     console.log('hi');
+// });
+
+export default Router;

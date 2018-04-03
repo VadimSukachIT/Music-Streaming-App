@@ -53,6 +53,12 @@ module.exports.logout = (ctx) => {
   ctx.state.user = {};
 };
 
+module.exports.getUser = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  ctx.body = user;
+};
+
 module.exports.getUserAlbums = (ctx, next) => {
   const user = { ...userService.findOne({ login: ctx.params.user }) };
 
@@ -87,4 +93,76 @@ module.exports.getUserArtists = (ctx, next) => {
     artistService.findOne({ _id: id }));
 
   ctx.body = artists;
+};
+
+module.exports.addArtist = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+  const artist = artistService.findOne({ _id: ctx.request.body._id });
+
+  if (user.artists.indexOf(artist._id) === -1) {
+    user.artists = [...user.artists, artist._id];
+    artist.followers += 1;
+  }
+
+  ctx.status = 200;
+};
+
+module.exports.removeArtist = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+  const artist = artistService.findOne({ _id: ctx.params.id });
+
+  if (user.artists.indexOf(artist._id) !== -1) {
+    user.artists = user.artists.filter(item => item !== artist._id);
+    artist.followers -= 1;
+  }
+
+  ctx.status = 200;
+};
+
+module.exports.addAlbum = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.albums = [...user.albums, ctx.request.body._id];
+
+  ctx.status = 200;
+};
+
+module.exports.removeAlbum = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.albums = user.albums.filter(item => item !== ctx.params.id);
+
+  ctx.status = 200;
+};
+
+module.exports.addTrack = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.tracks = [...user.tracks, ctx.request.body._id];
+
+  ctx.status = 200;
+};
+
+module.exports.removeTrack = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.tracks = user.tracks.filter(item => item !== ctx.params.id);
+
+  ctx.status = 200;
+};
+
+module.exports.addPlaylist = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.playlists = [...user.playlists, ctx.request.body._id];
+
+  ctx.status = 200;
+};
+
+module.exports.removePlaylist = (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+
+  user.playlists = user.playlists.filter(item => item !== ctx.params.id);
+
+  ctx.status = 200;
 };
