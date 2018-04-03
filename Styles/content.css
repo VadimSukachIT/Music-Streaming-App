@@ -461,13 +461,24 @@ footer #player-section #progress-section .time {
 .songs-styles #songs #song-menu {
   position: absolute;
   left: 70%;
-  height: 150px;
+  height: 116px;
   background: #282828;
   border: 1px solid rgba(0, 0, 0, 0.15);
   min-width: 160px;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+.songs-styles #songs #song-menu .menu-list {
+  width: 100%;
+  padding: 3px 20px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.songs-styles #songs #song-menu .menu-list:hover {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
 .songs-styles #songs .song {
   height: 60px;
@@ -600,13 +611,24 @@ footer #player-section #progress-section .time {
 #songs #song-menu {
   position: absolute;
   left: 70%;
-  height: 150px;
+  height: 116px;
   background: #282828;
   border: 1px solid rgba(0, 0, 0, 0.15);
   min-width: 160px;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+#songs #song-menu .menu-list {
+  width: 100%;
+  padding: 3px 20px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+}
+#songs #song-menu .menu-list:hover {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
 #songs .song {
   height: 60px;
@@ -818,6 +840,8 @@ footer #player-section #progress-section .time {
   width: 220px;
   height: 220px;
   border-radius: 110px;
+  background-size: cover;
+  background-position: center;
 }
 #artists .artist .hovered-part .icon {
   position: absolute;
@@ -969,13 +993,24 @@ footer #player-section #progress-section .time {
 #album-content #songs #song-menu {
   position: absolute;
   left: 70%;
-  height: 150px;
+  height: 116px;
   background: #282828;
   border: 1px solid rgba(0, 0, 0, 0.15);
   min-width: 160px;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+#album-content #songs #song-menu .menu-list {
+  width: 100%;
+  padding: 3px 20px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+}
+#album-content #songs #song-menu .menu-list:hover {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
 #album-content #songs .song {
   height: 60px;
@@ -1210,13 +1245,24 @@ footer #player-section #progress-section .time {
 #playlist-content #songs #song-menu {
   position: absolute;
   left: 70%;
-  height: 150px;
+  height: 116px;
   background: #282828;
   border: 1px solid rgba(0, 0, 0, 0.15);
   min-width: 160px;
   text-align: center;
   display: flex;
   flex-direction: column;
+}
+#playlist-content #songs #song-menu .menu-list {
+  width: 100%;
+  padding: 3px 20px;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.5);
+}
+#playlist-content #songs #song-menu .menu-list:hover {
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
 #playlist-content #songs .song {
   height: 60px;

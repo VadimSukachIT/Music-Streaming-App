@@ -4,16 +4,24 @@ let artists = [
     {
         _id: '1',
         name: 'Eminem',
-        smallCover: 'http://rollingstone.uol.com.br/media/images/large/2017/12/08/img-1046959-eminem.jpg',
+        smallCover: 'https://djbooth.net/.image/t_share/MTUzNDg2MDMwOTQwNTQ2OTI5/eminem-pre-fame-press-release-updatejpg.jpg',
         bigCover: 'https://i.scdn.co/image/5a4d488ed4e5f9bbb741d57b3a71e61d09794ce3',
         genres: [
             '1',
         ],
         albums: [
             '1',
+            '2',
+            '3',
+            '4',
+            '5'
         ],
         tracks: [
-          '1',
+            '1',
+            '2',
+            '3',
+            '4',
+            '5'
         ],
         followers: "5200",
     },
@@ -25,14 +33,21 @@ let artists = [
         genres: [
             '1',
         ],
-        // albums: [
-        //     '1',
-        // ],
         albums: [
-            "2"
+            "6",
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12'
         ],
         songs: [
-            "2"
+            "6",
+            "7",
+            '8',
+            '9',
+            '10'
         ],
         followers: "5200",
     },

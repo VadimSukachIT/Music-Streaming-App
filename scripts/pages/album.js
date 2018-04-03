@@ -53,7 +53,7 @@ class Album {
                 <span class="album-title">${albumInfo.title}</span>
                 <a class="album-artist" href="#album-artist">${albumInfo.artist}</a>
                 <span class="date-and-songs"><span class="album-date">${albumInfo.date}</span>    <span class="album-separator">•</span>    <span class="album-songs-number">${albumInfo.tracks.length} ПЕСНИ</span></span>
-                <button type="button" id="play-album-button">ИГРАТЬ</button>
+                <button type="button" id="play-album-button" class="play play-album">ИГРАТЬ</button>
                 <button type="button" id="save-album-button">СОХРАНИТЬ</button>
             </div>
                 <div id="songs"></div>

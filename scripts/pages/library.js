@@ -55,7 +55,7 @@ class Library {
                 contentHeader.remove();
             }
 
-            window.removeEventListener('click', Library.menuHandler);
+            // window.removeEventListener('click', Listener.createSongMenu);
             resolve();
         });
     }
@@ -76,7 +76,7 @@ class Library {
             if (mainContent) {
                 mainContent.remove();
             }
-            window.removeEventListener('click', Library.menuHandler);
+            // window.removeEventListener('click', Listener.createSongMenu);
             resolve();
         });
     }
@@ -88,7 +88,7 @@ class Library {
                   <div class="hovered-part">
                     <a href="#/album/${albumData._id}"> 
                       <div class="icon">
-                        <button type="button" class="play-icon"></button> 
+                        <button type="button" class="play-icon play play-album"></button> 
                       </div>   
                       <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
                       <span class="album-title">${albumData.title}</span>  
@@ -101,7 +101,7 @@ class Library {
               return div.firstChild;
             }
 
-        const songData = await getRequest(`api/user/${window.user}/albums`);
+        const albumData = await getRequest(`api/user/${window.user}/albums`);
 
         let mainContentSection = document.getElementById('main-content');
         let fragment = document.createElement('div');
@@ -121,7 +121,7 @@ class Library {
                        <div class="hovered-part">
                              <a href="#/darkavatar21/playlist/${playlistData._id}">
                                   <div class="icon">
-                                    <button type="button" class="play-icon"></button> 
+                                    <button type="button" class="play-icon play play-playlist"></button> 
                                   </div>  
                                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
                                   <span class="playlist-title">${playlistData.title}</span>
@@ -151,11 +151,11 @@ class Library {
 
     async loadSongs() {
       function createSong(songData) {
-        songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`
+        songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
           const SONG = `<div class="song">
           <div class="play-block">
              <span class="song-index">${songData.number}</span>
-             <button type="button" class="play-song"></button>
+             <button type="button" class="play-song play play-song"></button>
           </div>
           <div class="name-block">
                   <span class="song-name">${songData.name}</span>
@@ -186,8 +186,8 @@ class Library {
           fragment.append(song);
       });
       mainContentSection.append(fragment);
-      document.getElementById('main-content').addEventListener('click', Library.songsListener, false);
-      window.addEventListener('click', Library.menuHandler);
+      // document.getElementById('main-content').addEventListener('click', Listener.destroySongMenu, false);
+      // window.addEventListener('click', Listener.createSongMenu);
     }
 
     async loadArtists() {
@@ -197,9 +197,9 @@ class Library {
                        <div class="hovered-part">
                              <a href="#/artist/${artistData._id}">
                                   <div class="icon">
-                                    <button type="button" class="play-icon"></button> 
+                                    <button type="button" class="play-icon play play-artist"></button> 
                                   </div>  
-                                 <div class="artist-cover" style="background-image: url(${artistData.cover});"></div>
+                                 <div class="artist-cover" style="background-image: url(${artistData.smallCover});"></div>
                              </a>
                              <a href="#/artist/${artistData._id}"  class="artist-title">${artistData.name}</a>
                         </div>
@@ -243,36 +243,7 @@ class Library {
         };
     }
 
-    static songsListener(event) {
-        let target = event.target;
-        if (target.matches('.song-options-button')) {
-            event.stopPropagation();
-            let songFragment = target.closest('.song');
 
-            let currentMenu = document.getElementById('song-menu');
 
-            if (currentMenu) {
-                currentMenu.remove();
-            }
-
-            let menu = document.createElement('div');
-            menu.id = 'song-menu';
-
-            menu.innerHTML = `
-            <div class="song-menu"></div> 
-            `;
-
-            songFragment.append(menu);
-
-        }
-    };
-
-    static menuHandler() {
-        let menu = document.getElementById('song-menu');
-        console.log('hi');
-        if (menu) {
-            menu.remove();
-        }
-    }
 }
 

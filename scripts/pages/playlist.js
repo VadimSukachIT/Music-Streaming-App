@@ -47,7 +47,7 @@ class Playlist {
             let div = document.createElement('div');
             div.innerHTML = SONG.trim();
             return div.firstChild;
-        }
+        };
 
         const showPlaylist = (playlistInfo) => {
             const contentSection = document.getElementById('content-section');
@@ -58,12 +58,12 @@ class Playlist {
                     <span class="playlist-title">${playlistInfo.title}</span>
                     <a class="playlist-artist" href="#album-artist">${playlistInfo.artist}</a>
                     <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
-                    <button type="button" id="play-playlist-button">ИГРАТЬ</button>
+                    <button type="button" class="play play-playlist" id="play-playlist-button">ИГРАТЬ</button>
                     </div>
                     <div id="songs"></div>
                 </div>`;
             contentSection.innerHTML = res;
-        }
+        };
 
         showPlaylist(playlistInfo);
 
