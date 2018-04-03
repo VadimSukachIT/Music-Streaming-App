@@ -111,7 +111,7 @@ let albums = [
     ],
     dat: '2014',
     genreI: '1',
-    cove: 'https://upload.wikimedia.org/wikipedia/ru/thumb/3/3c/The_Hunting_Party_2014.jpg/1200px-The_Hunting_Party_2014.jpg',
+    cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/3/3c/The_Hunting_Party_2014.jpg/1200px-The_Hunting_Party_2014.jpg',
   },
   {
     _id: '8',
@@ -191,7 +191,7 @@ let albums = [
     ],
     date: '2000',
     genres: ['1'],
-    cove: 'https://upload.wikimedia.org/wikipedia/ru/archive/8/8e/20100228151217%21Linkin_Park_Hybrid_Theory.png',
+    cover: 'https://upload.wikimedia.org/wikipedia/ru/archive/8/8e/20100228151217%21Linkin_Park_Hybrid_Theory.png',
   },
 ];
 

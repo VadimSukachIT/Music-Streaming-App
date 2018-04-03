@@ -1,36 +1,36 @@
 import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
-import { Listener } from  'client/src/scripts/listeners.js';
+import {Listener} from 'client/src/scripts/listeners.js';
 import Playlist from "./playlist";
 
 class Album {
-  async init() {
-    const album = await getRequest(`api/album/${Album.getAlbumId()}`);
-    this.loadAlbum(album);
-    document.getElementById('save-album-button').addEventListener('click', Album.saveAlbumButtonListener);
-  }
-
-  destroy() {
-    document.getElementById('save-album-button').removeEventListener('click', Album.saveAlbumButtonListener);
-    const el = document.getElementById('album-content');
-    if (el) {
-      el.remove();
+    async init() {
+        const album = await getRequest(`api/album/${Album.getAlbumId()}`);
+        this.loadAlbum(album);
+        document.getElementById('save-album-button').addEventListener('click', Album.saveAlbumButtonListener);
     }
-  }
 
-  getPageData() {
-    return {
-      pageName: 'asd',
-      sectionName: 'asdasd',
-      sectionHandler: () => {
+    destroy() {
+        document.getElementById('save-album-button').removeEventListener('click', Album.saveAlbumButtonListener);
+        const el = document.getElementById('album-content');
+        if (el) {
+            el.remove();
+        }
+    }
 
-      },
-    };
-  }
+    getPageData() {
+        return {
+            pageName: 'asd',
+            sectionName: 'asdasd',
+            sectionHandler: () => {
 
-  async loadAlbum(album) {
-    function createSong(songData) {
-      songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
-      const SONG = `<div class="song" id="${songData._id}">
+            },
+        };
+    }
+
+    async loadAlbum(album) {
+        function createSong(songData) {
+            songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
+            const SONG = `<div class="song" id="${songData._id}">
               <div class="play-block">
                  <span class="song-index">${songData.number}</span>
                  <button type="button" class="play-song"></button>
@@ -49,13 +49,13 @@ class Album {
                           <div class="song-duration-block"><span class="song-duration">${songData.duration}</div>        
                   </div>
           </div>`;
-      const div = document.createElement('div');
-      div.innerHTML = SONG.trim();
-      return div.firstChild;
-    }
+            const div = document.createElement('div');
+            div.innerHTML = SONG.trim();
+            return div.firstChild;
+        }
 
-    const showAlbum = (albumInfo) => {
-      const albumPage = `
+        const showAlbum = (albumInfo) => {
+            const albumPage = `
         <div id="album-content">
           <div id="album-info">
             <div class="album-cover" style="background-image: url(${albumInfo.cover}) "></div>
@@ -71,35 +71,35 @@ class Album {
           </div>
             <div id="songs"></div>
         </div>`;
-      return albumPage;
-    };
+            return albumPage;
+        };
 
-    const showSongs = (songInfo) => {
-      const songs = document.createDocumentFragment();
+        const showSongs = (songInfo) => {
+            const songs = document.createDocumentFragment();
 
-      songInfo.forEach((songData, i) => {
-        songData.number = i + 1;
-        const song = createSong(songData);
-        songs.append(song);
-      });
+            songInfo.forEach((songData, i) => {
+                songData.number = i + 1;
+                const song = createSong(songData);
+                songs.append(song);
+            });
 
-      return songs;
-    };
+            return songs;
+        };
 
-    const contentSection = document.getElementById('content-section');
-    const albumPage = showAlbum(album);
-    const songs = showSongs(album.tracks);
-    contentSection.innerHTML = albumPage;
-    document.getElementById('songs').append(songs);
-  }
+        const contentSection = document.getElementById('content-section');
+        const albumPage = showAlbum(album);
+        const songs = showSongs(album.tracks);
+        contentSection.innerHTML = albumPage;
+        document.getElementById('songs').append(songs);
+    }
 
-  static getAlbumId() {
-    const reg = /\/album\/(.*)/;
-    return reg.exec(location.hash)[1];
-  }
+    static getAlbumId() {
+        const reg = /\/album\/(.*)/;
+        return reg.exec(location.hash)[1];
+    }
 
     static async saveAlbumButtonListener() {
-       let albumId = Album.getAlbumId();
+        let albumId = Album.getAlbumId();
 
         const album = JSON.stringify({
             _id: albumId,

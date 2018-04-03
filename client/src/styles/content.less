@@ -38,7 +38,6 @@ html, body {
   height: 100%;
   position: absolute;
 
-
   ::-webkit-scrollbar {
     display: none;
   }
@@ -83,6 +82,40 @@ html, body {
               .link-hover
             }
 
+          }
+
+        }
+      }
+
+      .new-playlist-block {
+        position: absolute;
+        right: 50px;
+
+        #create-playlist-button {
+          font-size: 11px;
+          font-weight: 200;
+          text-transform: uppercase;
+          letter-spacing: .16em;
+          transition: none 33ms cubic-bezier(.3, 0, .7, 1);
+          transition-property: all;
+          color: #fff;
+          margin-top: 16px;
+          display: inline-block;
+          margin-bottom: 0;
+          text-align: center;
+          border: 0;
+          border-radius: 500px;
+          padding: 13px;
+          min-width: 130px;
+          white-space: normal;
+          will-change: transform;
+          line-height: 1.6;
+          background-color: #1ed760;
+
+          &:hover {
+            transition: none 33ms cubic-bezier(.3, 0, 0, 1);
+            transition-property: all;
+            transform: scale(1.06);
           }
 
         }

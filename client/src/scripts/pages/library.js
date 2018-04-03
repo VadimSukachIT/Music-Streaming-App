@@ -27,6 +27,9 @@ class Library {
               <li class="songs tag"><a href="#/library/songs">Песни</a></li>
               <li class="artists tag"><a href="#/library/artists">Исполнители</a></li>
             </ul>
+            <div class="new-playlist-block">
+                <button type="button" id="create-playlist-button">Новый плейлист</button>
+            </div>
           </div>`;
         const div = document.createElement('div');
         div.innerHTML = header.trim();
@@ -183,7 +186,6 @@ class Library {
     fragment.id = 'songs';
 
     songData.forEach((songInfo, i) => {
-      console.log(songData);
       songInfo.number = i + 1;
       const song = createSong(songInfo);
       fragment.append(song);

@@ -26,7 +26,6 @@ class Router {
 
   check(frag) {
     const fragment = frag || this.getFragment();
-    console.log(fragment);
     for (const [reg, PageObject] of this.routes.entries()) {
       if (reg.test(fragment)) {
         return PageObject;
@@ -38,7 +37,6 @@ class Router {
   listen() {
     const current = this.getFragment();
     const page = this.check(current);
-    console.log(page);
     const { pageName, sectionName } = page.getPageData(current);
     if (!this.currentPage) {
       page.init();
