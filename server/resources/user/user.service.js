@@ -13,7 +13,11 @@ let accounts = [{
   tracks: [
     '1',
   ],
-  artists: [],
+  artists: [
+    '1',
+  ],
+  currentPlaylist: [],
+  currentTrack: {},
 }];
 
 const service = {};

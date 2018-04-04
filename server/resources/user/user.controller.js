@@ -61,6 +61,8 @@ module.exports.getUser = (ctx, next) => {
     tracks,
     playlists,
     login,
+    currentTrack,
+    currentPlaylist,
   } = userService.findOne({ login: ctx.params.user });
 
   const user = {
@@ -70,6 +72,8 @@ module.exports.getUser = (ctx, next) => {
     tracks,
     playlists,
     login,
+    currentTrack,
+    currentPlaylist,
   };
 
   ctx.body = user;
@@ -181,4 +185,21 @@ module.exports.removePlaylist = (ctx, next) => {
   user.playlists = user.playlists.filter(item => item !== ctx.params.id);
 
   ctx.body = {};
+};
+
+module.exports.setCurrentTrack = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  user.currentTrack = trackService.findOne({ _id: ctx.request.body._id });
+
+  ctx.body = user.currentTrack;
+};
+
+module.exports.setCurrentPlaylist = (ctx, next) => {
+  const user = { ...userService.findOne({ login: ctx.params.user }) };
+
+  user.currentPlaylist = ctx.request.body;
+  user.currentTrack = trackService.findOne({ _id: ctx.request.body[0] });
+
+  ctx.body = user.currentTrack;
 };

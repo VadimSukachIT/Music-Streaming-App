@@ -9,6 +9,8 @@ router.get('/:user/playlists', controller.getUserPlaylists);
 router.get('/:user/albums', controller.getUserAlbums);
 router.get('/:user/tracks', controller.getUserTracks);
 router.get('/:user/artists', controller.getUserArtists);
+router.post('/:user/current', controller.setCurrentTrack);
+router.post('/:user/playlist', controller.setCurrentPlaylist);
 router.post('/:user/artists', controller.addArtist);
 router.post('/:user/albums', controller.addAlbum);
 router.post('/:user/tracks', controller.addTrack);
