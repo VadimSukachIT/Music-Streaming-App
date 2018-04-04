@@ -93,12 +93,15 @@ class Listener {
 
             async function dialogListener(event) {
                 let target = event.target;
+
                 if (target.closest('.cancel-btn')) {
                     let dialog = document.getElementById('add-song-dialog');
                     dialog.removeEventListener('click', dialogListener, false);
                     dialog.remove();
 
                 } else if (target.closest('.playlist')) {
+                    event.stopPropagation();
+                    event.preventDefault();
                     let playlist = target.closest('.playlist'),
                         playlistId = playlist.id;
 
@@ -109,8 +112,10 @@ class Listener {
                     playlistObject.tracks.push(songId);
                     const newPlaylist = JSON.stringify({ ...playlistObject });
                     await putRequest(`api/playlist/${playlist._id}`, newPlaylist);
+                    addSongDialog.removeEventListener('click', dialogListener, false);
+                    addSongDialog.remove();
                 } else if (target.closest('#create-playlist-button')) {
-                    Library.showPlaylistCreationDialog();
+                   Library.showPlaylistCreationDialog();    
                 }
             }
 
