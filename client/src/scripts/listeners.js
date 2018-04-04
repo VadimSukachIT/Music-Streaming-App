@@ -1,4 +1,4 @@
-import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import {getRequest, postRequest, deleteRequest, putRequest} from 'scripts/requestHelper';
 import Library from "./pages/library";
 
 class Listener {
@@ -43,27 +43,28 @@ class Listener {
     static songMenuListener(event) {
 
         function addSongToPlaylistDialog() {
+            let songId = event.target.closest('.song').id;
+            let playlistsData = null;
 
             async function loadPlaylists() {
 
                 function createPlaylist(playlistData) {
                     const PLAYLIST = `
-        <div class="playlist">
-          <div class="hovered-part">
-            <a href="#/darkavatar21/playlist/${playlistData._id}">
-              <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
-              <span class="playlist-title">${playlistData.title}</span>
-            </a>
-          </div>
-        </div>`;
+            <div class="playlist" id="${playlistData._id}">
+              <div class="hovered-part">
+                <a href="#/darkavatar21/playlist/${playlistData._id}">
+                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+                  <span class="playlist-title">${playlistData.title}</span>
+                </a>
+              </div>
+            </div>`;
 
                     const div = document.createElement('div');
                     div.innerHTML = PLAYLIST.trim();
                     return div.firstChild;
                 }
 
-                const playlistsData = await getRequest(`api/user/${window.user.login}/playlists`);
-                console.log(playlistsData);
+                playlistsData = await getRequest(`api/user/${window.user.login}/playlists`);
 
                 const mainContentSection = document.getElementById('main-content');
                 const fragment = document.createElement('div');
@@ -83,13 +84,13 @@ class Listener {
             addSongDialog.id = "add-song-dialog";
 
             addSongDialog.innerHTML = `
-                 <div class="dialog-header">
-                     <button type="button" class="first-cancel-creation-button cancel-btn"></button>
-                     <h1>Добавить в плейлист</h1>
-                     <button type="button" id="create-playlist-button">Новый плейлист</button>
-                 </div>
-                 <div id="playlists"></div>
-                  `;
+                     <div class="dialog-header">
+                         <button type="button" class="first-cancel-creation-button cancel-btn"></button>
+                         <h1>Добавить в плейлист</h1>
+                         <button type="button" id="create-playlist-button">Новый плейлист</button>
+                     </div>
+                     <div id="playlists"></div>
+                      `;
 
             document.getElementById('content-section').append(addSongDialog);
             loadPlaylists();
@@ -102,8 +103,21 @@ class Listener {
                     let dialog = document.getElementById('add-song-dialog');
                     dialog.removeEventListener('click', dialogListener, false);
                     dialog.remove();
+
                 } else if (target.closest('.playlist')) {
-                    
+                    let playlist = target.closest('.playlist'),
+                        playlistId = playlist.id;
+                    console.log(playlistsData);
+
+                    let playlistObject = playlistsData.find(function (el) {
+                        return el._id === playlistId;
+                    });
+
+                    playlistObject.tracks.push(songId);
+                    const newPlaylist = JSON.stringify({...playlist});
+                    putRequest(`api/playlist/${playlist._id}`, newPlaylist);
+                    console.log(playlistObject.tracks);
+
                 } else if (target.closest('#create-playlist-button')) {
                     Library.showPlaylistCreationDialog();
                 }
