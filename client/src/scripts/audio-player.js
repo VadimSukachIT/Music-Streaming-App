@@ -1,3 +1,5 @@
+import audio from 'tracks/LoseYourself.mp3';
+
 class Player {
     constructor() {
         this.playButton = document.getElementById('play-song-button');

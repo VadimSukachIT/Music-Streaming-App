@@ -40,6 +40,9 @@ module.exports = {
     }, {
       test: /\.mp3$/,
       loader: 'file-loader',
+      query: {
+        name: 'media/[name].[hash:8].[ext]',
+      },
     }],
   },
 
@@ -53,7 +56,7 @@ module.exports = {
 
   resolve: {
     modules: ['./', 'node_modules'],
-    extensions: ['.js', '.less'],
+    extensions: ['.js', '.less', '.mp3'],
   },
 
   plugins: [
