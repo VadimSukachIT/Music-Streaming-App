@@ -109,9 +109,9 @@ service.findOne = (query) => {
 };
 
 service.update = (obj) => {
-  const index = playlists.findIndex(item => item._id === obj._id);
-  playlists[index] = obj;
-  return obj;
+  let playlist = playlists.find(item => item._id === obj._id);
+  playlist = obj;
+  return playlist;
 };
 
 service.remove = (query) => {

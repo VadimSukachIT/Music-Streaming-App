@@ -1,4 +1,4 @@
-import {getRequest, postRequest, deleteRequest, putRequest} from 'scripts/requestHelper';
+import { getRequest, postRequest, deleteRequest, putRequest } from 'scripts/requestHelper';
 import Library from "./pages/library";
 
 class Listener {
@@ -97,7 +97,7 @@ class Listener {
 
             addSongDialog.addEventListener('click', dialogListener, false);
 
-            function dialogListener(event) {
+            async function dialogListener(event) {
                 let target = event.target;
                 if (target.closest('.cancel-btn')) {
                     let dialog = document.getElementById('add-song-dialog');
@@ -107,17 +107,15 @@ class Listener {
                 } else if (target.closest('.playlist')) {
                     let playlist = target.closest('.playlist'),
                         playlistId = playlist.id;
-                    console.log(playlistsData);
 
                     let playlistObject = playlistsData.find(function (el) {
                         return el._id === playlistId;
                     });
 
                     playlistObject.tracks.push(songId);
-                    const newPlaylist = JSON.stringify({...playlist});
-                    putRequest(`api/playlist/${playlist._id}`, newPlaylist);
-                    console.log(playlistObject.tracks);
-
+                    const newPlaylist = JSON.stringify({ ...playlistObject });
+                    await putRequest(`api/playlist/${playlist._id}`, newPlaylist);
+                    // hide dialog
                 } else if (target.closest('#create-playlist-button')) {
                     Library.showPlaylistCreationDialog();
                 }

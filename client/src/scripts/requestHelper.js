@@ -45,8 +45,17 @@ const putRequest = (url, body) => {
     const xhr = new XMLHttpRequest(); // Usual mix-and-matching for x-browser omitted for brevity
     xhr.open('PUT', `${apiAddress}/${url}`, true);
 
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(JSON.parse(xhr.responseText));
+        } else {
+          reject();
+        }
+      }
+    };
 
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(body);
   });
 };

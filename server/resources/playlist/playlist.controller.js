@@ -35,8 +35,10 @@ module.exports.createPlaylist = (ctx, next) => {
 module.exports.updatePlaylist = (ctx, next) => {
   const playlist = ctx.request.body;
 
-  playlistService.update(playlist);
+  const newObj = playlistService.update(playlist);
+
   ctx.status = 200;
+  ctx.body = newObj;
 };
 
 module.exports.removePlaylist = (ctx, next) => {
