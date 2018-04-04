@@ -274,25 +274,25 @@ class Library {
         }
 
 
-        const PLAYLIST_CREATION_DIALOG = `
-            <button type="button" class="first-cancel-creation-button cancel-btn"></button>
-            <h1>Создать новый плейлист</h1>
-            <div class="dialog-input">
-                <h3>Название плейлиста</h3>
-                <input type="text" id="input-dialog-input" placeholder="Начните печатать...">
-            </div>
-            <div class="dialog-buttons">
-                <button type="button" class="second-cancel-creation-button cancel-btn">Отменить</button>
-                <button type="button" class="create-playlist-button">Создать</button>
-            </div>`;
+            const PLAYLIST_CREATION_DIALOG = `
+                <button type="button" class="first-cancel-creation-button cancel-btn"></button>
+                <h1>Создать новый плейлист</h1>
+                <div class="dialog-input">
+                    <h3>Название плейлиста</h3>
+                    <input type="text" id="input-dialog-input" placeholder="Начните печатать...">
+                </div>
+                <div class="dialog-buttons">
+                    <button type="button" class="second-cancel-creation-button cancel-btn">Отменить</button>
+                    <button type="button" class="create-playlist-button">Создать</button>
+                </div>`;
 
-        let dialogMenu = document.createElement('div');
-        dialogMenu.id = "playlist-creation-dialog";
-        dialogMenu.innerHTML = PLAYLIST_CREATION_DIALOG;
+            let dialogMenu = document.createElement('div');
+            dialogMenu.id = "playlist-creation-dialog";
+            dialogMenu.innerHTML = PLAYLIST_CREATION_DIALOG;
 
-        document.getElementById('content-section').append(dialogMenu);
+            document.getElementById('content-section').append(dialogMenu);
 
-        dialogMenu.addEventListener('click', dialogListener, false);
+            dialogMenu.addEventListener('click', dialogListener, false);
     }
 }
 

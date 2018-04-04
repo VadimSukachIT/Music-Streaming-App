@@ -1,0 +1,84 @@
+#add-song-dialog {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .9);
+  z-index: 104;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  color: white;
+
+  .dialog-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+
+    .first-cancel-creation-button {
+      font-size: 11px;
+      font-weight: 200;
+      height: 35px;
+      max-width: 150px;
+      text-transform: uppercase;
+      transition: none 33ms cubic-bezier(.3, 0, .7, 1);
+      transition-property: all;
+      color: #fff;
+      margin-top: 16px;
+      display: inline-block;
+      border-radius: 500px;
+      padding: 13px;
+      min-width: 130px;
+      line-height: 1.6;
+      vertical-align: middle;
+      background: url("../icons/close-creation.svg") no-repeat center;
+      background-size: contain;
+      cursor: pointer;
+
+      &:hover {
+        transition: none 33ms cubic-bezier(.3, 0, 0, 1);
+        transition-property: all;
+        transform: scale(1.06);
+      }
+    }
+
+    h1 {
+      font-size: 60px;
+      line-height: 25px;
+    }
+
+    #create-playlist-button {
+      font-size: 11px;
+      font-weight: 200;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      transition: none 33ms cubic-bezier(.3, 0, .7, 1);
+      transition-property: all;
+      color: #fff;
+      margin-top: 16px;
+      display: inline-block;
+      margin-bottom: 0;
+      text-align: center;
+      border-radius: 500px;
+      padding: 13px;
+      min-width: 130px;
+      white-space: normal;
+      will-change: transform;
+      line-height: 1.6;
+      background-color: #1ed760;
+      cursor: pointer;
+
+      &:hover {
+        transition: none 33ms cubic-bezier(.3, 0, 0, 1);
+        transition-property: all;
+        transform: scale(1.06);
+      }
+
+    }
+  }
+}
