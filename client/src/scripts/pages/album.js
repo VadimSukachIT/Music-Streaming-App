@@ -60,7 +60,7 @@ class Album {
           <div id="album-info">
             <div class="album-cover" style="background-image: url(${albumInfo.cover}) "></div>
             <span class="album-title">${albumInfo.title}</span>
-            <a class="album-artist" href="#artist/${albumInfo.artistId}">${albumInfo.artist}</a>
+            <a class="album-artist" href="#/artist/${albumInfo.artistId}">${albumInfo.artist}</a>
             <span class="date-and-songs">
               <span class="album-date">${albumInfo.date}</span>
               <span class="album-separator">•</span>
@@ -110,11 +110,11 @@ class Album {
                 _id: albumId,
             });
             await postRequest(`api/user/${window.user.login}/albums`, album);
-            target.innerText = 'Сохранено';
+            target.innerText = 'Удалить';
             window.user.albums.push(albumId);
         } else {
             await deleteRequest(`api/user/${window.user.login}/albums/${albumId}`);
-            target.innerText = 'Удалено';
+            target.innerText = 'Сохранить';
             window.user.albums = window.user.albums.filter(item => item !== albumId);
         }
     }

@@ -132,6 +132,7 @@ service.create = (obj) => {
   const newObj = obj;
   newObj._id = generateId();
   playlists.push(newObj);
+  return newObj;
 };
 
 module.exports = service;

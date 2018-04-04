@@ -54,7 +54,23 @@ module.exports.logout = (ctx) => {
 };
 
 module.exports.getUser = (ctx, next) => {
-  const user = { ...userService.findOne({ login: ctx.params.user }) };
+  const {
+    _id,
+    artists,
+    albums,
+    tracks,
+    playlists,
+    login,
+  } = userService.findOne({ login: ctx.params.user });
+
+  const user = {
+    _id,
+    artists,
+    albums,
+    tracks,
+    playlists,
+    login,
+  };
 
   ctx.body = user;
 };
@@ -104,7 +120,7 @@ module.exports.addArtist = (ctx, next) => {
     artist.followers += 1;
   }
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.removeArtist = (ctx, next) => {
@@ -116,7 +132,7 @@ module.exports.removeArtist = (ctx, next) => {
     artist.followers -= 1;
   }
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.addAlbum = (ctx, next) => {
@@ -124,7 +140,7 @@ module.exports.addAlbum = (ctx, next) => {
 
   user.albums = [...user.albums, ctx.request.body._id];
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.removeAlbum = (ctx, next) => {
@@ -132,7 +148,7 @@ module.exports.removeAlbum = (ctx, next) => {
 
   user.albums = user.albums.filter(item => item !== ctx.params.id);
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.addTrack = (ctx, next) => {
@@ -140,7 +156,7 @@ module.exports.addTrack = (ctx, next) => {
 
   user.tracks = [...user.tracks, ctx.request.body._id];
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.removeTrack = (ctx, next) => {
@@ -148,7 +164,7 @@ module.exports.removeTrack = (ctx, next) => {
 
   user.tracks = user.tracks.filter(item => item !== ctx.params.id);
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.addPlaylist = (ctx, next) => {
@@ -156,7 +172,7 @@ module.exports.addPlaylist = (ctx, next) => {
 
   user.playlists = [...user.playlists, ctx.request.body._id];
 
-  ctx.status = 200;
+  ctx.body = {};
 };
 
 module.exports.removePlaylist = (ctx, next) => {
@@ -164,5 +180,5 @@ module.exports.removePlaylist = (ctx, next) => {
 
   user.playlists = user.playlists.filter(item => item !== ctx.params.id);
 
-  ctx.status = 200;
+  ctx.body = {};
 };

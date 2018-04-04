@@ -2,7 +2,7 @@ import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 
 class Playlist {
   async init() {
-    const playlistInfo = await getRequest('api/playlist/1');
+    const playlistInfo = await getRequest(`api/playlist/${Playlist.getPlaylistId()}`);
     this.loadPlaylist(playlistInfo);
     document.getElementById('save-playlist-button').addEventListener('click', Playlist.savePlaylistButtonListener);
   }
@@ -35,7 +35,7 @@ class Playlist {
               </div>
               <div class="name-block">
                       <span class="song-name">${songData.name}</span>
-                      <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
+                      <span class="artist-and-album"> <a class="song-artist" href="#/artist/${songData.artistId}">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
                   </div>
                   <div class="options-block">              
                           <div class="options-menu">
@@ -59,7 +59,9 @@ class Playlist {
               <span class="playlist-title">${playlistInfo.title}</span>
               <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
               <button type="button" class="play play-playlist" id="play-playlist-button">ИГРАТЬ</button>
-                <button type="button" id="save-playlist-button">СОХРАНИТЬ</button>
+                <button type="button" id="save-playlist-button">
+                  ${window.user.playlists.indexOf(playlistInfo._id) === -1 ? 'СОХРАНИТЬ' : 'Удалить'}
+                </button>
             </div>
           <div id="songs"></div>
         </div>`;
@@ -86,19 +88,22 @@ class Playlist {
         return reg.exec(location.hash)[1];
     }
 
-    static async savePlaylistButtonListener() {
-        const playlistId = Playlist.getPlaylistId();
-        const isAdded = window.user.playlists.indexOf(playlistId) !== -1;
+    static async savePlaylistButtonListener(event) {
+      const { target } = event;
+      const playlistId = Playlist.getPlaylistId();
+      const isAdded = window.user.playlists.indexOf(playlistId) !== -1;
 
-        if (isAdded) {
-          const album = JSON.stringify({
-            _id: playlistId,
+      if (!isAdded) {
+        const album = JSON.stringify({
+          _id: playlistId,
         });
-        window.user.playlists.push(playlistId);
         await postRequest(`api/user/${window.user.login}/playlists`, album);
+        window.user.playlists.push(playlistId);
+        target.innerText = 'Удалить';
       } else {
-        window.user.playlists = window.user.playlists.filter(item => item !== playlistId);
         await deleteRequest(`api/user/${window.user.login}/playlists/${playlistId}`);
+        window.user.playlists = window.user.playlists.filter(item => item !== playlistId);
+        target.innerText = 'Сохранить';
       }
     }
 }

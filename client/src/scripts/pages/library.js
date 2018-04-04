@@ -245,6 +245,24 @@ class Library {
     }
 
     static showPlaylistCreationDialog() {
+        function createPlaylist(playlistData) {
+            const PLAYLIST = `
+        <div class="playlist">
+          <div class="hovered-part">
+            <a href="#/darkavatar21/playlist/${playlistData._id}">
+              <div class="icon">
+                <button type="button" class="play-icon play play-playlist"></button> 
+              </div>  
+              <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+              <span class="playlist-title">${playlistData.title}</span>
+            </a>
+          </div>
+        </div>`;
+
+            const div = document.createElement('div');
+            div.innerHTML = PLAYLIST.trim();
+            return div.firstChild;
+        }
 
         async function dialogListener(event) {
             let target = event.target;
@@ -268,7 +286,15 @@ class Library {
                         userId: window.user._id,
                     });
 
-                    await postRequest(`api/playlist`, playlist);
+                    const playlistsData = await postRequest('api/playlist', playlist);
+                    let dialogMenu = document.getElementById('playlist-creation-dialog');
+                    dialogMenu.removeEventListener('click', dialogListener, false);
+                    dialogMenu.remove();
+                    const fragment = document.getElementById('playlists');
+                    if (fragment) {
+                        const playlistBlock = createPlaylist(playlistsData);
+                        fragment.append(playlistBlock);
+                    }
                 }
             }
         }
