@@ -1,6 +1,7 @@
 import { getRequest, postRequest, deleteRequest, putRequest } from 'scripts/requestHelper';
 import Library from "./pages/library";
 
+
 class Listener {
     static destroySongMenu() {
         const menu = document.getElementById('song-menu');
@@ -115,12 +116,11 @@ class Listener {
                     addSongDialog.removeEventListener('click', dialogListener, false);
                     addSongDialog.remove();
                 } else if (target.closest('#create-playlist-button')) {
-                   Library.showPlaylistCreationDialog();    
+                   Library.showPlaylistCreationDialog();
                 }
             }
 
         }
-
 
         async function saveSong(target) {
             let song = target.closest('.song');
@@ -150,26 +150,8 @@ class Listener {
         }
     }
 
-    static playButtonsListener(event) {
-        const {target} = event;
-
-        if (target.matches('.play')) {
-            if (target.matches('.play-song')) {
-                console.log('song');
-            } else if (target.matches('.play-album')) {
-                console.log('album');
-            } else if (target.matches('.play-playlist')) {
-                console.log('playlist');
-            } else if (target.matches('.play-artist')) {
-                console.log('artist');
-            }
-        }
-    }
-
-
 }
 
-window.addEventListener('click', Listener.playButtonsListener, false);
 window.addEventListener('click', Listener.destroySongMenu);
 window.addEventListener('click', Listener.createSongMenu);
 

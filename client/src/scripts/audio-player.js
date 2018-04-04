@@ -1,22 +1,29 @@
-export default () => {
-  const playerButtonsSection = document.getElementById('player-buttons');
-  const progressBar = document.getElementById('song-progress-bar');
+import Library from "./pages/library";
 
-  const playButton = document.getElementById('play-song-button');
-  const pauseButton = document.getElementById('');
-  const nextSongButton = document.getElementById('play-next-song-button');
-  const priviousSongButton = document.getElementById('play-previous-song-button');
-  const repeatSongButton = document.getElementById('repeat-song-button');
-  const shuffleSongsButton = document.getElementById('shuffle-song-button');
+class Player {
+    constructor() {
+        this.playButton = document.getElementById('play-song-button');
+        this.nextSongButton =document.getElementById('play-next-song-button');
+        this.previousSongButton = document.getElementById('play-previous-song-button');
+        this.repeatSongButton = document.getElementById('repeat-song-button');
+        this.shuffleSongButton =  document.getElementById('shuffle-song-button');
+        this.progressBar = document.getElementById('song-progress-bar');
+    }
 
-  playerButtonsSection.addEventListener('click', (event) => {
-    const { target } = event;
-    console.log(target);
-  });
+    static playButtonsListener(event) {
+        const {target} = event;
 
-  progressBar.addEventListener('change', (event) => {
-    const myAudio = {};
-    myAudio.currentTime = progressBar.value;
-    console.log(progressBar.value);
-  });
-};
+        if (target.matches('.play')) {
+            if (target.matches('.play-song')) {
+            } else if (target.matches('.play-album')) {
+                console.log('album');
+            } else if (target.matches('.play-playlist')) {
+                console.log('playlist');
+            } else if (target.matches('.play-artist')) {
+                console.log('artist');
+            }
+        }
+}
+}
+
+export default Player
