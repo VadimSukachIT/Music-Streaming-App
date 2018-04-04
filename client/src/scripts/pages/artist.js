@@ -166,8 +166,8 @@ class Artist {
         async function stopFollowing() {
             target.classList.toggle('followed');
             target.innerText = 'Подписаться';
+            window.user.artists = window.user.artists.filter(item => item !== id);
             await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
-            window.user = await getRequest('api/user/darkavatar21');
         }
 
         async function startFollowing() {
@@ -176,9 +176,8 @@ class Artist {
             const artist = JSON.stringify({
                 _id: id,
             });
+            window.user.artists.push(id);
             await postRequest(`api/user/${window.user.login}/artists`, artist);
-            window.user = await getRequest('api/user/darkavatar21');
-
         }
 
         if (target.classList.contains('followed')) {
