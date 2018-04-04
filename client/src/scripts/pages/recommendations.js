@@ -84,15 +84,13 @@ class Recommendations {
     function createPlaylist(playlistData) {
       const PLAYLIST = `
         <div class="playlist">
-          <div class="hovered-part">
-            <a href="#/user/darkavatar21/playlist/${playlistData._id}">
+            <a class="hovered-part" href="#/user/darkavatar21/playlist/${playlistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon"></button> 
               </div>  
-              <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+              <img class="playlist-cover" src="${playlistData.cover}"></img>
+              <span class="playlist-title">${playlistData.title}</span>
             </a>
-            <a href="#/user/darkavatar21/playlist/${playlistData._id}"  class="playlist-title">${playlistData.title}</a>
-          </div>
         </div>`;
 
       const div = document.createElement('div');
@@ -117,15 +115,13 @@ class Recommendations {
         function createPlaylist(playlistData) {
           const PLAYLIST = `
             <div class="playlist">
-              <div class="hovered-part">
-                <a href="#/user/darkavatar21/playlist/${playlistData._id}">
+                <a class="hovered-part" href="#/user/darkavatar21/playlist/${playlistData._id}">
                   <div class="icon">
                     <button type="button" class="play-icon"></button> 
                   </div>  
-                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+                  <img class="playlist-cover" src="${playlistData.cover}"></img>
+                  <span class="playlist-title">${playlistData.title}</span>
                 </a>
-                <a href="#/user/darkavatar21/playlist/${playlistData._id}"  class="playlist-title">${playlistData.title}</a>
-              </div>
               <a href="#/artist/${playlistData.artistId}" class="playlist-artist">${playlistData.artist}</a>
             </div>`;
 
@@ -150,12 +146,10 @@ class Recommendations {
     function showGenre(genreData) {
       const GENRE = `
         <div class="genre">
-          <div class="hovered-part">
-            <a href="#/genre/${genreData._id}"> 
+            <a class="hovered-part" href="#/genre/${genreData._id}"> 
               <img class="genre-cover" style="background-image: url(${genreData.cover});" src="${genreData.icon}"></img>
               <span class="genre-title">${genreData.title}</span>
             </a>
-          </div>
         </div>`;
 
       const div = document.createElement('div');
@@ -179,18 +173,16 @@ class Recommendations {
 
         function createPlaylist(playlistData) {
           const PLAYLIST = `
-                     <div class="playlist">
-                       <div class="hovered-part">
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}">
-                                  <div class="icon">
-                                    <button type="button" class="play-icon"></button> 
-                                  </div>  
-                                 <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
-                             </a>
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}"  class="playlist-title">${playlistData.title}</a>
-                        </div>
-                        <a href="#/user/darkavatar21" class="playlist-artist">${playlistData.artist}</a>
-                    </div>`;
+            <div class="playlist">
+              <a class="hovered-part" href="#/user/darkavatar21/playlist/${playlistData.id}">
+                  <div class="icon">
+                    <button type="button" class="play-icon"></button> 
+                  </div>  
+                  <img class="playlist-cover" src="${playlistData.cover}"></img>
+                  <span  class="playlist-title">${playlistData.title}</span>
+              </a>
+              <a href="#/user/darkavatar21" class="playlist-artist">${playlistData.artist}</a>
+            </div>`;
 
           const div = document.createElement('div');
           div.innerHTML = PLAYLIST.trim();

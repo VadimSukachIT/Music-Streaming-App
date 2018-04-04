@@ -91,15 +91,13 @@ class Library {
         function createAlbum(albumData) {
             const ALBUM = `
         <div class="album">
-          <div class="hovered-part">
-            <a href="#/album/${albumData._id}"> 
+            <a class="hovered-part" href="#/album/${albumData._id}"> 
               <div class="icon">
                 <button type="button" class="play-icon play play-album"></button> 
               </div>   
               <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
               <span class="album-title">${albumData.title}</span>  
             </a>
-          </div>
           <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
         </div>`;
             const div = document.createElement('div');
@@ -123,15 +121,13 @@ class Library {
         function createPlaylist(playlistData) {
             const PLAYLIST = `
         <div class="playlist">
-          <div class="hovered-part">
-            <a href="#/darkavatar21/playlist/${playlistData._id}">
+            <a class="hovered-part" href="#/darkavatar21/playlist/${playlistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon play play-playlist"></button> 
               </div>  
-              <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+              <img class="playlist-cover" src="${playlistData.cover}"></img>
               <span class="playlist-title">${playlistData.title}</span>
             </a>
-          </div>
         </div>`;
 
             const div = document.createElement('div');
@@ -197,15 +193,13 @@ class Library {
         function createArtist(artistData) {
             const ARTIST = `
         <div class="artist">
-          <div class="hovered-part">
-            <a href="#/artist/${artistData._id}">
+            <a class="hovered-part" href="#/artist/${artistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon play play-artist"></button> 
               </div>  
               <div class="artist-cover" style="background-image: url(${artistData.smallCover});"></div>
+              <span class="artist-title">${artistData.name}</span>
             </a>
-            <a href="#/artist/${artistData._id}"  class="artist-title">${artistData.name}</a>
-          </div>
         </div>`;
 
             const div = document.createElement('div');
@@ -248,15 +242,13 @@ class Library {
         function createPlaylist(playlistData) {
             const PLAYLIST = `
         <div class="playlist">
-          <div class="hovered-part">
-            <a href="#/darkavatar21/playlist/${playlistData._id}">
+            <a class="hovered-part" href="#/darkavatar21/playlist/${playlistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon play play-playlist"></button> 
               </div>  
-              <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+              <img class="playlist-cover" src="${playlistData.cover}"></img>
               <span class="playlist-title">${playlistData.title}</span>
             </a>
-          </div>
         </div>`;
 
             const div = document.createElement('div');

@@ -19,15 +19,13 @@ class Artist {
         function createAlbum(albumData) {
             const ALBUM = `
         <div class="album">
-          <div class="hovered-part">
-              <a href="#/album/${albumData._id}"> 
+              <a class="hovered-part" href="#/album/${albumData._id}"> 
                   <div class="icon">
                     <button type="button" class="play-icon"></button> 
                   </div>   
                   <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
                   <span class="album-title">${albumData.title}</span>  
-              </a>                      
-          </div>
+              </a>
         </div>`;
 
             const div = document.createElement('div');

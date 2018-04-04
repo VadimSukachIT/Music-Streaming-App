@@ -51,12 +51,10 @@ class Listener {
                 function createPlaylist(playlistData) {
                     const PLAYLIST = `
             <div class="playlist" id="${playlistData._id}">
-              <div class="hovered-part">
-                <a href="#/darkavatar21/playlist/${playlistData._id}">
-                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+                <a class="hovered-part" href="#/darkavatar21/playlist/${playlistData._id}">
+                  <img class="playlist-cover" src="${playlistData.cover}"></img>
                   <span class="playlist-title">${playlistData.title}</span>
                 </a>
-              </div>
             </div>`;
 
                     const div = document.createElement('div');
@@ -66,17 +64,13 @@ class Listener {
 
                 playlistsData = await getRequest(`api/user/${window.user.login}/playlists`);
 
-                const mainContentSection = document.getElementById('main-content');
-                const fragment = document.createElement('div');
-                fragment.id = 'playlists';
+                const fragment = document.getElementById('playlists');
 
 
                 playlistsData.forEach((playlistInfo) => {
                     const playlist = createPlaylist(playlistInfo);
                     fragment.append(playlist);
                 });
-
-                document.getElementById('playlists').append(fragment);
 
             }
 

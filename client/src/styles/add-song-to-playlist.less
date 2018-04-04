@@ -12,11 +12,16 @@
   height: 100%;
   color: white;
 
+  #playlists {
+    overflow-y: scroll;
+  }
+
   .dialog-header {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 230px;
     width: 100%;
     margin-top: 40px;
 
@@ -60,8 +65,6 @@
       transition: none 33ms cubic-bezier(.3, 0, .7, 1);
       transition-property: all;
       color: #fff;
-      margin-top: 16px;
-      margin-bottom: 40px;
       display: inline-block;
       text-align: center;
       border-radius: 500px;
