@@ -1,4 +1,4 @@
-import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 
 class Artist {
     async init() {
@@ -44,7 +44,7 @@ class Artist {
                       </div>
                       <div class="name-block">
                               <span class="song-name">${songData.name}</span>
-                              <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
+                              <span class="artist-and-album"> <a class="song-artist">${songData.artist}</a> <span class="separator">•</span> <a class="song-album" href="#/album/${songData.albumId}">${songData.album}</a>  </span>
                           </div>
                           <div class="options-block">              
                                   <div class="options-menu">
@@ -164,17 +164,15 @@ class Artist {
         const {target} = event;
 
         async function stopFollowing() {
-            console.log('stop');
             target.classList.toggle('followed');
-            target.innerText = "Подписаться";
+            target.innerText = 'Подписаться';
             await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
             window.user = await getRequest('api/user/darkavatar21');
         }
 
         async function startFollowing() {
-            console.log('1');
             target.classList.toggle('followed');
-            target.innerText = "Отписаться";
+            target.innerText = 'Отписаться';
             const artist = JSON.stringify({
                 _id: id,
             });

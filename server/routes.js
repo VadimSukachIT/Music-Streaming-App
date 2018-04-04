@@ -10,5 +10,5 @@ module.exports = (app) => {
   app.use(mount('/api/artist', artistResource));
   app.use(mount('/api/album', albumResource));
   app.use(mount('/api/playlist', playlistResource));
-  app.use(mount('/api/genres', genreResource));
+  app.use(mount('/api/genre', genreResource));
 };

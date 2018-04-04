@@ -2,6 +2,22 @@ const generateId = require('../../helpers/idGenerator');
 
 let albums = [
   {
+    _id: '0',
+    title: 'New',
+    artist: 'Eminem',
+    artistId: '1',
+    tracks: [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+    ],
+    date: '2018',
+    genres: ['1'],
+    cover: 'http://ru.recordshopx.com/cover/normal/5/56/560588.jpg?cd',
+  },
+  {
     _id: '1',
     title: 'Revival',
     artist: 'Eminem',
@@ -198,11 +214,14 @@ let albums = [
 const service = {};
 
 service.find = (query) => {
-  const res = albums.filter((album) => {
-    const arr = Object.keys(query).filter(key => album[key] === query[key]);
-    return arr.length;
-  });
-  return res;
+  if (query) {
+    const res = albums.filter((album) => {
+      const arr = Object.keys(query).filter(key => album[key] === query[key]);
+      return arr.length;
+    });
+    return res;
+  }
+  return albums;
 };
 
 service.findOne = (query) => {

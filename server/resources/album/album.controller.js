@@ -14,6 +14,18 @@ module.exports.getAlbumById = async (ctx, next) => {
   ctx.body = album;
 };
 
+module.exports.getAllAlbums = async (ctx, next) => {
+  const albums = albumService.find();
+
+  ctx.body = albums || [];
+};
+
+module.exports.getNewAlbums = async (ctx, next) => {
+  const albums = albumService.find({ date: (new Date()).getFullYear().toString() });
+
+  ctx.body = albums || [];
+};
+
 module.exports.createAlbum = (ctx, next) => {
   const album = ctx.request.body;
 

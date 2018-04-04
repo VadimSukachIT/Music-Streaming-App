@@ -109,11 +109,70 @@ class Recommendations {
     mainContentSection.append(fragment);
   }
 
-  loadPopularContent() {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'json/playlists.json', true);
-      xhr.onload = () => {
+  async loadPopularContent() {
+        const mainContentSection = document.getElementById('main-content');
+        const fragment = document.createElement('div');
+        fragment.id = 'playlists';
+
+        function createPlaylist(playlistData) {
+          const PLAYLIST = `
+            <div class="playlist">
+              <div class="hovered-part">
+                <a href="#/user/darkavatar21/playlist/${playlistData._id}">
+                  <div class="icon">
+                    <button type="button" class="play-icon"></button> 
+                  </div>  
+                  <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
+                </a>
+                <a href="#/user/darkavatar21/playlist/${playlistData._id}"  class="playlist-title">${playlistData.title}</a>
+              </div>
+              <a href="#/artist/${playlistData.artistId}" class="playlist-artist">${playlistData.artist}</a>
+            </div>`;
+
+          const div = document.createElement('div');
+          div.innerHTML = PLAYLIST.trim();
+          return div.firstChild;
+        }
+
+        const playlistsData = await getRequest('api/album');
+
+        playlistsData.forEach((playlistsInfo) => {
+          const playlist = createPlaylist(playlistsInfo);
+          fragment.append(playlist);
+        });
+        mainContentSection.append(fragment);
+  }
+
+  async loadGenresContent() {
+    const mainContentSection = document.getElementById('main-content');
+    const fragment = document.createElement('div');
+    fragment.id = 'genres';
+    function showGenre(genreData) {
+      const GENRE = `
+        <div class="genre">
+          <div class="hovered-part">
+            <a href="#/genre/${genreData._id}"> 
+              <img class="genre-cover" style="background-image: url(${genreData.cover});" src="${genreData.icon}"></img>
+              <span class="genre-title">${genreData.title}</span>
+            </a>
+          </div>
+        </div>`;
+
+      const div = document.createElement('div');
+      div.innerHTML = GENRE.trim();
+      return div.firstChild;
+    }
+
+    const genresData = await getRequest('api/genre');
+
+    genresData.forEach((genreInfo) => {
+      const genre = showGenre(genreInfo);
+      fragment.append(genre);
+    });
+    mainContentSection.append(fragment);
+  }
+
+  async loadNewContent() {
         const mainContentSection = document.getElementById('main-content');
         const fragment = document.createElement('div');
         fragment.id = 'playlists';
@@ -138,94 +197,13 @@ class Recommendations {
           return div.firstChild;
         }
 
-        const playlistsData = JSON.parse(xhr.responseText);
+        const playlistsData = await getRequest('api/album/new');
 
         playlistsData.forEach((playlistsInfo) => {
           const playlist = createPlaylist(playlistsInfo);
           fragment.append(playlist);
         });
         mainContentSection.append(fragment);
-      };
-      xhr.send();
-    });
-  }
-
-  loadGenresContent() {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'json/genres.json', true);
-      xhr.onload = () => {
-        const mainContentSection = document.getElementById('main-content');
-        const fragment = document.createElement('div');
-        fragment.id = 'genres';
-        function createPlaylist(albumData) {
-          const GENRE = `
-                    <div class="genre">
-                    <div class="hovered-part">
-                       <a href="#/album/${albumData.id}"> 
-                       <div class="genre-cover" style="background-image: url(${albumData.cover});"></div> 
-                       <div class="genre-icon" style="background-image: url(${albumData.icon});"></div>       
-                       </a>
-                       <a class="genre-title" href="#/album/${albumData.id}">${albumData.title}</a>
-                    </div>
-                    </div>`;
-
-          const div = document.createElement('div');
-          div.innerHTML = GENRE.trim();
-          return div.firstChild;
-        }
-
-        const albumData = JSON.parse(xhr.responseText);
-
-        albumData.forEach((albumInfo) => {
-          const playlist = createPlaylist(albumInfo);
-          fragment.append(playlist);
-        });
-        mainContentSection.append(fragment);
-      };
-      xhr.send();
-    });
-  }
-
-  loadNewContent() {
-    return new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'json/playlists.json', true);
-      xhr.onload = () => {
-        const mainContentSection = document.getElementById('main-content');
-        const fragment = document.createElement('div');
-        fragment.id = 'playlists';
-
-        function createPlaylist(playlistData) {
-          const PLAYLIST = `
-                     <div class="playlist">
-                       <div class="hovered-part">
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}">
-                                  <div class="icon">
-                                    <button type="button" class="play-icon"></button> 
-                                  </div>  
-                                 <div class="playlist-cover" style="background-image: url(${playlistData.cover});"></div>
-                             </a>
-                             <a href="#/user/darkavatar21/playlist/${playlistData.id}"  class="playlist-title">${playlistData.title}</a>
-                        </div>
-                        <a href="#/user/darkavatar21" class="playlist-artist">${playlistData.artist}</a>
-                    </div>`;
-
-          const div = document.createElement('div');
-          div.innerHTML = PLAYLIST.trim();
-          return div.firstChild;
-        }
-
-        const playlistsData = JSON.parse(xhr.responseText);
-
-        playlistsData.forEach((playlistsInfo) => {
-          const playlist = createPlaylist(playlistsInfo);
-          fragment.append(playlist);
-        });
-        mainContentSection.append(fragment);
-      };
-      xhr.send();
-    });
   }
 
   getSectionHandler() {

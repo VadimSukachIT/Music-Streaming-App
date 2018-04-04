@@ -1,4 +1,4 @@
-import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 
 class Listener {
   static destroySongMenu() {
@@ -28,7 +28,7 @@ class Listener {
       menu.id = 'song-menu';
 
       menu.innerHTML = `
-                 <div class="menu-list save-song"><span class="menu-text">Сохранить</span></div>
+                 <div class="menu-list save-song"><span class="menu-text">${window.user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
                  <div class="menu-list add-song-to-playlist"><span class=menu"-text">Добавить в плейлист</span></div>
                  <div class="menu-list share-song"><span class="menu-text">Поделиться</span></div>
           `;
@@ -45,12 +45,22 @@ class Listener {
     }
 
     async function saveSong(target) {
-      let songId = target.closest(".song").id;
+      const songId = target.closest('.song').id;
+      const isAdded = window.user.tracks.indexOf(songId) !== -1;
+      console.log(songId)
 
+      if (!isAdded) {
         const track = JSON.stringify({
-            _id: songId,
+          _id: songId,
         });
+        window.user.tracks.push(songId);
         await postRequest(`api/user/${window.user.login}/tracks`, track);
+        console.log(window.user.tracks)
+      } else {
+        window.user.tracks = window.user.tracks.filter(item => item !== songId);
+        await deleteRequest(`api/user/${window.user.login}/tracks/${songId}`);
+        console.log(window.user.tracks)
+      }
     }
 
     const { target } = event;

@@ -28,7 +28,7 @@ let artists = [
   {
     _id: '2',
     name: 'Linkin Park',
-    smallCover: 'url(http://assets.blabbermouth.net/media/linkinpark2017withoutchester_638.jpg)',
+    smallCover: 'http://assets.blabbermouth.net/media/linkinpark2017withoutchester_638.jpg',
     bigCover: 'https://gfx.antyradio.pl/var/antyradio/storage/images/newsy/rock-news/chester-bennington-zjadlem-tone-lsd-i-bardzo-duzo-pilem!-1546/339907-9-pol-PL/Chester-Bennington-Zjadlem-tone-LSD-i-bardzo-duzo-pilem.jpg',
     genres: [
       '1',

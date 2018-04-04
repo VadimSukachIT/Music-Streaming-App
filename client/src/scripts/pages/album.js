@@ -67,7 +67,9 @@ class Album {
               <span class="album-songs-number">${albumInfo.tracks.length} ПЕСНИ</span>
             </span>
             <button type="button" id="play-album-button" class="play play-album">ИГРАТЬ</button>
-            <button type="button" id="save-album-button">СОХРАНИТЬ</button>
+            <button type="button" id="save-album-button">
+              ${window.user.albums.indexOf(albumInfo._id) === -1 ? 'Сохранить' : 'Удалить'}
+            </button>
           </div>
             <div id="songs"></div>
         </div>`;
@@ -98,13 +100,23 @@ class Album {
         return reg.exec(location.hash)[1];
     }
 
-    static async saveAlbumButtonListener() {
-        let albumId = Album.getAlbumId();
+    static async saveAlbumButtonListener(event) {
+        const { target } = event;
+        const albumId = Album.getAlbumId();
+        const isAdded = window.user.albums.indexOf(albumId) !== -1;
 
-        const album = JSON.stringify({
-            _id: albumId,
-        });
-        await postRequest(`api/user/${window.user.login}/albums`, album);
+        if (!isAdded) {
+            const album = JSON.stringify({
+                _id: albumId,
+            });
+            await postRequest(`api/user/${window.user.login}/albums`, album);
+            target.innerText = 'Сохранено';
+            window.user.albums.push(albumId);
+        } else {
+            await deleteRequest(`api/user/${window.user.login}/albums/${albumId}`);
+            target.innerText = 'Удалено';
+            window.user.albums = window.user.albums.filter(item => item !== albumId);
+        }
     }
 }
 

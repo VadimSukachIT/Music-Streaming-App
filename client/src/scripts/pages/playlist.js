@@ -1,6 +1,4 @@
-import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
-import Album from "./album";
-
+import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 
 class Playlist {
   async init() {
@@ -15,7 +13,6 @@ class Playlist {
     if (el) {
       el.remove();
     }
-
   }
 
   getPageData() {
@@ -90,12 +87,19 @@ class Playlist {
     }
 
     static async savePlaylistButtonListener() {
-        let playlistId = Playlist.getPlaylistId();
+        const playlistId = Playlist.getPlaylistId();
+        const isAdded = window.user.playlists.indexOf(playlistId) !== -1;
 
-        const album = JSON.stringify({
+        if (isAdded) {
+          const album = JSON.stringify({
             _id: playlistId,
         });
+        window.user.playlists.push(playlistId);
         await postRequest(`api/user/${window.user.login}/playlists`, album);
+      } else {
+        window.user.playlists = window.user.playlists.filter(item => item !== playlistId);
+        await deleteRequest(`api/user/${window.user.login}/playlists/${playlistId}`);
+      }
     }
 }
 

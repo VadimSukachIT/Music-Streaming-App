@@ -164,7 +164,7 @@ class Library {
           </div>
           <div class="name-block">
             <span class="song-name">${songData.name}</span>
-            <span class="artist-and-album"> <a class="song-artist" href="#/artist/${songData.artistId}">${songData.artist}</a> <span class="separator">•</span> <a class="song-album">${songData.album}</a>  </span>
+            <span class="artist-and-album"> <a class="song-artist" href="#/artist/${songData.artistId}">${songData.artist}</a> <span class="separator">•</span> <a class="song-album" href="#/album/${songData.albumId}">${songData.album}</a>  </span>
           </div>
           <div class="options-block">              
             <div class="options-menu">
