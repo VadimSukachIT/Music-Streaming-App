@@ -45,9 +45,9 @@ class Listener {
     }
 
     async function saveSong(target) {
-      const songId = target.closest('.song').id;
+      let song = target.closest('.song');
+      const songId = song.id;
       const isAdded = window.user.tracks.indexOf(songId) !== -1;
-      console.log(songId)
 
       if (!isAdded) {
         const track = JSON.stringify({
@@ -55,11 +55,11 @@ class Listener {
         });
         window.user.tracks.push(songId);
         await postRequest(`api/user/${window.user.login}/tracks`, track);
-        console.log(window.user.tracks)
       } else {
+          song.remove();
         window.user.tracks = window.user.tracks.filter(item => item !== songId);
         await deleteRequest(`api/user/${window.user.login}/tracks/${songId}`);
-        console.log(window.user.tracks)
+
       }
     }
 

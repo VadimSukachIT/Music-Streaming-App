@@ -12,6 +12,7 @@
 @import "album-content";
 @import "playlist-content";
 @import "artist-content";
+@import "create-playlist-dialog";
 
 html, body {
   width: 100%;
@@ -103,7 +104,6 @@ html, body {
           display: inline-block;
           margin-bottom: 0;
           text-align: center;
-          border: 0;
           border-radius: 500px;
           padding: 13px;
           min-width: 130px;
@@ -111,6 +111,7 @@ html, body {
           will-change: transform;
           line-height: 1.6;
           background-color: #1ed760;
+          cursor: pointer;
 
           &:hover {
             transition: none 33ms cubic-bezier(.3, 0, 0, 1);
