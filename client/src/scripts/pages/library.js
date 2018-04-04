@@ -287,6 +287,7 @@ class Library {
                     });
 
                     const playlistsData = await postRequest('api/playlist', playlist);
+                    window.user.playlists.push(playlist._id);
                     let dialogMenu = document.getElementById('playlist-creation-dialog');
                     dialogMenu.removeEventListener('click', dialogListener, false);
                     dialogMenu.remove();

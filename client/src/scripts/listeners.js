@@ -115,7 +115,6 @@ class Listener {
                     playlistObject.tracks.push(songId);
                     const newPlaylist = JSON.stringify({ ...playlistObject });
                     await putRequest(`api/playlist/${playlist._id}`, newPlaylist);
-                    // hide dialog
                 } else if (target.closest('#create-playlist-button')) {
                     Library.showPlaylistCreationDialog();
                 }
@@ -139,7 +138,6 @@ class Listener {
                 song.remove();
                 window.user.tracks = window.user.tracks.filter(item => item !== songId);
                 await deleteRequest(`api/user/${window.user.login}/tracks/${songId}`);
-
             }
         }
 
