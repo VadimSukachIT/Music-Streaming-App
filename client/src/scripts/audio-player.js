@@ -1,5 +1,3 @@
-import Library from "./pages/library";
-
 class Player {
     constructor() {
         this.playButton = document.getElementById('play-song-button');
@@ -23,7 +21,7 @@ class Player {
                 console.log('artist');
             }
         }
-}
+    }
 }
 
-export default Player
+export default Player;

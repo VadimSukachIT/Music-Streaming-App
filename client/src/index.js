@@ -18,7 +18,7 @@ const getUser = async () => {
 };
 
 getUser();
-Player();
+const player = new Player();
 Header();
 const router = new Router();
 router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
