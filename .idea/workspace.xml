@@ -4,10 +4,7 @@
     <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/client/src/scripts/audio-player.js" afterPath="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/album.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/album.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/artist.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/artist.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/library.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/library.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/songs.less" afterPath="$PROJECT_DIR$/client/src/styles/songs.less" />
+      <change beforePath="$PROJECT_DIR$/client/src/static/index.html" afterPath="$PROJECT_DIR$/client/src/static/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,7 +24,7 @@
       <file leaf-file-name="album.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
+            <state relative-caret-position="-354">
               <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
               <folding>
                 <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
@@ -46,14 +43,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+            <state relative-caret-position="440">
+              <caret line="102" column="24" lean-forward="true" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
+                <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-765">
+              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/static/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,7 +120,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="library.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="library.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/library.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
@@ -179,8 +197,8 @@
       <find>name</find>
       <find>du</find>
       <find>song-du</find>
-      <find>song</find>
       <find>song-index</find>
+      <find>song</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -236,7 +254,6 @@
         <option value="$PROJECT_DIR$/server/resources/album/album.service.js" />
         <option value="$PROJECT_DIR$/client/src/webpack.config.js" />
         <option value="$PROJECT_DIR$/client/src/index.html" />
-        <option value="$PROJECT_DIR$/client/src/static/index.html" />
         <option value="$PROJECT_DIR$/client/src/styles/playlist-content.less" />
         <option value="$PROJECT_DIR$/client/src/styles/content.less" />
         <option value="$PROJECT_DIR$/client/src/styles/create-playlist-dialog.less" />
@@ -245,11 +262,12 @@
         <option value="$PROJECT_DIR$/client/src/index.js" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/playlist.js" />
         <option value="$PROJECT_DIR$/server/resources/track/track.service.js" />
-        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
         <option value="$PROJECT_DIR$/client/src/styles/songs.less" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/album.js" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/artist.js" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/library.js" />
+        <option value="$PROJECT_DIR$/client/src/static/index.html" />
+        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
       </list>
     </option>
   </component>
@@ -333,6 +351,13 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="styles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
@@ -5215,11 +5240,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522942720203</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="02.03.2018">
+      <created>1522943532981</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1522943532981</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="331876000" />
+    <option name="totallyTimeSpent" value="333841000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -5305,12 +5337,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="22" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/library-header.html" />
     <entry file="file://$PROJECT_DIR$/html/recommendations-header.html" />
     <entry file="file://$PROJECT_DIR$/json/artists.json" />
     <entry file="file://$PROJECT_DIR$/scripts/pages/recommendations.js" />
@@ -5394,13 +5425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2115">
           <caret line="194" column="4" lean-forward="true" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -5505,49 +5529,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/songs.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="188" column="25" lean-forward="false" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/resources/track/track.service.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-          <folding>
-            <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1132:1294" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1333:1720" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1457:1695" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1766:2106" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1833:1957" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2375:3266" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2407:3216" ph="..." />
-            <marker date="1522943507663" expanded="false" signature="2453:2495" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2706:2930" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="3085:3199" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -5602,6 +5588,61 @@
             <marker date="1522943507724" expanded="true" signature="9158:9265" ph="..." />
             <marker date="1522943507724" expanded="true" signature="11353:11522" ph="..." />
             <marker date="1522943507724" expanded="true" signature="11567:11789" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/songs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="188" column="25" lean-forward="false" selection-start-line="188" selection-start-column="25" selection-end-line="188" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
+          <folding>
+            <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1132:1294" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1333:1720" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1457:1695" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1766:2106" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1833:1957" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2375:3266" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2407:3216" ph="..." />
+            <marker date="1522943507663" expanded="false" signature="2453:2495" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2706:2930" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="3085:3199" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="102" column="24" lean-forward="true" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
           </folding>
         </state>
       </provider>

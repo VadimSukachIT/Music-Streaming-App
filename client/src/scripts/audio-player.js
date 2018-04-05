@@ -72,11 +72,6 @@ class Player {
         }
     }
 
-     playSongs() {
-        let song = new Audio(window.user.currentTrack.url);
-        song.play();
-    }
-
     static async setCurrentSongs() {
         let reg = /(playlist|album|artist)\/(.*)/;
         let [nothing, type, id] = reg.exec(location.hash);
@@ -86,11 +81,42 @@ class Player {
         console.log(window.user.currentPlaylist);
         console.log(window.user.currentTrack);
     }
+
+    playSongs() {
+        let song = new Audio(window.user.currentTrack.url);
+        song.play();
+        window.user.currentTrackFile = song;
+        this.playButton.classList.toggle('active');
+    }
+
+    static playerControlsListener(event) {
+        let target = event.target;
+
+        if (target.matches('#play-song-button')) {
+            let currentSong = window.user.currentTrackFile,
+                playButton = document.getElementById('play-song-button');
+
+            if (currentSong) {
+                if (playButton.classList.contains('active')) {
+                    currentSong.pause();
+                    playButton.classList.toggle('active');
+                } else {
+                    currentSong.play();
+                    playButton.classList.toggle('active');
+                }
+            }
+        }
+        else if (true) {
+
+        }
+
+    }
 }
 
 let player = new Player();
 
 window.addEventListener('click', Player.playButtonsListener, false);
+document.getElementById('player-controls').addEventListener('click', Player.playerControlsListener, false);
 
 let myAudio = new Audio('http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3');
 
