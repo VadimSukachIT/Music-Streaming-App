@@ -35,16 +35,27 @@ class Player {
                     let selectedSong = target.closest('.song'),
                         selectedSongId = selectedSong.id;
 
-                    player.makeSongActive(selectedSongId);
 
-                    window.user.currentTrack = playlistData.tracks.find(function (song) {
-                        return song._id === selectedSongId;
-                    });
+                    if (selectedSongId === window.user.currentTrack._id && selectedSong.classList.contains('active') && !selectedSong.classList.contains('paused')) {
+                        window.user.currentTrackFile.pause();
+                        selectedSong.classList.toggle('paused');
+                        document.getElementById('play-song-button').classList.toggle('active');
+
+                    } else if (selectedSongId === window.user.currentTrack._id && selectedSong.classList.contains('paused')) {
+                        window.user.currentTrackFile.play();
+                        selectedSong.classList.toggle('paused');
+                        document.getElementById('play-song-button').classList.toggle('active');
+                    } else {
+                        player.makeSongActive(selectedSongId);
+
+                        window.user.currentTrack = playlistData.tracks.find(function (song) {
+                            return song._id === selectedSongId;
+                        });
 
 
-                    player.playSongs();
+                        player.playSongs();
+                    }
                 }
-
             } else if (target.matches('.play-icon')) {
                 event.preventDefault();
 
@@ -77,7 +88,8 @@ class Player {
     static async setCurrentSongs() {
         let reg = /(playlist|album|artist)\/(.*)/;
         let [nothing, type, id] = reg.exec(location.hash);
-        let playlistData = await getRequest(`api/${type}/${id}`);
+        let playlistData = await
+            getRequest(`api/${type}/${id}`);
 
         window.user.currentPlaylist = playlistData.tracks;
 
@@ -92,7 +104,9 @@ class Player {
         if (song.src) {
             song.play();
             window.user.currentTrackFile = song;
-            this.playButton.classList.toggle('active');
+            if (!this.playButton.classList.contains('active')) {
+                this.playButton.classList.toggle('active');
+            }
         }
     }
 
@@ -115,6 +129,10 @@ class Player {
                 window.user.currentTrackFile.play();
 
                 this.makeSongActive(currentSong._id);
+
+                if (!this.playButton.classList.contains('active')) {
+                    this.playButton.classList.toggle('active');
+                }
             }
         }
     }
@@ -136,6 +154,10 @@ class Player {
                 window.user.currentTrackFile.play();
 
                 this.makeSongActive(currentSong._id);
+
+                if (!this.playButton.classList.contains('active')) {
+                    this.playButton.classList.toggle('active');
+                }
             }
         }
     }
