@@ -37,7 +37,7 @@ class Artist {
             songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
             const SONG = `<div class="song" id="${songData._id}">
                       <div class="play-block">
-                         <span class="song-index">${songData.number}</span>
+                         <span class="song-index">${songData.number}.</span>
                          <button type="button" class="play play-song"></button>
                       </div>
                       <div class="name-block">

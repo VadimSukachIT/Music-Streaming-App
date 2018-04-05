@@ -29,10 +29,17 @@ class Player {
 
                     window.user.currentPlaylist = playlistData.tracks;
 
-                    let selectedSongId = target.closest('.song').id;
+                    let song = document.getElementsByClassName('active')[0];
+
+                    if (song) {
+                        song.classList.toggle('active');
+                    }
+
+                    let selectedSong = target.closest('.song');
+                    selectedSong.classList.toggle('active');
 
                     window.user.currentTrack = playlistData.tracks.find(function (song) {
-                        return song._id === selectedSongId;
+                        return song._id === selectedSong.id;
                     });
 
                     console.log(window.user.currentTrack);
@@ -59,7 +66,7 @@ class Player {
                     }
                 }
             } else if (target.matches('#play-playlist-button') || target.matches('#play-album-button') || target.matches('#play-artist-button')) {
-                player.setCurrentSongs();
+                Player.setCurrentSongs();
                 player.playSongs();
             }
         }

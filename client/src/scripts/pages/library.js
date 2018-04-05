@@ -157,7 +157,7 @@ class Library {
             const SONG = `
         <div class="song" id="${songData._id}">
           <div class="play-block">
-            <span class="song-index">${songData.number}</span>
+            <span class="song-index">${songData.number}.</span>
             <button type="button" class="play-song play play-song"></button>
           </div>
           <div class="name-block">
