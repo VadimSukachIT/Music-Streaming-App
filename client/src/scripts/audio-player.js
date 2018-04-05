@@ -1,4 +1,5 @@
 import audio from 'tracks/LoseYourself.mp3';
+import { getRequest, postRequest, deleteRequest, putRequest } from 'scripts/requestHelper';
 
 class Player {
     constructor() {
@@ -10,25 +11,43 @@ class Player {
         this.progressBar = document.getElementById('song-progress-bar');
     }
 
-    static playButtonsListener(event) {
+    async playButtonsListener(event) {
         const {target} = event;
 
         if (target.matches('.play')) {
-            if (target.matches('.play-song')) {
-            } else if (target.matches('.play-album')) {
-                console.log('album');
-            } else if (target.matches('.play-playlist')) {
-                console.log('playlist');
-            } else if (target.matches('.play-artist')) {
-                console.log('artist');
+
+            if (target.matches('.play-icon')) {
+
+                let targetClosestPlaylist = target.closest('.playlist') || target.closest('.album');
+
+                if (targetClosestPlaylist) {
+                    let type = targetClosestPlaylist.classList[0],
+                        id = targetClosestPlaylist.id;
+
+                    let playlistData = await getRequest(`api/${type}/${id}`);
+                    const TRACKS = playlistData.tracks;
+
+                    this.tracks = TRACKS;
+
+                }
+            } else if (target.matches('#play-playlist-button') || target.matches('#play-album-button')) {
+                console.log('g');
             }
         }
     }
 
-    static playSong
+    static getTracks() {
+        let reg = /(.*)\/(.*)/;
+        let [result, type, id] = reg.exec(location.hash);
+        console.log(type, id);
+    }
 }
 
+let player = new Player();
+
+window.addEventListener('click', player.playButtonsListener.bind(player), false);
+
 let myAudio = new Audio('http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3');
-myAudio.play();
+
 
 export default Player;

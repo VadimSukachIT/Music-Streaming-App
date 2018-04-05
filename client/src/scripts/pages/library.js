@@ -90,7 +90,7 @@ class Library {
     async loadAlbums() {
         function createAlbum(albumData) {
             const ALBUM = `
-        <div class="album">
+        <div class="album" id="${albumData._id}">
             <a class="hovered-part" href="#/album/${albumData._id}"> 
               <div class="icon">
                 <button type="button" class="play-icon play play-album"></button> 
@@ -120,7 +120,7 @@ class Library {
     async loadPlaylists() {
         function createPlaylist(playlistData) {
             const PLAYLIST = `
-        <div class="playlist">
+        <div class="playlist" id="${playlistData._id}">
             <a class="hovered-part" href="#/darkavatar21/playlist/${playlistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon play play-playlist"></button> 
