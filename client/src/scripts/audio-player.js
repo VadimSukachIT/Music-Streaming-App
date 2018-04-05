@@ -84,10 +84,78 @@ class Player {
 
     playSongs() {
         let song = new Audio(window.user.currentTrack.url);
-        song.play();
-        window.user.currentTrackFile = song;
-        this.playButton.classList.toggle('active');
+        if (song.src !== '') {
+            console.log(song);
+            song.play();
+            window.user.currentTrackFile = song;
+            this.playButton.classList.toggle('active');
+        }
     }
+
+    playPreviousSong() {
+        let track = window.user.currentTrack,
+            trackFile = window.user.currentTrackFile,
+            playlist = window.user.currentPlaylist;
+
+
+        if (trackFile && playlist) {
+            let trackElement = document.getElementById(`${track._id}`);
+            let activeTrack = document.getElementsByClassName('active')[0];
+
+            if (activeTrack) {
+                activeTrack.classList.toggle('active');
+                trackElement.classList.toggle('active');
+            }
+
+            let previousTrack = playlist[playlist.indexOf(track) - 1];
+
+            if (previousTrack) {
+                trackFile.pause();
+
+                window.user.currentTrack = previousTrack;
+                window.user.currentTrackFile = new Audio(previousTrack.url);
+                window.user.currentTrackFile.play();
+            }
+        }
+    }
+
+    playNextSong() {
+        let track = window.user.currentTrack,
+            trackFile = window.user.currentTrackFile,
+            playlist = window.user.currentPlaylist;
+
+        if (trackFile && playlist) {
+            let trackElement = document.getElementById(`${track._id}`);
+            let activeTrack = document.getElementsByClassName('active')[0];
+
+            if (activeTrack) {
+                activeTrack.classList.toggle('active');
+                trackElement.classList.toggle('active');
+            }
+
+            let nextTrack = playlist[playlist.indexOf(track) + 1];
+
+            if (nextTrack) {
+                trackFile.pause();
+                window.user.currentTrack = nextTrack;
+                window.user.currentTrackFile = new Audio(nextTrack.url);
+                window.user.currentTrackFile.play();
+            }
+        }
+    }
+
+
+    repeatSong() {
+        let repeatBtn = document.getElementById('repeat-song-button');
+        if (repeatBtn.classList.contains('active')) {
+            window.user.currentTrackFile.loop = true;
+            repeatBtn.classList.toggle('active');
+        } else {
+            window.user.currentTrackFile.loop = false;
+            repeatBtn.classList.toggle('active');
+        }
+    }
+
 
     static playerControlsListener(event) {
         let target = event.target;
@@ -106,10 +174,18 @@ class Player {
                 }
             }
         }
-        else if (true) {
 
+        else if (target.matches('#play-previous-song-button')) {
+            player.playPreviousSong();
         }
 
+        else if (target.matches('#play-next-song-button')) {
+            player.playNextSong();
+        }
+
+        else if (target.matches('#repeat-song-button')) {
+            player.repeatSong();
+        }
     }
 }
 
@@ -117,8 +193,5 @@ let player = new Player();
 
 window.addEventListener('click', Player.playButtonsListener, false);
 document.getElementById('player-controls').addEventListener('click', Player.playerControlsListener, false);
-
-let myAudio = new Audio('http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3');
-
 
 export default Player;

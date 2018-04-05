@@ -4,7 +4,6 @@
     <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/client/src/scripts/audio-player.js" afterPath="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/static/index.html" afterPath="$PROJECT_DIR$/client/src/static/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,33 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="album.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-354">
-              <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-              <folding>
-                <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="1132:1294" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="1333:1720" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="1457:1695" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="1766:2106" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="1833:1957" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="2375:3266" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="2407:3216" ph="..." />
-                <marker date="1522943507663" expanded="false" signature="2453:2495" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="2706:2930" ph="..." />
-                <marker date="1522943507663" expanded="true" signature="3085:3199" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="102" column="24" lean-forward="true" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
+            <state relative-caret-position="49">
+              <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
                 <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
@@ -169,7 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Listener</find>
       <find>songsMenuListener</find>
       <find>menuHan</find>
       <find>songsListener</find>
@@ -198,6 +174,7 @@
       <find>du</find>
       <find>song-du</find>
       <find>song-index</find>
+      <find>toggle</find>
       <find>song</find>
     </findStrings>
     <replaceStrings>
@@ -5247,11 +5224,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522943532981</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="02.03.2018">
+      <created>1522946461479</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1522946461479</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="333841000" />
+    <option name="totallyTimeSpent" value="338434000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -5600,26 +5584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-354">
-          <caret line="34" column="61" lean-forward="false" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-          <folding>
-            <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1132:1294" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1333:1720" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1457:1695" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1766:2106" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="1833:1957" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2375:3266" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2407:3216" ph="..." />
-            <marker date="1522943507663" expanded="false" signature="2453:2495" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="2706:2930" ph="..." />
-            <marker date="1522943507663" expanded="true" signature="3085:3199" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -5636,10 +5600,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="610">
+          <caret line="74" column="16" lean-forward="true" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+          <folding>
+            <marker date="1522943507663" expanded="true" signature="1093:2123" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1132:1294" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1333:1720" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1457:1695" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1766:2106" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="1833:1957" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2375:3266" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2407:3216" ph="..." />
+            <marker date="1522943507663" expanded="false" signature="2453:2495" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="2706:2930" ph="..." />
+            <marker date="1522943507663" expanded="true" signature="3085:3199" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="102" column="24" lean-forward="true" selection-start-line="102" selection-start-column="24" selection-end-line="102" selection-end-column="24" />
+        <state relative-caret-position="49">
+          <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
             <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
