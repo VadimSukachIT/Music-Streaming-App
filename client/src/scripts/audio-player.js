@@ -18,37 +18,38 @@ class Player {
 
             if (target.matches('.play-song')) {
 
+                player.stopSong();
+
                 let reg = /(album|artist|library|playlist)\/(.*)/;
                 let [nothing, type, id] = reg.exec(location.hash);
 
                 if (type === "library") {
                     console.log(window.user.tracks);
                     player.playSongs();
+
                 } else {
                     let playlistData = await getRequest(`api/${type}/${id}`);
 
                     window.user.currentPlaylist = playlistData.tracks;
 
-                    let song = document.getElementsByClassName('active')[0];
+                    let selectedSong = target.closest('.song'),
+                        selectedSongId = selectedSong.id;
 
-                    if (song) {
-                        song.classList.toggle('active');
-                    }
-
-                    let selectedSong = target.closest('.song');
-                    selectedSong.classList.toggle('active');
+                    player.makeSongActive(selectedSongId);
 
                     window.user.currentTrack = playlistData.tracks.find(function (song) {
-                        return song._id === selectedSong.id;
+                        return song._id === selectedSongId;
                     });
 
-                    console.log(window.user.currentTrack);
 
                     player.playSongs();
                 }
 
             } else if (target.matches('.play-icon')) {
                 event.preventDefault();
+
+                player.stopSong();
+
                 let targetClosestPlaylist = target.closest('.playlist') || target.closest('.album') || target.closest('.artist');
 
                 if (targetClosestPlaylist) {
@@ -61,12 +62,13 @@ class Player {
 
                         window.user.currentPlaylist = playlistData.tracks;
                         window.user.currentTrack = playlistData.tracks[0];
-                        console.log(window.user.currentPlaylist);
+
                         player.playSongs();
                     }
                 }
             } else if (target.matches('#play-playlist-button') || target.matches('#play-album-button') || target.matches('#play-artist-button')) {
-                Player.setCurrentSongs();
+                player.stopSong();
+                await Player.setCurrentSongs();
                 player.playSongs();
             }
         }
@@ -76,16 +78,18 @@ class Player {
         let reg = /(playlist|album|artist)\/(.*)/;
         let [nothing, type, id] = reg.exec(location.hash);
         let playlistData = await getRequest(`api/${type}/${id}`);
+
         window.user.currentPlaylist = playlistData.tracks;
-        window.user.currentTrack = playlistData.tracks[0];
-        console.log(window.user.currentPlaylist);
-        console.log(window.user.currentTrack);
+
+        let currentSong = window.user.currentTrack = playlistData.tracks[0];
+
+        player.makeSongActive(currentSong._id);
     }
 
     playSongs() {
         let song = new Audio(window.user.currentTrack.url);
-        if (song.src !== '') {
-            console.log(song);
+
+        if (song.src) {
             song.play();
             window.user.currentTrackFile = song;
             this.playButton.classList.toggle('active');
@@ -99,22 +103,18 @@ class Player {
 
 
         if (trackFile && playlist) {
-            let trackElement = document.getElementById(`${track._id}`);
-            let activeTrack = document.getElementsByClassName('active')[0];
-
-            if (activeTrack) {
-                activeTrack.classList.toggle('active');
-                trackElement.classList.toggle('active');
-            }
 
             let previousTrack = playlist[playlist.indexOf(track) - 1];
 
             if (previousTrack) {
                 trackFile.pause();
 
-                window.user.currentTrack = previousTrack;
+                let currentSong = window.user.currentTrack = previousTrack;
+
                 window.user.currentTrackFile = new Audio(previousTrack.url);
                 window.user.currentTrackFile.play();
+
+                this.makeSongActive(currentSong._id);
             }
         }
     }
@@ -125,21 +125,17 @@ class Player {
             playlist = window.user.currentPlaylist;
 
         if (trackFile && playlist) {
-            let trackElement = document.getElementById(`${track._id}`);
-            let activeTrack = document.getElementsByClassName('active')[0];
-
-            if (activeTrack) {
-                activeTrack.classList.toggle('active');
-                trackElement.classList.toggle('active');
-            }
-
             let nextTrack = playlist[playlist.indexOf(track) + 1];
 
             if (nextTrack) {
                 trackFile.pause();
-                window.user.currentTrack = nextTrack;
+
+                let currentSong = window.user.currentTrack = nextTrack;
+
                 window.user.currentTrackFile = new Audio(nextTrack.url);
                 window.user.currentTrackFile.play();
+
+                this.makeSongActive(currentSong._id);
             }
         }
     }
@@ -153,6 +149,29 @@ class Player {
         } else {
             window.user.currentTrackFile.loop = false;
             repeatBtn.classList.toggle('active');
+        }
+    }
+
+    stopSong() {
+        let currentTrack = window.user.currentTrackFile;
+
+        if (currentTrack) {
+            currentTrack.pause();
+        }
+
+    }
+
+    makeSongActive(id) {
+        let prevSong = document.getElementsByClassName('active')[0];
+
+        if (prevSong) {
+            prevSong.classList.toggle('active');
+        }
+
+        let song = document.getElementById(id);
+
+        if (song) {
+            song.classList.toggle('active');
         }
     }
 
