@@ -115,7 +115,7 @@ class Recommendations {
         function createPlaylist(playlistData) {
           const PLAYLIST = `
             <div class="playlist">
-                <a class="hovered-part" href="#/user/darkavatar21/playlist/${playlistData._id}">
+                <a class="hovered-part" href="#/user/darkavatar21/album/${playlistData._id}">
                   <div class="icon">
                     <button type="button" class="play-icon"></button> 
                   </div>  

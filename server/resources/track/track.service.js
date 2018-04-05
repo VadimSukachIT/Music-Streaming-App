@@ -9,6 +9,7 @@ let tracks = [
         artistId: '1',
         artist: 'Eminem',
         durationInSec: 380,
+        url: 'http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3',
     },
     {
         _id: '2',
@@ -18,6 +19,7 @@ let tracks = [
         artistId: '1',
         artist: 'Eminem',
         durationInSec: 260,
+        url: 'http://k003.kiwi6.com/hotlink/f6kgn3ii2h/eminem-without-me_mp3CC.com_.mp3',
     },
     {
         _id: '3',
@@ -27,6 +29,7 @@ let tracks = [
         artistId: '1',
         artist: 'Eminem',
         durationInSec: 250,
+        url: 'http://k003.kiwi6.com/hotlink/m03blt6t8q/Eminem_-_Iam_not_Afraid.mp3',
     },
     {
         _id: '4',
@@ -36,7 +39,7 @@ let tracks = [
         artistId: '1',
         artist: 'Eminem',
         durationInSec: 267,
-        url: "http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3"
+        url: 'http://k003.kiwi6.com/hotlink/vfo99hyihz/LoseYourself.mp3',
     },
     {
         _id: '5',
@@ -46,6 +49,7 @@ let tracks = [
         artistId: '1',
         artist: 'Eminem',
         durationInSec: 330,
+        url: 'http://k003.kiwi6.com/hotlink/fj1tk1uua6/Eminem_The_Monster_ft._Rihanna_.mp3',
     },
     {
         _id: '6',
@@ -55,6 +59,7 @@ let tracks = [
         artistId: '2',
         artist: 'Linkin Park',
         durationInSec: 186,
+        url: 'http://k003.kiwi6.com/hotlink/8ot6jmv4ba/Linkin_Park_-_Numb_-_.mp3',
     },
     {
         _id: '7',
@@ -64,6 +69,7 @@ let tracks = [
         artistId: '2',
         artist: 'Linkin Park',
         durationInSec: 207,
+        url: 'http://k003.kiwi6.com/hotlink/whtwj7nbmh/In_the_end.mp3',
     },
     {
         _id: '8',
@@ -73,6 +79,7 @@ let tracks = [
         artistId: '2',
         artist: 'Linkin Park',
         durationInSec: 227,
+        url: 'http://k003.kiwi6.com/hotlink/56ys67pr8o/06-What_I_ve_Done.mp3',
     },
     {
         _id: '9',
@@ -82,6 +89,7 @@ let tracks = [
         artistId: '2',
         artist: 'Linkin Park',
         durationInSec: 208,
+        url: 'http://k003.kiwi6.com/hotlink/wq47kxoa7w/linkin-park-breaking-the-habit.mp3',
     },
     {
         _id: '10',
@@ -91,6 +99,7 @@ let tracks = [
         artistId: '2',
         artist: 'Linkin Park',
         durationInSec: 233,
+        url: 'http://k003.kiwi6.com/hotlink/0nwiqil00i/Linkin_Park_-_Burn_It_Down.mp3',
     },
 
 ];
