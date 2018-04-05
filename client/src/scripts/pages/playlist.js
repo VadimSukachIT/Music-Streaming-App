@@ -31,7 +31,7 @@ class Playlist {
       const SONG = `<div class="song" id="${songData._id}">
               <div class="play-block">
                  <span class="song-index">${songData.number}</span>
-                 <button type="button" class="play-song"></button>
+                 <button type="button" class="play play-song"></button>
               </div>
               <div class="name-block">
                       <span class="song-name">${songData.name}</span>

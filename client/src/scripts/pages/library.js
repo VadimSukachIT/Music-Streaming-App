@@ -8,6 +8,7 @@ class Library {
             ['songs', this.loadSongs],
             ['artists', this.loadArtists],
         ]);
+
     }
 
     async init() {
@@ -37,13 +38,12 @@ class Library {
                 document.getElementById('create-playlist-button').addEventListener('click', Library.showPlaylistCreationDialog);
                 resolve();
             }
-        }).then(() => {
+        }).then(function () {
             if (mainContent) {
                 contentLoadFunction();
             } else {
                 mainContent = document.createElement('div');
                 mainContent.id = 'main-content';
-
                 contentSection.append(mainContent);
                 contentLoadFunction();
             }
@@ -53,6 +53,7 @@ class Library {
     destroy() {
         return new Promise((resolve) => {
             const contentHeader = document.getElementById('content-header');
+
             const mainContent = document.getElementById('main-content');
 
             if (mainContent) {
@@ -150,6 +151,7 @@ class Library {
     }
 
     async loadSongs() {
+
         function createSong(songData) {
             songData.duration = `${Math.floor(songData.durationInSec / 60)}:${songData.durationInSec % 60}`;
             const SONG = `
@@ -177,6 +179,7 @@ class Library {
 
         const songData = await getRequest(`api/user/${window.user.login}/tracks`);
 
+
         const mainContentSection = document.getElementById('main-content');
         const fragment = document.createElement('div');
         fragment.id = 'songs';
@@ -186,13 +189,14 @@ class Library {
             const song = createSong(songInfo);
             fragment.append(song);
         });
+
         mainContentSection.append(fragment);
     }
 
     async loadArtists() {
         function createArtist(artistData) {
             const ARTIST = `
-        <div class="artist">
+        <div class="artist" id="${artistData._id}">
             <a class="hovered-part" href="#/artist/${artistData._id}">
               <div class="icon">
                 <button type="button" class="play-icon play play-artist"></button> 
@@ -293,7 +297,7 @@ class Library {
         }
 
 
-            const PLAYLIST_CREATION_DIALOG = `
+        const PLAYLIST_CREATION_DIALOG = `
                 <button type="button" class="first-cancel-creation-button cancel-btn"></button>
                 <h1>Создать новый плейлист</h1>
                 <div class="dialog-input">
@@ -305,14 +309,15 @@ class Library {
                     <button type="button" class="create-playlist-button">Создать</button>
                 </div>`;
 
-            let dialogMenu = document.createElement('div');
-            dialogMenu.id = "playlist-creation-dialog";
-            dialogMenu.innerHTML = PLAYLIST_CREATION_DIALOG;
+        let dialogMenu = document.createElement('div');
+        dialogMenu.id = "playlist-creation-dialog";
+        dialogMenu.innerHTML = PLAYLIST_CREATION_DIALOG;
 
-            document.getElementById('content-section').append(dialogMenu);
+        document.getElementById('content-section').append(dialogMenu);
 
-            dialogMenu.addEventListener('click', dialogListener, false);
+        dialogMenu.addEventListener('click', dialogListener, false);
     }
+
 }
 
 export default Library;
