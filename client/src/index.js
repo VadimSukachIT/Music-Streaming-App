@@ -7,6 +7,7 @@ import Playlist from 'scripts/pages/playlist';
 import Artist from 'scripts/pages/artist';
 import { getRequest } from 'scripts/requestHelper';
 import { showSpinner } from 'scripts/common';
+import { setUser } from 'scripts/localStorage';
 import search from 'scripts/search';
 import 'scripts/listeners';
 import 'scripts/audio-player';
@@ -14,11 +15,13 @@ import 'scripts/audio-player';
 import './index.less';
 
 const getUser = async () => {
-  window.user = await getRequest('api/user/darkavatar21');
+  const user = await getRequest('api/user/darkavatar21');
   const accountName = document.getElementById('account-name');
-  accountName.innerText = window.user.login;
-  window.user.currentTrackFile =
-    window.user.currentTrack ? new Audio(window.user.currentTrack.url) : null;
+  accountName.innerText = user.login;
+  window.currentTrackFile =
+    user.currentTrack ? new Audio(user.currentTrack.url) : null;
+  setUser(user);
+
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', search);
   Header();

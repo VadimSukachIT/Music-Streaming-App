@@ -1,6 +1,6 @@
 import { getRequest, postRequest, deleteRequest, putRequest } from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 import Library from "./pages/library";
-
 
 class Listener {
     static destroySongMenu() {
@@ -28,9 +28,10 @@ class Listener {
 
             const menu = document.createElement('div');
             menu.id = 'song-menu';
+            const user = getUser();
 
             menu.innerHTML = `
-                 <div class="menu-list save-song"><span class="menu-text">${window.user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
+                 <div class="menu-list save-song"><span class="menu-text">${user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
                  <div class="menu-list add-song-to-playlist"><span class=menu"-text">Добавить в плейлист</span></div>
                  <div class="menu-list share-song"><span class="menu-text">Поделиться</span></div>
           `;
@@ -62,8 +63,9 @@ class Listener {
                     div.innerHTML = PLAYLIST.trim();
                     return div.firstChild;
                 }
+                const user = getUser();
 
-                playlistsData = await getRequest(`api/user/${window.user.login}/playlists`);
+                playlistsData = await getRequest(`api/user/${user.login}/playlists`);
 
                 const fragment = document.getElementById('playlists');
 
@@ -125,18 +127,21 @@ class Listener {
         async function saveSong(target) {
             let song = target.closest('.song');
             const songId = song.id;
-            const isAdded = window.user.tracks.indexOf(songId) !== -1;
+            const user = getUser();
+            const isAdded = user.tracks.indexOf(songId) !== -1;
 
             if (!isAdded) {
                 const track = JSON.stringify({
                     _id: songId,
                 });
-                window.user.tracks.push(songId);
-                await postRequest(`api/user/${window.user.login}/tracks`, track);
+                user.tracks.push(songId);
+                await postRequest(`api/user/${user.login}/tracks`, track);
+                setUser(user);
             } else {
                 song.remove();
-                window.user.tracks = window.user.tracks.filter(item => item !== songId);
-                await deleteRequest(`api/user/${window.user.login}/tracks/${songId}`);
+                user.tracks = user.tracks.filter(item => item !== songId);
+                await deleteRequest(`api/user/${user.login}/tracks/${songId}`);
+                setUser(user);
             }
         }
 

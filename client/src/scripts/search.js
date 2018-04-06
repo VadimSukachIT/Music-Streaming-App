@@ -1,4 +1,5 @@
-import {postRequest} from 'scripts/requestHelper';
+import { postRequest } from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 
 const loadAlbums = async (searchString) => {
     function createAlbum(albumData) {
@@ -192,21 +193,21 @@ const clear = () => {
 };
 
 const search = async (event) => {
-    const input = document.getElementById('search-bar');
-    const val = input.value;
-    const searchString = JSON.stringify({
-        search: val,
-    });
-    clear();
+  const input = document.getElementById('search-bar');
+  const val = input.value;
+  const searchString = JSON.stringify({
+    search: val,
+  });
+  clear();
+  if (val) {
     await loadAlbums(searchString);
     await loadArtists(searchString);
     await loadPlaylists(searchString);
     await loadSongs(searchString);
-    window.user.search = searchString;
-
-    if (val === '') {
-        clear();
-    }
+  }
+  const user = getUser();
+  user.search = searchString;
+  setUser(user);
 };
 
 let searchSection = document.getElementById('search-section');

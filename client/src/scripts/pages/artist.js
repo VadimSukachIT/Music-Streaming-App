@@ -1,4 +1,5 @@
 import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 
 class Artist {
     async init() {
@@ -58,13 +59,14 @@ class Artist {
         }
 
         const showHeader = (artistInfo) => {
+            const user = getUser();
             const artistHeader = `
             <div id="artist-header" style="background: url(${artistInfo.bigCover}) no-repeat center; background-size: cover">
                 <h1 class="artist-name">${artistInfo.name}</h1>
                 <div class="header-buttons">
                     <button type="button" class="play play-artist" id="play-artist-button">ИГРАТЬ</button>
-                    <button type="button" id="follow-artist-button" class="${window.user.artists.indexOf(artistInfo._id) !== -1 ? 'followed' : ''}">
-                      ${window.user.artists.indexOf(artistInfo._id) === -1 ? 'ПОДПИСАТЬСЯ' : 'Отписаться'}
+                    <button type="button" id="follow-artist-button" class="${user.artists.indexOf(artistInfo._id) !== -1 ? 'followed' : ''}">
+                      ${user.artists.indexOf(artistInfo._id) === -1 ? 'ПОДПИСАТЬСЯ' : 'Отписаться'}
                     </button>
                 </div>      
                 <span class="artist-followers">${artistInfo.followers} ПОДПИСЧИКОВ</span>
@@ -135,7 +137,8 @@ class Artist {
         artistSection.append(artistSongs);
         artistSection.append(artistAlbums);
         contentSection.append(artistSection);
-        const isFollowed = window.user.artists.indexOf(artistData._id) !== -1;
+        const user = getUser();
+        const isFollowed = user.artists.indexOf(artistData._id) !== -1;
         document.getElementById('follow-artist-button').addEventListener(
             'click',
             (event) => {
@@ -164,18 +167,22 @@ class Artist {
         async function stopFollowing() {
             target.classList.toggle('followed');
             target.innerText = 'Подписаться';
-            window.user.artists = window.user.artists.filter(item => item !== id);
-            await deleteRequest(`api/user/${window.user.login}/artists/${id}`);
+            const user = getUser();
+            user.artists = user.artists.filter(item => item !== id);
+            await deleteRequest(`api/user/${user.login}/artists/${id}`);
+            setUser(user);
         }
 
         async function startFollowing() {
             target.classList.toggle('followed');
             target.innerText = 'Отписаться';
+            const user = getUser();
             const artist = JSON.stringify({
                 _id: id,
             });
-            window.user.artists.push(id);
-            await postRequest(`api/user/${window.user.login}/artists`, artist);
+            user.artists.push(id);
+            await postRequest(`api/user/${user.login}/artists`, artist);
+            setUser(user);
         }
 
         if (target.classList.contains('followed')) {
