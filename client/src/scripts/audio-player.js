@@ -29,6 +29,7 @@ class Player {
 
                 } else {
                     let playlistData = await getRequest(`api/${type}/${id}`);
+                    postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
                     window.user.currentPlaylist = playlistData.tracks;
 
@@ -70,6 +71,7 @@ class Player {
                     if (type === 'playlist' || 'album') {
 
                         let playlistData = await getRequest(`api/${type}/${id}`);
+                        postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
                         window.user.currentPlaylist = playlistData.tracks;
                         window.user.currentTrack = playlistData.tracks[0];
@@ -92,6 +94,7 @@ class Player {
             getRequest(`api/${type}/${id}`);
 
         window.user.currentPlaylist = playlistData.tracks;
+        postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
         let currentSong = window.user.currentTrack = playlistData.tracks[0];
 
@@ -118,12 +121,13 @@ class Player {
 
         if (trackFile && playlist) {
 
-            let previousTrack = playlist[playlist.indexOf(track) - 1];
+            let previousTrack = playlist[playlist.findIndex(item => item._id === track._id) - 1];
 
             if (previousTrack) {
                 trackFile.pause();
 
                 let currentSong = window.user.currentTrack = previousTrack;
+                postRequest(`api/user/${window.user.login}/current`, JSON.stringify(currentSong));
 
                 window.user.currentTrackFile = new Audio(previousTrack.url);
                 window.user.currentTrackFile.play();
@@ -143,12 +147,13 @@ class Player {
             playlist = window.user.currentPlaylist;
 
         if (trackFile && playlist) {
-            let nextTrack = playlist[playlist.indexOf(track) + 1];
+            let nextTrack = playlist[playlist.findIndex(item => item._id === track._id) + 1];
 
             if (nextTrack) {
                 trackFile.pause();
 
                 let currentSong = window.user.currentTrack = nextTrack;
+                postRequest(`api/user/${window.user.login}/current`, JSON.stringify(currentSong));
 
                 window.user.currentTrackFile = new Audio(nextTrack.url);
                 window.user.currentTrackFile.play();

@@ -17,6 +17,8 @@ const getUser = async () => {
   window.user = await getRequest('api/user/darkavatar21');
   const accountName = document.getElementById('account-name');
   accountName.innerText = window.user.login;
+  window.user.currentTrackFile =
+    window.user.currentTrack ? new Audio(window.user.currentTrack.url) : null;
   const searchBar = document.getElementById('search-bar');
   searchBar.addEventListener('input', search);
   Header();
