@@ -144,10 +144,10 @@ class Player {
         const user = getUser();
         let song = window.currentTrackFile = new Audio(user.currentTrack.url);
 
-
         if (song.src) {
             await song.play();
-            console.log(window.currentTrackFile.duration);
+
+            Player.updateProgressBar(song);
             if (!this.playButton.classList.contains('active')) {
                 this.playButton.classList.toggle('active');
             }
@@ -168,14 +168,14 @@ class Player {
             if (previousTrack) {
                 trackFile.pause();
 
-                let currentSong = user.currentTrack = previousTrack;
-                postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
+                user.currentTrack = previousTrack;
+                await postRequest(`api/user/${user.login}/current`, JSON.stringify(user.currentTrack));
 
-                window.currentTrackFile = new Audio(previousTrack.url);
-                await   window.currentTrackFile.play();
+                window.currentTrackFile = new Audio(user.currentTrack.url);
                 setUser(user);
 
-                this.makeSongActive(currentSong._id);
+                this.playSongs();
+                this.makeSongActive(user.currentTrack._id);
 
                 if (!this.playButton.classList.contains('active')) {
                     this.playButton.classList.toggle('active');
@@ -196,14 +196,15 @@ class Player {
             if (nextTrack) {
                 trackFile.pause();
 
-                let currentSong = user.currentTrack = nextTrack;
-                postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
+                user.currentTrack = nextTrack;
 
-                window.currentTrackFile = new Audio(nextTrack.url);
-                await  window.currentTrackFile.play();
+                await postRequest(`api/user/${user.login}/current`, JSON.stringify(user.currentTrack));
+
+                window.currentTrackFile = new Audio(user.currentTrack.url);
                 setUser(user);
 
-                this.makeSongActive(currentSong._id);
+                this.playSongs();
+                this.makeSongActive(user.currentTrack._id);
 
                 if (!this.playButton.classList.contains('active')) {
                     this.playButton.classList.toggle('active');
@@ -212,14 +213,35 @@ class Player {
         }
     }
 
-    static updateSong() {
+    static updateProgressBar(song) {
         let progressBar = document.getElementById('song-progress-bar');
-        let songDuration = document.getElementById('song-duration');
-        let songCurrentTime = document.getElementById('current-song-time');
+        let songDurationBlock = document.getElementById('song-duration');
+        let currentTimeBlock = document.getElementById('current-song-time');
 
-        let song1 = window.currentTrackFile;
-        console.log(song1.duration);
+        songDurationBlock.innerText = String(Math.floor(song.duration / 60)) + ':' + String(Math.floor(song.duration) % 60);
+        progressBar.setAttribute("max", String(Math.floor(song.duration)));
 
+        song.addEventListener('timeupdate', function () {
+            if (song.currentTime === song.duration) {
+                player.playNextSong();
+            }
+
+            let currentTime = parseInt(song.currentTime, 10);
+
+            progressBar.value = currentTime;
+            progressBar.setAttribute("value", `${currentTime}`);
+
+            let minutes = Math.floor(currentTime / 60);
+            let seconds = null;
+
+            if (minutes < 1) {
+                seconds = (currentTime % 60) < 10 ? '0' + String(Math.floor(currentTime)) : String(Math.floor(currentTime % 60));
+            } else if (minutes >= 1) {
+                seconds = Math.floor(currentTime - 60 * minutes) < 10 ? '0' + Math.floor(currentTime - 60 * minutes) : Math.floor(currentTime - 60 * minutes);
+            }
+
+            currentTimeBlock.innerText = `${minutes}` + ':' + `${seconds}`;
+        });
     }
 
     repeatSong() {
@@ -310,7 +332,7 @@ class Player {
             player.shuffleSong();
         } else if (target.matches('#volume-button')) {
             let volumeButton = document.getElementById('volume-button');
-                let song = window.currentTrackFile;
+            let song = window.currentTrackFile;
 
             if (volumeButton.classList.contains('active')) {
                 song.muted = false;
@@ -331,34 +353,7 @@ class Player {
 
 
         if (song) {
-            let currentTimeBlock = document.getElementById('current-song-time');
-            let songDurationBlock = document.getElementById('song-duration');
-
-            songDurationBlock.innerHTML = String(Math.floor(song.duration / 60)) + ':' + String(Math.floor(song.duration) % 60);
             song.currentTime = progressBar.value;
-
-            progressBar.setAttribute("max", String(Math.floor(song.duration)));
-
-            song.addEventListener('timeupdate', function () {
-                if (song.currentTime === song.duration) {
-                    player.playNextSong();
-                }
-
-                let currentTime = parseInt(song.currentTime, 10);
-
-                progressBar.value = currentTime;
-
-                let minutes = Math.floor(currentTime / 60);
-                let seconds = null;
-
-                if (minutes < 1) {
-                    seconds = (currentTime % 60) < 10 ? '0' + String(Math.floor(currentTime)) : String(Math.floor(currentTime % 60));
-                } else if (minutes >= 1) {
-                    seconds = Math.floor(currentTime - 60 * minutes) < 10 ? '0' + Math.floor(currentTime - 60 * minutes) : Math.floor(currentTime - 60 * minutes);
-                }
-
-                currentTimeBlock.innerHTML = `${minutes}` + ':' + `${seconds}`;
-            });
         }
     }
 
@@ -366,12 +361,12 @@ class Player {
         let volumeBtn = player.volumeButton;
         let song = window.currentTrackFile;
 
-        song.volume = player.volumeBar.value/100;
+        song.volume = player.volumeBar.value / 100;
 
 
         if (song.volume === 0 && !volumeBtn.classList.contains('active')) {
             volumeBtn.classList.toggle('active');
-        } else if (song.volume >0 && volumeBtn.classList.contains('active')) {
+        } else if (song.volume > 0 && volumeBtn.classList.contains('active')) {
             volumeBtn.classList.toggle('active');
         }
     }
