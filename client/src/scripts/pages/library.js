@@ -17,6 +17,10 @@ class Library {
         let mainContent = document.getElementById('main-content');
         const contentLoadFunction = this.getSectionHandler();
 
+        let header =   document.getElementById('header-section');
+        header.classList.remove('library', 'recommendations');
+        header.classList.toggle('library');
+
         return new Promise((resolve) => {
             if (document.getElementById('content-header')) {
                 resolve();

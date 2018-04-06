@@ -13,8 +13,11 @@ class Recommendations {
   init() {
     const contentSection = document.getElementById('content-section');
     let mainContent = document.getElementById('main-content');
-
     const contentLoadFunction = this.getSectionHandler();
+
+      let header = document.getElementById('header-section');
+      header.classList.remove('library', 'recommendations');
+      header.classList.toggle('recommendations');
 
     return new Promise((resolve) => {
       if (document.getElementById('content-header')) {

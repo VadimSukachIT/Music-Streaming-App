@@ -10,6 +10,8 @@ class Player {
         this.repeatSongButton = document.getElementById('repeat-song-button');
         this.shuffleSongButton = document.getElementById('shuffle-song-button');
         this.progressBar = document.getElementById('song-progress-bar');
+        this.volumeBar = document.getElementById('volume-bar');
+        this.volumeButton = document.getElementById('volume-button');
     }
 
     static async playButtonsListener(event) {
@@ -142,8 +144,10 @@ class Player {
         const user = getUser();
         let song = window.currentTrackFile = new Audio(user.currentTrack.url);
 
+
         if (song.src) {
             await song.play();
+            console.log(window.currentTrackFile.duration);
             if (!this.playButton.classList.contains('active')) {
                 this.playButton.classList.toggle('active');
             }
@@ -304,6 +308,20 @@ class Player {
         }
         else if (target.matches('#shuffle-song-button')) {
             player.shuffleSong();
+        } else if (target.matches('#volume-button')) {
+            let volumeButton = document.getElementById('volume-button');
+                let song = window.currentTrackFile;
+
+            if (volumeButton.classList.contains('active')) {
+                song.muted = false;
+                volumeButton.classList.toggle('active');
+            } else {
+                song.muted = true;
+                player.volumeBar.value = 0;
+                song.volume = 0;
+                player.volumeBar.setAttribute('value', 0);
+                volumeButton.classList.toggle('active');
+            }
         }
     }
 
@@ -328,7 +346,7 @@ class Player {
 
                 let currentTime = parseInt(song.currentTime, 10);
 
-                progressBar.setAttribute("value", `${currentTime}`);
+                progressBar.value = currentTime;
 
                 let minutes = Math.floor(currentTime / 60);
                 let seconds = null;
@@ -340,7 +358,21 @@ class Player {
                 }
 
                 currentTimeBlock.innerHTML = `${minutes}` + ':' + `${seconds}`;
-            })
+            });
+        }
+    }
+
+    static volumeBarListener() {
+        let volumeBtn = player.volumeButton;
+        let song = window.currentTrackFile;
+
+        song.volume = player.volumeBar.value/100;
+
+
+        if (song.volume === 0 && !volumeBtn.classList.contains('active')) {
+            volumeBtn.classList.toggle('active');
+        } else if (song.volume >0 && volumeBtn.classList.contains('active')) {
+            volumeBtn.classList.toggle('active');
         }
     }
 }
@@ -348,6 +380,8 @@ class Player {
 let player = new Player();
 
 window.addEventListener('click', Player.playButtonsListener, false);
+document.getElementById('player');
+document.getElementById('volume-bar').addEventListener('change', Player.volumeBarListener, false);
 document.getElementById('player-controls').addEventListener('click', Player.playerControlsListener, false);
 document.getElementById('song-progress-bar').addEventListener('change', Player.progressBarListener, false);
 export default Player;
