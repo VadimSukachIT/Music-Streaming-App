@@ -23,7 +23,7 @@ class Recommendations {
         const header = `
                     <ul class="tags">
                         <li class="featured tag"><a href="#/recommendations/for-you">Для вас</a></li>
-                        <li class="artists tag"><a href="#/recommendations/popular">Популярное</a></li>
+                        <li class="popular tag"><a href="#/recommendations/popular">Популярное</a></li>
                         <li class="genres tag"><a href="#/recommendations/genres">Жанры</a></li>
                         <li class="new-releases tag"><a href="#/recommendations/new">Новое</a></li>
                     </ul>
@@ -98,6 +98,10 @@ class Recommendations {
       div.innerHTML = PLAYLIST.trim();
       return div.firstChild;
     }
+    const sectionHeader = document.getElementsByClassName('featured tag')[0];
+    if (sectionHeader) {
+      sectionHeader.classList += ' active';
+    }
 
     const playlistsData = await getRequest('api/playlist');
 
@@ -126,6 +130,10 @@ class Recommendations {
       const div = document.createElement('div');
       div.innerHTML = ALBUM.trim();
       return div.firstChild;
+    }
+    const sectionHeader = document.getElementsByClassName('popular tag')[0];
+    if (sectionHeader) {
+      sectionHeader.classList += ' active';
     }
 
     const albumData = await getRequest('api/album');
@@ -159,6 +167,10 @@ class Recommendations {
       div.innerHTML = GENRE.trim();
       return div.firstChild;
     }
+    const sectionHeader = document.getElementsByClassName('genres tag')[0];
+    if (sectionHeader) {
+      sectionHeader.classList += ' active';
+    }
 
     const genresData = await getRequest('api/genre');
 
@@ -188,6 +200,10 @@ class Recommendations {
       div.innerHTML = ALBUM.trim();
       return div.firstChild;
     }
+    const sectionHeader = document.getElementsByClassName('new-releases tag')[0];
+    if (sectionHeader) {
+      sectionHeader.classList += ' active';
+    }
 
     const albumData = await getRequest('api/album/new');
 
@@ -213,6 +229,10 @@ class Recommendations {
   getPageData(fragment) {
     const reg = /(recommendations)\/(for-you|popular|genres|new)/;
     const results = reg.exec(fragment);
+    const active = document.getElementsByClassName('active')[0];
+    if (active) {
+        active.classList.remove('active');
+    }
     return {
       pageName: results[1],
       sectionName: results[2],

@@ -71,6 +71,19 @@ html, body {
         padding: 0;
         display: flex;
 
+        .active {
+          &::after {
+            content: "";
+            height: 2px;
+            background-color: @main-second-color;
+            width: 30px;
+            position: relative;
+            top: 4px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+
         .tag {
           display: inline-block;
 
@@ -140,28 +153,6 @@ html, body {
 
   #content-section.playlists {
     background: linear-gradient(to top, rgb(10, 11, 15), rgb(12, 11, 15));
-
-    //#content-header {
-    //
-    //  .tags {
-    //    padding: 0;
-    //
-    //    .playlists {
-    //      a {
-    //        &::after {
-    //          content: "";
-    //          height: 2px;
-    //          background-color: @main-second-color;
-    //          width: 30px;
-    //          position: relative;
-    //          top: 4px;
-    //          display: block;
-    //          margin: 0 auto;
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
   }
 
   #content-section.new {
@@ -169,7 +160,6 @@ html, body {
   }
   #content-section.albums {
     background: linear-gradient(to top, rgb(17, 25, 24), rgb(6, 9, 9));
-
   }
   #content-section.artists {
     background: linear-gradient(to top, rgb(8, 12, 16), rgb(5, 7, 10));

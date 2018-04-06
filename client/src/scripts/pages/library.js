@@ -107,6 +107,10 @@ class Library {
             div.innerHTML = ALBUM.trim();
             return div.firstChild;
         }
+        const sectionHeader = document.getElementsByClassName('albums tag')[0];
+        if (sectionHeader) {
+            sectionHeader.classList += ' active';
+        }
 
         const user = getUser();
         const albumData = await getRequest(`api/user/${user.login}/albums`);
@@ -139,6 +143,10 @@ class Library {
             const div = document.createElement('div');
             div.innerHTML = PLAYLIST.trim();
             return div.firstChild;
+        }
+        const sectionHeader = document.getElementsByClassName('playlists tag')[0];
+        if (sectionHeader) {
+            sectionHeader.classList += ' active';
         }
 
         const user = getUser();
@@ -184,6 +192,10 @@ class Library {
             div.innerHTML = SONG.trim();
             return div.firstChild;
         }
+        const sectionHeader = document.getElementsByClassName('songs tag')[0];
+        if (sectionHeader) {
+            sectionHeader.classList += ' active';
+        }
 
         const user = getUser();
         const songData = await getRequest(`api/user/${user.login}/tracks`);
@@ -222,6 +234,10 @@ class Library {
             div.innerHTML = ARTIST.trim();
             return div.firstChild;
         }
+        const sectionHeader = document.getElementsByClassName('artists tag')[0];
+        if (sectionHeader) {
+            sectionHeader.classList += ' active';
+        }
 
         const user = getUser();
         const artistData = await getRequest(`api/user/${user.login}/artists`);
@@ -250,6 +266,10 @@ class Library {
     getPageData(fragment) {
         const reg = /(library)\/(playlists|albums|artists|songs)/;
         const results = reg.exec(fragment);
+        const active = document.getElementsByClassName('active')[0];
+        if (active) {
+            active.classList.remove('active');
+        }
         return {
             pageName: results[1],
             sectionName: results[2],
@@ -298,12 +318,12 @@ class Library {
                     });
 
                     const playlistsData = await postRequest('api/playlist', playlist);
-                    user.playlists.push(playlist._id);
                     setUser(user);
                     let dialogMenu = document.getElementById('playlist-creation-dialog');
                     dialogMenu.removeEventListener('click', dialogListener, false);
                     dialogMenu.remove();
                     const fragment = document.getElementById('playlists');
+                    user.playlists.push(playlist._id);
                     if (fragment) {
                         const playlistBlock = createPlaylist(playlistsData);
                         fragment.append(playlistBlock);
