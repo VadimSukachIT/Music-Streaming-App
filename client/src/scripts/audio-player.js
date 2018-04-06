@@ -1,5 +1,6 @@
 import audio from 'tracks/LoseYourself.mp3';
 import {getRequest, postRequest, deleteRequest, putRequest} from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 
 class Player {
     constructor() {
@@ -22,36 +23,38 @@ class Player {
 
                 let reg = /(album|artist|library|playlist)\/(.*)/;
                 let [nothing, type, id] = reg.exec(location.hash);
-
+                const user = getUser();
                 if (type === "library") {
-                    console.log(window.user.tracks);
+                    console.log(user.tracks);
                     player.playSongs();
 
                 } else {
                     let playlistData = await getRequest(`api/${type}/${id}`);
-                    postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
+                    postRequest(`api/user/${user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
-                    window.user.currentPlaylist = playlistData.tracks;
+                    user.currentPlaylist = playlistData.tracks;
+                    setUser(user);
 
                     let selectedSong = target.closest('.song'),
                         selectedSongId = selectedSong.id;
 
 
-                    if (selectedSongId === window.user.currentTrack._id && selectedSong.classList.contains('active') && !selectedSong.classList.contains('paused')) {
-                        window.user.currentTrackFile.pause();
+                    if (selectedSongId === user.currentTrack._id && selectedSong.classList.contains('active') && !selectedSong.classList.contains('paused')) {
+                        window.currentTrackFile.pause();
                         selectedSong.classList.toggle('paused');
                         document.getElementById('play-song-button').classList.toggle('active');
 
-                    } else if (selectedSongId === window.user.currentTrack._id && selectedSong.classList.contains('paused')) {
-                        window.user.currentTrackFile.play();
+                    } else if (selectedSongId === user.currentTrack._id && selectedSong.classList.contains('paused')) {
+                        window.currentTrackFile.play();
                         selectedSong.classList.toggle('paused');
                         document.getElementById('play-song-button').classList.toggle('active');
                     } else {
                         player.makeSongActive(selectedSongId);
 
-                        window.user.currentTrack = playlistData.tracks.find(function (song) {
+                        user.currentTrack = playlistData.tracks.find(function (song) {
                             return song._id === selectedSongId;
                         });
+                        setUser(user);
 
 
                         player.playSongs();
@@ -69,12 +72,14 @@ class Player {
                         id = targetClosestPlaylist.id;
 
                     if (type === 'playlist' || 'album') {
+                        const user = getUser();
 
                         let playlistData = await getRequest(`api/${type}/${id}`);
-                        postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
+                        postRequest(`api/user/${user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
-                        window.user.currentPlaylist = playlistData.tracks;
-                        window.user.currentTrack = playlistData.tracks[0];
+                        user.currentPlaylist = playlistData.tracks;
+                        user.currentTrack = playlistData.tracks[0];
+                        setUser(user);
 
                         player.playSongs();
                     }
@@ -92,21 +97,24 @@ class Player {
         let [nothing, type, id] = reg.exec(location.hash);
         let playlistData = await
             getRequest(`api/${type}/${id}`);
+        const user = getUser();
 
-        window.user.currentPlaylist = playlistData.tracks;
-        postRequest(`api/user/${window.user.login}/playlist`, JSON.stringify(playlistData.tracks));
+        user.currentPlaylist = playlistData.tracks;
+        postRequest(`api/user/${user.login}/playlist`, JSON.stringify(playlistData.tracks));
 
-        let currentSong = window.user.currentTrack = playlistData.tracks[0];
+        let currentSong = user.currentTrack = playlistData.tracks[0];
+        setUser(user);
 
         player.makeSongActive(currentSong._id);
     }
 
     playSongs() {
-        let song = new Audio(window.user.currentTrack.url);
+        const user = getUser();
+        let song = new Audio(user.currentTrack.url);
 
         if (song.src) {
             song.play();
-            window.user.currentTrackFile = song;
+            window.currentTrackFile = song;
             if (!this.playButton.classList.contains('active')) {
                 this.playButton.classList.toggle('active');
             }
@@ -114,9 +122,10 @@ class Player {
     }
 
     playPreviousSong() {
-        let track = window.user.currentTrack,
-            trackFile = window.user.currentTrackFile,
-            playlist = window.user.currentPlaylist;
+        const user = getUser();
+        let track = user.currentTrack,
+            trackFile = window.currentTrackFile,
+            playlist = user.currentPlaylist;
 
 
         if (trackFile && playlist) {
@@ -126,11 +135,12 @@ class Player {
             if (previousTrack) {
                 trackFile.pause();
 
-                let currentSong = window.user.currentTrack = previousTrack;
-                postRequest(`api/user/${window.user.login}/current`, JSON.stringify(currentSong));
+                let currentSong = user.currentTrack = previousTrack;
+                postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
 
-                window.user.currentTrackFile = new Audio(previousTrack.url);
-                window.user.currentTrackFile.play();
+                window.currentTrackFile = new Audio(previousTrack.url);
+                window.currentTrackFile.play();
+                setUser(user);
 
                 this.makeSongActive(currentSong._id);
 
@@ -142,9 +152,10 @@ class Player {
     }
 
     playNextSong() {
-        let track = window.user.currentTrack,
-            trackFile = window.user.currentTrackFile,
-            playlist = window.user.currentPlaylist;
+        const user = getUser();
+        let track = user.currentTrack,
+            trackFile = window.currentTrackFile,
+            playlist = user.currentPlaylist;
 
         if (trackFile && playlist) {
             let nextTrack = playlist[playlist.findIndex(item => item._id === track._id) + 1];
@@ -152,11 +163,12 @@ class Player {
             if (nextTrack) {
                 trackFile.pause();
 
-                let currentSong = window.user.currentTrack = nextTrack;
-                postRequest(`api/user/${window.user.login}/current`, JSON.stringify(currentSong));
+                let currentSong = user.currentTrack = nextTrack;
+                postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
 
-                window.user.currentTrackFile = new Audio(nextTrack.url);
-                window.user.currentTrackFile.play();
+                window.currentTrackFile = new Audio(nextTrack.url);
+                window.currentTrackFile.play();
+                setUser(user);
 
                 this.makeSongActive(currentSong._id);
 
@@ -171,16 +183,17 @@ class Player {
     repeatSong() {
         let repeatBtn = document.getElementById('repeat-song-button');
         if (repeatBtn.classList.contains('active')) {
-            window.user.currentTrackFile.loop = true;
+            window.currentTrackFile.loop = true;
             repeatBtn.classList.toggle('active');
         } else {
-            window.user.currentTrackFile.loop = false;
+            window.currentTrackFile.loop = false;
             repeatBtn.classList.toggle('active');
         }
     }
 
     stopSong() {
-        let currentTrack = window.user.currentTrackFile;
+        const user = getUser();
+        let currentTrack = window.currentTrackFile;
 
         if (currentTrack) {
             currentTrack.pause();
@@ -207,7 +220,8 @@ class Player {
         let target = event.target;
 
         if (target.matches('#play-song-button')) {
-            let currentSong = window.user.currentTrackFile,
+            const user = getUser();
+            let currentSong = window.currentTrackFile,
                 playButton = document.getElementById('play-song-button');
 
             if (currentSong) {

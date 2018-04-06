@@ -1,4 +1,5 @@
 import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 
 class Library {
     constructor() {
@@ -107,7 +108,8 @@ class Library {
             return div.firstChild;
         }
 
-        const albumData = await getRequest(`api/user/${window.user.login}/albums`);
+        const user = getUser();
+        const albumData = await getRequest(`api/user/${user.login}/albums`);
 
         const mainContentSection = document.getElementById('main-content');
         const fragment = document.createElement('div');
@@ -139,7 +141,8 @@ class Library {
             return div.firstChild;
         }
 
-        const playlistsData = await getRequest(`api/user/${window.user.login}/playlists`);
+        const user = getUser();
+        const playlistsData = await getRequest(`api/user/${user.login}/playlists`);
 
         const mainContentSection = document.getElementById('main-content');
         const fragment = document.createElement('div');
@@ -182,7 +185,8 @@ class Library {
             return div.firstChild;
         }
 
-        const songData = await getRequest(`api/user/${window.user.login}/tracks`);
+        const user = getUser();
+        const songData = await getRequest(`api/user/${user.login}/tracks`);
 
 
         const mainContentSection = document.getElementById('main-content');
@@ -219,7 +223,8 @@ class Library {
             return div.firstChild;
         }
 
-        const artistData = await getRequest(`api/user/${window.user.login}/artists`);
+        const user = getUser();
+        const artistData = await getRequest(`api/user/${user.login}/artists`);
         const mainContentSection = document.getElementById('main-content');
         const fragment = document.createElement('div');
         fragment.id = 'artists';
@@ -284,15 +289,17 @@ class Library {
                 if (playlistTitle) {
                     let title = playlistTitle;
                     let tracks = [];
+                    const user = getUser();
 
                     const playlist = JSON.stringify({
                         title,
                         tracks,
-                        userId: window.user._id,
+                        userId: user._id,
                     });
 
                     const playlistsData = await postRequest('api/playlist', playlist);
-                    window.user.playlists.push(playlist._id);
+                    user.playlists.push(playlist._id);
+                    setUser(user);
                     let dialogMenu = document.getElementById('playlist-creation-dialog');
                     dialogMenu.removeEventListener('click', dialogListener, false);
                     dialogMenu.remove();

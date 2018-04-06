@@ -1,5 +1,6 @@
 import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
 import {Listener} from 'client/src/scripts/listeners.js';
+import { getUser, setUser } from 'scripts/localStorage';
 import Playlist from "./playlist";
 
 class Album {
@@ -69,6 +70,7 @@ class Album {
                     songNumberText = 'Песен';
                     break;
             }
+            const user = getUser();
             const albumPage = `
         <div id="album-content">
           <div id="album-info">
@@ -82,7 +84,7 @@ class Album {
             </span>
             <button type="button" id="play-album-button" class="play play-album">ИГРАТЬ</button>
             <button type="button" id="save-album-button">
-              ${window.user.albums.indexOf(albumInfo._id) === -1 ? 'Сохранить' : 'Удалить'}
+              ${user.albums.indexOf(albumInfo._id) === -1 ? 'Сохранить' : 'Удалить'}
             </button>
           </div>
             <div id="songs"></div>
@@ -115,21 +117,24 @@ class Album {
     }
 
     static async saveAlbumButtonListener(event) {
+        const user = getUser();
         const { target } = event;
         const albumId = Album.getAlbumId();
-        const isAdded = window.user.albums.indexOf(albumId) !== -1;
+        const isAdded = user.albums.indexOf(albumId) !== -1;
 
         if (!isAdded) {
             const album = JSON.stringify({
                 _id: albumId,
             });
-            await postRequest(`api/user/${window.user.login}/albums`, album);
+            await postRequest(`api/user/${user.login}/albums`, album);
             target.innerText = 'Удалить';
-            window.user.albums.push(albumId);
+            user.albums.push(albumId);
+            setUser(user);
         } else {
-            await deleteRequest(`api/user/${window.user.login}/albums/${albumId}`);
+            await deleteRequest(`api/user/${user.login}/albums/${albumId}`);
             target.innerText = 'Сохранить';
-            window.user.albums = window.user.albums.filter(item => item !== albumId);
+            user.albums = user.albums.filter(item => item !== albumId);
+            setUser(user);
         }
     }
 }

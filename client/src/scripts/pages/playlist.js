@@ -1,4 +1,5 @@
 import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
+import { getUser, setUser } from 'scripts/localStorage';
 
 class Playlist {
   async init() {
@@ -66,6 +67,7 @@ class Playlist {
           break;
       }
       const contentSection = document.getElementById('content-section');
+      const user = getUser();
       const res = `
         <div id="playlist-content">
           <div id="playlist-info">
@@ -74,7 +76,7 @@ class Playlist {
               <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ${songNumberText}</span></span>
               <button type="button" class="play play-playlist" id="play-playlist-button">ИГРАТЬ</button>
                 <button type="button" id="save-playlist-button">
-                  ${window.user.playlists.indexOf(playlistInfo._id) === -1 ? 'СОХРАНИТЬ' : 'Удалить'}
+                  ${user.playlists.indexOf(playlistInfo._id) === -1 ? 'СОХРАНИТЬ' : 'Удалить'}
                 </button>
             </div>
           <div id="songs"></div>
@@ -105,19 +107,22 @@ class Playlist {
     static async savePlaylistButtonListener(event) {
       const { target } = event;
       const playlistId = Playlist.getPlaylistId();
-      const isAdded = window.user.playlists.indexOf(playlistId) !== -1;
+      const user = getUser();
+      const isAdded = user.playlists.indexOf(playlistId) !== -1;
 
       if (!isAdded) {
         const album = JSON.stringify({
           _id: playlistId,
         });
-        await postRequest(`api/user/${window.user.login}/playlists`, album);
-        window.user.playlists.push(playlistId);
+        await postRequest(`api/user/${user.login}/playlists`, album);
+        user.playlists.push(playlistId);
         target.innerText = 'Удалить';
+        setUser(user);
       } else {
-        await deleteRequest(`api/user/${window.user.login}/playlists/${playlistId}`);
-        window.user.playlists = window.user.playlists.filter(item => item !== playlistId);
+        await deleteRequest(`api/user/${user.login}/playlists/${playlistId}`);
+        user.playlists = user.playlists.filter(item => item !== playlistId);
         target.innerText = 'Сохранить';
+        setUser(user);
       }
     }
 }
