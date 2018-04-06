@@ -55,6 +55,20 @@ class Album {
         }
 
         const showAlbum = (albumInfo) => {
+            let songNumberText = '';
+            switch(albumInfo.tracks.length % 10) {
+                case 1:
+                    songNumberText = 'Песня';
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    songNumberText = 'Песни';
+                    break;
+                default:
+                    songNumberText = 'Песен';
+                    break;
+            }
             const albumPage = `
         <div id="album-content">
           <div id="album-info">
@@ -64,7 +78,7 @@ class Album {
             <span class="date-and-songs">
               <span class="album-date">${albumInfo.date}</span>
               <span class="album-separator">•</span>
-              <span class="album-songs-number">${albumInfo.tracks.length} ПЕСНИ</span>
+              <span class="album-songs-number">${albumInfo.tracks.length} ${songNumberText}</span>
             </span>
             <button type="button" id="play-album-button" class="play play-album">ИГРАТЬ</button>
             <button type="button" id="save-album-button">

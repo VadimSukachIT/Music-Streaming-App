@@ -51,13 +51,27 @@ class Playlist {
     };
 
     const showPlaylist = (playlistInfo) => {
+      let songNumberText = '';
+      switch (playlistInfo.tracks.length % 10) {
+        case 1:
+          songNumberText = 'Песня';
+          break;
+        case 2:
+        case 3:
+        case 4:
+          songNumberText = 'Песни';
+          break;
+        default:
+          songNumberText = 'Песен';
+          break;
+      }
       const contentSection = document.getElementById('content-section');
       const res = `
         <div id="playlist-content">
           <div id="playlist-info">
             <div class="playlist-cover" style="background-image: url(${playlistInfo.cover}) "></div>
               <span class="playlist-title">${playlistInfo.title}</span>
-              <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ПЕСНИ</span></span>
+              <span class="date-and-songs"><span class="playlist-songs-number">${playlistInfo.tracks.length} ${songNumberText}</span></span>
               <button type="button" class="play play-playlist" id="play-playlist-button">ИГРАТЬ</button>
                 <button type="button" id="save-playlist-button">
                   ${window.user.playlists.indexOf(playlistInfo._id) === -1 ? 'СОХРАНИТЬ' : 'Удалить'}
