@@ -41,7 +41,7 @@ class Player {
                         document.getElementById('play-song-button').classList.toggle('active');
 
                     } else if (selectedSongId === user.currentTrack._id && selectedSong.classList.contains('paused')) {
-                        window.currentTrackFile.play();
+                        await window.currentTrackFile.play();
                         selectedSong.classList.toggle('paused');
                         document.getElementById('play-song-button').classList.toggle('active');
                     } else {
@@ -138,20 +138,19 @@ class Player {
         player.makeSongActive(currentSong._id);
     }
 
-    playSongs() {
+    async playSongs() {
         const user = getUser();
-        let song = new Audio(user.currentTrack.url);
+        let song = window.currentTrackFile = new Audio(user.currentTrack.url);
 
         if (song.src) {
-            song.play();
-            window.currentTrackFile = song;
+            await song.play();
             if (!this.playButton.classList.contains('active')) {
                 this.playButton.classList.toggle('active');
             }
         }
     }
 
-    playPreviousSong() {
+    async playPreviousSong() {
         const user = getUser();
         let track = user.currentTrack,
             trackFile = window.currentTrackFile,
@@ -169,7 +168,7 @@ class Player {
                 postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
 
                 window.currentTrackFile = new Audio(previousTrack.url);
-                window.currentTrackFile.play();
+                await   window.currentTrackFile.play();
                 setUser(user);
 
                 this.makeSongActive(currentSong._id);
@@ -181,7 +180,7 @@ class Player {
         }
     }
 
-    playNextSong() {
+    async playNextSong() {
         const user = getUser();
         let track = user.currentTrack,
             trackFile = window.currentTrackFile,
@@ -197,7 +196,7 @@ class Player {
                 postRequest(`api/user/${user.login}/current`, JSON.stringify(currentSong));
 
                 window.currentTrackFile = new Audio(nextTrack.url);
-                window.currentTrackFile.play();
+                await  window.currentTrackFile.play();
                 setUser(user);
 
                 this.makeSongActive(currentSong._id);
@@ -209,6 +208,15 @@ class Player {
         }
     }
 
+    static updateSong() {
+        let progressBar = document.getElementById('song-progress-bar');
+        let songDuration = document.getElementById('song-duration');
+        let songCurrentTime = document.getElementById('current-song-time');
+
+        let song1 = window.currentTrackFile;
+        console.log(song1.duration);
+
+    }
 
     repeatSong() {
         let repeatBtn = document.getElementById('repeat-song-button');
@@ -216,10 +224,10 @@ class Player {
         if (window.currentTrackFile) {
 
             if (repeatBtn.classList.contains('active')) {
-                window.currentTrackFile.loop = true;
+                window.currentTrackFile.loop = false;
                 repeatBtn.classList.toggle('active');
             } else {
-                window.currentTrackFile.loop = false;
+                window.currentTrackFile.loop = true;
                 repeatBtn.classList.toggle('active');
             }
         }
@@ -263,7 +271,7 @@ class Player {
     }
 
 
-    static playerControlsListener(event) {
+    static async playerControlsListener(event) {
         let target = event.target;
         const user = getUser();
 
@@ -277,7 +285,7 @@ class Player {
                     currentSong.pause();
                     playButton.classList.toggle('active');
                 } else {
-                    currentSong.play();
+                    await currentSong.play();
                     playButton.classList.toggle('active');
                 }
             }
@@ -299,9 +307,10 @@ class Player {
         }
     }
 
-    static progressBarListener(event) {
+    static progressBarListener() {
         let progressBar = document.getElementById('song-progress-bar');
         let song = window.currentTrackFile;
+
 
         if (song) {
             let currentTimeBlock = document.getElementById('current-song-time');
@@ -313,6 +322,10 @@ class Player {
             progressBar.setAttribute("max", String(Math.floor(song.duration)));
 
             song.addEventListener('timeupdate', function () {
+                if (song.currentTime === song.duration) {
+                    player.playNextSong();
+                }
+
                 let currentTime = parseInt(song.currentTime, 10);
 
                 progressBar.setAttribute("value", `${currentTime}`);

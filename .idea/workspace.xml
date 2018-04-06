@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="">
+    <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="02.03.2018">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/client/src/scripts/audio-player.js" afterPath="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
       <change beforePath="$PROJECT_DIR$/client/src/styles/content.less" afterPath="$PROJECT_DIR$/client/src/styles/content.less" />
@@ -22,13 +22,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="317" column="52" lean-forward="false" selection-start-line="317" selection-start-column="52" selection-end-line="317" selection-end-column="52" />
+            <state relative-caret-position="559">
+              <caret line="309" column="34" lean-forward="true" selection-start-line="309" selection-start-column="34" selection-end-line="309" selection-end-column="34" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
+                <element signature="n#!!block;n#playButtonsListener#0;n#Player#0" expanded="false" />
+                <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -37,8 +39,8 @@
       <file leaf-file-name="footer.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-971">
-              <caret line="154" column="4" lean-forward="true" selection-start-line="154" selection-start-column="4" selection-end-line="160" selection-end-column="31" />
+            <state relative-caret-position="253">
+              <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -54,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.less" pinned="false" current-in-tab="false">
+      <file leaf-file-name="content.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="168" column="3" lean-forward="true" selection-start-line="168" selection-start-column="3" selection-end-line="168" selection-end-column="3" />
+            <state relative-caret-position="219">
+              <caret line="173" column="16" lean-forward="true" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -78,24 +80,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>album-title</find>
-      <find>title</find>
-      <find>song-progress</find>
-      <find>addEvent</find>
-      <find>hovered-part</find>
-      <find>artist</find>
-      <find>playlist</find>
-      <find>album</find>
-      <find>playlsts</find>
-      <find>#bu</find>
-      <find>create-playlist-but</find>
-      <find>play-album-button</find>
       <find>play-artist-button</find>
       <find>#content-header</find>
       <find>#search-layout</find>
       <find>search-sec</find>
       <find>search-layou</find>
-      <find>#create-playlist</find>
       <find>#create-playlist-but</find>
       <find>#playlist-creation-</find>
       <find>button</find>
@@ -108,6 +97,19 @@
       <find>current-song</find>
       <find>::web</find>
       <find>#song-dura</find>
+      <find>playSong()</find>
+      <find>playSongs</find>
+      <find>currentTrackFile</find>
+      <find>playButton</find>
+      <find>window.currentTrackFile =</find>
+      <find>play-playlist</find>
+      <find>setCurre</find>
+      <find>window</find>
+      <find>window.currentTrackFile</find>
+      <find>updateSong</find>
+      <find>.play()</find>
+      <find>repeat</find>
+      <find>#create-playlist</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -174,9 +176,9 @@
         <option value="$PROJECT_DIR$/client/src/styles/add-song-to-playlist.less" />
         <option value="$PROJECT_DIR$/client/src/styles/create-playlist-dialog.less" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/recommendations.js" />
-        <option value="$PROJECT_DIR$/client/src/styles/content.less" />
-        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
         <option value="$PROJECT_DIR$/client/src/styles/footer.less" />
+        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
+        <option value="$PROJECT_DIR$/client/src/styles/content.less" />
       </list>
     </option>
   </component>
@@ -661,11 +663,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523019248678</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="02.03.2018">
+      <created>1523030076751</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1523030076751</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="362427000" />
+    <option name="totallyTimeSpent" value="375173000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -684,7 +693,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49367756" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35869566" sideWeight="0.581138" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35869566" sideWeight="0.581138" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.44994733" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4399368" order="3" side_tool="false" content_ui="tabs" />
@@ -752,7 +761,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="28" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1050,14 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="168" column="3" lean-forward="true" selection-start-line="168" selection-start-column="3" selection-end-line="168" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/scripts/localStorage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1066,21 +1067,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="309" column="34" lean-forward="true" selection-start-line="309" selection-start-column="34" selection-end-line="309" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+            <element signature="n#!!block;n#playButtonsListener#0;n#Player#0" expanded="false" />
+            <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-971">
-          <caret line="154" column="4" lean-forward="true" selection-start-line="154" selection-start-column="4" selection-end-line="160" selection-end-column="31" />
+        <state relative-caret-position="253">
+          <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
+    <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="317" column="52" lean-forward="false" selection-start-line="317" selection-start-column="52" selection-end-line="317" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="219">
+          <caret line="173" column="16" lean-forward="true" selection-start-line="173" selection-start-column="16" selection-end-line="173" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
