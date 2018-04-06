@@ -1,3 +1,5 @@
+import { hideSpinner } from 'scripts/common';
+
 class Router {
   constructor() {
     this.currentPage = null;
@@ -50,6 +52,7 @@ class Router {
         page.init();
       }
     }
+    hideSpinner();
     this.currentPage = page;
     this.currentPageData = {
       pageName,

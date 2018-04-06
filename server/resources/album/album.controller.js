@@ -14,6 +14,13 @@ module.exports.getAlbumById = async (ctx, next) => {
   ctx.body = album;
 };
 
+module.exports.geAlbumsByString = async (ctx, next) => {
+  const searchString = new RegExp(ctx.request.body.search, 'i');
+  const albums = albumService.find({ title: searchString });
+
+  ctx.body = albums || [];
+};
+
 module.exports.getAllAlbums = async (ctx, next) => {
   const albums = albumService.find();
 

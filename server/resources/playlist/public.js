@@ -6,5 +6,6 @@ router.get('/', controller.getAllPlaylists);
 router.put('/:id', controller.updatePlaylist);
 router.delete('/:id', controller.removePlaylist);
 router.post('/', controller.createPlaylist);
+router.post('/search', controller.gePlaylistsByString);
 
 module.exports = router.routes();

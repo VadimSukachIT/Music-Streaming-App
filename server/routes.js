@@ -4,6 +4,7 @@ const playlistResource = require('./resources/playlist/public');
 const albumResource = require('./resources/album/public');
 const genreResource = require('./resources/genre/public');
 const userResource = require('./resources/user/public');
+const trackResource = require('./resources/track/public');
 
 module.exports = (app) => {
   app.use(mount('/api/user', userResource));
@@ -11,4 +12,5 @@ module.exports = (app) => {
   app.use(mount('/api/album', albumResource));
   app.use(mount('/api/playlist', playlistResource));
   app.use(mount('/api/genre', genreResource));
+  app.use(mount('/api/track', trackResource));
 };

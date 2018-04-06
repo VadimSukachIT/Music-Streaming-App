@@ -1,4 +1,3 @@
-import Player from 'scripts/audio-player';
 import Header from 'scripts/header';
 import Router from 'scripts/router';
 import Library from 'scripts/pages/library';
@@ -7,7 +6,10 @@ import Album from 'scripts/pages/album';
 import Playlist from 'scripts/pages/playlist';
 import Artist from 'scripts/pages/artist';
 import { getRequest } from 'scripts/requestHelper';
+import { showSpinner } from 'scripts/common';
+import search from 'scripts/search';
 import 'scripts/listeners';
+import 'scripts/audio-player';
 
 import './index.less';
 
@@ -15,11 +17,13 @@ const getUser = async () => {
   window.user = await getRequest('api/user/darkavatar21');
   const accountName = document.getElementById('account-name');
   accountName.innerText = window.user.login;
+  const searchBar = document.getElementById('search-bar');
+  searchBar.addEventListener('input', search);
+  Header();
+  showSpinner('content-section');
 };
 
 getUser();
-Player;
-Header();
 const router = new Router();
 router.add(/(library)\/(playlists|songs|albums|artists)/, Library);
 router.add(/(recommendations)\/(for-you|genres|new|popular)/, Recommendations);

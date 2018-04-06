@@ -215,8 +215,10 @@ const service = {};
 
 service.find = (query) => {
   if (query) {
-    const res = albums.filter((album) => {
-      const arr = Object.keys(query).filter(key => album[key] === query[key]);
+    const res = albums.filter((item) => {
+      const arr = Object.keys(query).filter((key) => {
+        return typeof query[key] === 'string' ? item[key] === query[key] : item[key].match(query[key]);
+      });
       return arr.length;
     });
     return res;
@@ -225,8 +227,8 @@ service.find = (query) => {
 };
 
 service.findOne = (query) => {
-  const res = albums.find((album) => {
-    const arr = Object.keys(query).filter(key => album[key] === query[key]);
+  const res = albums.find((item) => {
+    const arr = Object.keys(query).filter(key => item[key] === query[key]);
     return arr.length;
   });
   return res;
@@ -240,10 +242,10 @@ service.update = (obj) => {
 
 service.remove = (query) => {
   const removed = [];
-  albums = albums.filter((album) => {
-    const arr = Object.keys(query).filter(key => album[key] === query[key]);
+  albums = albums.filter((item) => {
+    const arr = Object.keys(query).filter(key => item[key] === query[key]);
     if (arr.length) {
-      removed.push(album);
+      removed.push(item);
     }
     return !arr.length;
   });

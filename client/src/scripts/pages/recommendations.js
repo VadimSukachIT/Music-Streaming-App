@@ -108,35 +108,33 @@ class Recommendations {
   }
 
   async loadPopularContent() {
-        const mainContentSection = document.getElementById('main-content');
-        const fragment = document.createElement('div');
-        fragment.id = 'playlists';
+    function createAlbum(albumData) {
+      const ALBUM = `
+        <div class="album" id="${albumData._id}">
+            <a class="hovered-part" href="#/album/${albumData._id}"> 
+              <div class="icon">
+                <button type="button" class="play-icon play play-album"></button> 
+              </div>   
+              <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
+              <span class="album-title">${albumData.title}</span>  
+            </a>
+          <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
+        </div>`;
+      const div = document.createElement('div');
+      div.innerHTML = ALBUM.trim();
+      return div.firstChild;
+    }
 
-        function createPlaylist(playlistData) {
-          const PLAYLIST = `
-            <div class="playlist">
-                <a class="hovered-part" href="#/user/darkavatar21/album/${playlistData._id}">
-                  <div class="icon">
-                    <button type="button" class="play-icon"></button> 
-                  </div>  
-                  <img class="playlist-cover" src="${playlistData.cover}"></img>
-                  <span class="playlist-title">${playlistData.title}</span>
-                </a>
-              <a href="#/artist/${playlistData.artistId}" class="playlist-artist">${playlistData.artist}</a>
-            </div>`;
+    const albumData = await getRequest('api/album');
 
-          const div = document.createElement('div');
-          div.innerHTML = PLAYLIST.trim();
-          return div.firstChild;
-        }
-
-        const playlistsData = await getRequest('api/album');
-
-        playlistsData.forEach((playlistsInfo) => {
-          const playlist = createPlaylist(playlistsInfo);
-          fragment.append(playlist);
-        });
-        mainContentSection.append(fragment);
+    const mainContentSection = document.getElementById('main-content');
+    const fragment = document.createElement('div');
+    fragment.id = 'albums';
+    albumData.forEach((albumInfo) => {
+        const album = createAlbum(albumInfo);
+        fragment.append(album);
+    });
+    mainContentSection.append(fragment);
   }
 
   async loadGenresContent() {

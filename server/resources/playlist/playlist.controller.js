@@ -13,6 +13,12 @@ module.exports.getPlaylistById = async (ctx, next) => {
   ctx.body = playlist;
 };
 
+module.exports.gePlaylistsByString = async (ctx, next) => {
+  const searchString = new RegExp(ctx.request.body.search, 'i');
+  const playlists = playlistService.find({ title: searchString });
+
+  ctx.body = playlists || [];
+};
 
 module.exports.getAllPlaylists = async (ctx, next) => {
   const playlists = await playlistService.find();

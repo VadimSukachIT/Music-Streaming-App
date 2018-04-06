@@ -92,7 +92,9 @@ const service = {};
 service.find = (query) => {
   if (query) {
     const res = playlists.filter((item) => {
-      const arr = Object.keys(query).filter(key => item[key] === query[key]);
+      const arr = Object.keys(query).filter((key) => {
+        return typeof query[key] === 'string' ? item[key] === query[key] : item[key].match(query[key]);
+      });
       return arr.length;
     });
     return res;
