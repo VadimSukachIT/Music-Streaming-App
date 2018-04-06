@@ -233,11 +233,15 @@ class Player {
             player.repeatSong();
         }
     }
+
+    static progressBarListener(event) {
+
+    }
 }
 
 let player = new Player();
 
 window.addEventListener('click', Player.playButtonsListener, false);
 document.getElementById('player-controls').addEventListener('click', Player.playerControlsListener, false);
-
+document.getElementById('song-progress-bar').addEventListener('change', Player.progressBarListener, false);
 export default Player;

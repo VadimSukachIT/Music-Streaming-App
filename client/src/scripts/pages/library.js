@@ -21,7 +21,7 @@ class Library {
                 resolve();
             } else {
                 const header = `
-          <div id="content-header">
+     
             <ul class="tags">
               <li class="playlists tag"><a href="#/library/playlists">Плейлисты</a></li>
               <li class="albums tag"><a href="#/library/albums">Альбомы</a></li>
@@ -31,8 +31,9 @@ class Library {
             <div class="new-playlist-block">
                 <button type="button" id="create-playlist-button">Новый плейлист</button>
             </div>
-          </div>`;
+            `;
                 const div = document.createElement('div');
+                div.id = "content-header";
                 div.innerHTML = header.trim();
                 contentSection.append(div);
                 document.getElementById('create-playlist-button').addEventListener('click', Library.showPlaylistCreationDialog);
@@ -116,6 +117,8 @@ class Library {
             fragment.append(album);
         });
         mainContentSection.append(fragment);
+        document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+        document.getElementById('content-section').classList.add('albums');
     }
 
     async loadPlaylists() {
@@ -148,6 +151,8 @@ class Library {
             fragment.append(playlist);
         });
         mainContentSection.append(fragment);
+        document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+        document.getElementById('content-section').classList.add('playlists');
     }
 
     async loadSongs() {
@@ -191,6 +196,8 @@ class Library {
         });
 
         mainContentSection.append(fragment);
+        document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+        document.getElementById('content-section').classList.add('songs');
     }
 
     async loadArtists() {
@@ -221,6 +228,8 @@ class Library {
             const artist = createArtist(artistInfo);
             fragment.append(artist);
             mainContentSection.append(fragment);
+            document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+            document.getElementById('content-section').classList.add('artists');
         });
     }
 

@@ -1,3 +1,5 @@
+@import "variables";
+
 #add-song-dialog {
   position: fixed;
   left: 0;
@@ -64,7 +66,7 @@
       letter-spacing: .16em;
       transition: none 33ms cubic-bezier(.3, 0, .7, 1);
       transition-property: all;
-      color: #fff;
+      color: @button-text-color;
       display: inline-block;
       text-align: center;
       border-radius: 500px;
@@ -73,7 +75,7 @@
       white-space: normal;
       will-change: transform;
       line-height: 1.6;
-      background-color: #1ed760;
+      background-color: @main-second-color;
       cursor: pointer;
 
       &:hover {

@@ -1,4 +1,5 @@
 import { getRequest } from 'scripts/requestHelper';
+import Library from "./library";
 
 class Recommendations {
   constructor() {
@@ -28,10 +29,12 @@ class Recommendations {
                         <li class="new-releases tag"><a href="#/recommendations/new">Новое</a></li>
                     </ul>
                 </div>`;
-        const div = document.createElement('div');
-        div.innerHTML = header.trim();
-        contentSection.append(div);
-        resolve();
+          const div = document.createElement('div');
+          div.id = "content-header";
+          div.innerHTML = header.trim();
+          contentSection.append(div);
+          document.getElementById('create-playlist-button').addEventListener('click', Library.showPlaylistCreationDialog);
+          resolve();
       }
     }).then(() => {
       if (mainContent) {
@@ -105,6 +108,8 @@ class Recommendations {
       fragment.append(playlist);
     });
     mainContentSection.append(fragment);
+      document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+      document.getElementById('content-section').classList.add('for-you');
   }
 
   async loadPopularContent() {
@@ -135,6 +140,8 @@ class Recommendations {
         fragment.append(album);
     });
     mainContentSection.append(fragment);
+      document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+      document.getElementById('content-section').classList.add('popular');
   }
 
   async loadGenresContent() {
@@ -162,6 +169,8 @@ class Recommendations {
       fragment.append(genre);
     });
     mainContentSection.append(fragment);
+      document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+      document.getElementById('content-section').classList.add('genres');
   }
 
   async loadNewContent() {
@@ -194,6 +203,8 @@ class Recommendations {
           fragment.append(playlist);
         });
         mainContentSection.append(fragment);
+      document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+      document.getElementById('content-section').classList.add('new');
   }
 
   getSectionHandler() {

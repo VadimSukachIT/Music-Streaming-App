@@ -68,6 +68,7 @@ html, body {
 
       .tags {
         padding: 0;
+        display: flex;
 
         .tag {
           display: inline-block;
@@ -84,9 +85,7 @@ html, body {
               cursor: pointer;
               .link-hover
             }
-
           }
-
         }
       }
 
@@ -101,7 +100,7 @@ html, body {
           letter-spacing: .16em;
           transition: none 33ms cubic-bezier(.3, 0, .7, 1);
           transition-property: all;
-          color: #fff;
+          color: @button-text-color;
           margin-top: 16px;
           display: inline-block;
           margin-bottom: 0;
@@ -112,7 +111,7 @@ html, body {
           white-space: normal;
           will-change: transform;
           line-height: 1.6;
-          background-color: #1ed760;
+          background-color: @main-second-color;
           cursor: pointer;
 
           &:hover {
@@ -136,6 +135,75 @@ html, body {
 
     }
 
+  }
+
+  #content-section.playlists {
+    background: linear-gradient(to top, rgb(10, 11, 15), rgb(12, 11, 15));
+
+    //#content-header {
+    //
+    //  .tags {
+    //    padding: 0;
+    //
+    //    .playlists {
+    //      a {
+    //        &::after {
+    //          content: "";
+    //          height: 2px;
+    //          background-color: @main-second-color;
+    //          width: 30px;
+    //          position: relative;
+    //          top: 4px;
+    //          display: block;
+    //          margin: 0 auto;
+    //        }
+    //      }
+    //    }
+    //  }
+    //}
+  }
+
+  #content-section.new {
+    background: linear-gradient(to top, rgb(17, 25, 24), rgb(6, 9, 9));
+  }
+  #content-section.albums {
+    background: linear-gradient(to top, rgb(17, 25, 24), rgb(6, 9, 9));
+
+    #content-header {
+
+      .tags {
+
+        .albums  {
+          a {
+            &::after {
+              content: "";
+              height: 2px;
+              background-color: @main-second-color;
+              width: 30px;
+              position: relative;
+              top: 4px;
+              display: block;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+  }
+  #content-section.artists {
+    background: linear-gradient(to top, rgb(8, 12, 16), rgb(5, 7, 10));
+  }
+  #content-section.popular {
+    background: linear-gradient(to top, rgb(39, 37, 39), rgb(8, 7, 8));
+  }
+  #content-section.genres {
+    background: linear-gradient(to top, rgb(39, 37, 39), rgb(8, 7, 8));
+  }
+  #content-section.for-you {
+    background: linear-gradient(to top, rgb(56, 79, 95), rgb(7, 9, 10));
+  }
+  #content-section.songs {
+    background: linear-gradient(to top, rgb(32, 58, 98), rgb(4, 6, 2));
   }
 }
 
