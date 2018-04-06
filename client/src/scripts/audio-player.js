@@ -1,6 +1,6 @@
 import audio from 'tracks/LoseYourself.mp3';
 import {getRequest, postRequest, deleteRequest, putRequest} from 'scripts/requestHelper';
-import { getUser, setUser } from 'scripts/localStorage';
+import {getUser, setUser} from 'scripts/localStorage';
 
 class Player {
     constructor() {
@@ -25,12 +25,42 @@ class Player {
                 let [nothing, type, id] = reg.exec(location.hash);
                 const user = getUser();
                 if (type === "library") {
-                    console.log(user.tracks);
-                    player.playSongs();
+                    let playlistData = await getRequest(`api/user/${user.login}/tracks`);
 
+                    postRequest(`api/user/${user.login}/playlist`, JSON.stringify(playlistData));
+
+                    user.currentPlaylist = playlistData;
+                    setUser(user);
+
+                    let selectedSong = target.closest('.song'),
+                        selectedSongId = selectedSong.id;
+
+                    if (selectedSongId === user.currentTrack._id && selectedSong.classList.contains('active') && !selectedSong.classList.contains('paused')) {
+                        window.currentTrackFile.pause();
+                        selectedSong.classList.toggle('paused');
+                        document.getElementById('play-song-button').classList.toggle('active');
+
+                    } else if (selectedSongId === user.currentTrack._id && selectedSong.classList.contains('paused')) {
+                        window.currentTrackFile.play();
+                        selectedSong.classList.toggle('paused');
+                        document.getElementById('play-song-button').classList.toggle('active');
+                    } else {
+                        player.makeSongActive(selectedSongId);
+
+                        user.currentTrack = playlistData.find(function (song) {
+                            return song._id === selectedSongId;
+                        });
+                        postRequest(`api/user/${user.login}/current`, JSON.stringify({_id: selectedSongId}));
+                        setUser(user);
+
+                        player.playSongs();
+
+                    }
                 } else {
                     let playlistData = await getRequest(`api/${type}/${id}`);
+
                     postRequest(`api/user/${user.login}/playlist`, JSON.stringify(playlistData.tracks));
+
 
                     user.currentPlaylist = playlistData.tracks;
                     setUser(user);
@@ -54,9 +84,8 @@ class Player {
                         user.currentTrack = playlistData.tracks.find(function (song) {
                             return song._id === selectedSongId;
                         });
-                        postRequest(`api/user/${user.login}/current`, JSON.stringify({ _id: selectedSongId }));
+                        postRequest(`api/user/${user.login}/current`, JSON.stringify({_id: selectedSongId}));
                         setUser(user);
-
 
                         player.playSongs();
                     }
@@ -183,12 +212,16 @@ class Player {
 
     repeatSong() {
         let repeatBtn = document.getElementById('repeat-song-button');
-        if (repeatBtn.classList.contains('active')) {
-            window.currentTrackFile.loop = true;
-            repeatBtn.classList.toggle('active');
-        } else {
-            window.currentTrackFile.loop = false;
-            repeatBtn.classList.toggle('active');
+
+        if (window.currentTrackFile) {
+
+            if (repeatBtn.classList.contains('active')) {
+                window.currentTrackFile.loop = true;
+                repeatBtn.classList.toggle('active');
+            } else {
+                window.currentTrackFile.loop = false;
+                repeatBtn.classList.toggle('active');
+            }
         }
     }
 
@@ -216,9 +249,23 @@ class Player {
         }
     }
 
+    shuffleSong() {
+        let shuffleBtn = document.getElementById('shuffle-song-button');
+
+        if (window.currentTrackFile) {
+
+            if (shuffleBtn.classList.contains('active')) {
+                shuffleBtn.classList.toggle('active');
+            } else {
+                shuffleBtn.classList.toggle('active');
+            }
+        }
+    }
+
 
     static playerControlsListener(event) {
         let target = event.target;
+        const user = getUser();
 
         if (target.matches('#play-song-button')) {
             const user = getUser();
@@ -247,10 +294,41 @@ class Player {
         else if (target.matches('#repeat-song-button')) {
             player.repeatSong();
         }
+        else if (target.matches('#shuffle-song-button')) {
+            player.shuffleSong();
+        }
     }
 
     static progressBarListener(event) {
+        let progressBar = document.getElementById('song-progress-bar');
+        let song = window.currentTrackFile;
 
+        if (song) {
+            let currentTimeBlock = document.getElementById('current-song-time');
+            let songDurationBlock = document.getElementById('song-duration');
+
+            songDurationBlock.innerHTML = String(Math.floor(song.duration / 60)) + ':' + String(Math.floor(song.duration) % 60);
+            song.currentTime = progressBar.value;
+
+            progressBar.setAttribute("max", String(Math.floor(song.duration)));
+
+            song.addEventListener('timeupdate', function () {
+                let currentTime = parseInt(song.currentTime, 10);
+
+                progressBar.setAttribute("value", `${currentTime}`);
+
+                let minutes = Math.floor(currentTime / 60);
+                let seconds = null;
+
+                if (minutes < 1) {
+                    seconds = (currentTime % 60) < 10 ? '0' + String(Math.floor(currentTime)) : String(Math.floor(currentTime % 60));
+                } else if (minutes >= 1) {
+                    seconds = Math.floor(currentTime - 60 * minutes) < 10 ? '0' + Math.floor(currentTime - 60 * minutes) : Math.floor(currentTime - 60 * minutes);
+                }
+
+                currentTimeBlock.innerHTML = `${minutes}` + ':' + `${seconds}`;
+            })
+        }
     }
 }
 

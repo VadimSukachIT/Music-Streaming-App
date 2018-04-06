@@ -35,6 +35,11 @@
           background: url("../icons/shuffle-white.svg") no-repeat;
           background-size: 15px;
         }
+
+        &.active {
+          background: url("../icons/shuffle-yellow.svg") no-repeat;
+          background-size: 15px;
+        }
       }
 
       #play-previous-song-button {
@@ -117,6 +122,10 @@
           background-size: 15px;
         }
 
+        &.active {
+          background: url("../icons/repeat-yellow.svg") no-repeat;
+          background-size: 15px;
+        }
       }
     }
 
@@ -142,13 +151,14 @@
         }
 
         &::-webkit-slider-thumb {
-          visibility: hidden;
-          -webkit-appearance: none;
-          height: 10px;
-          width: 10px;
-          border-radius: 10px;
-          background: white;
-          margin-top: -3px;
+
+          //visibility: hidden;
+          //-webkit-appearance: none;
+          //height: 10px;
+          //width: 10px;
+          //border-radius: 10px;
+          //background: white;
+          ////margin-top: -3px;
         }
 
         &:hover {
@@ -164,11 +174,13 @@
       }
 
       #current-song-time {
-
+      min-width: 40px;
+        text-align: center;
       }
 
       #song-duration {
-
+        min-width: 40px;
+        text-align: center;
       }
     }
   }
