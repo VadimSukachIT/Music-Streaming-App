@@ -54,6 +54,7 @@ class Player {
                         user.currentTrack = playlistData.tracks.find(function (song) {
                             return song._id === selectedSongId;
                         });
+                        postRequest(`api/user/${user.login}/current`, JSON.stringify({ _id: selectedSongId }));
                         setUser(user);
 
 

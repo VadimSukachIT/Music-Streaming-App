@@ -1,5 +1,4 @@
 import { getRequest } from 'scripts/requestHelper';
-import Library from "./library";
 
 class Recommendations {
   constructor() {
