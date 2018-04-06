@@ -21,19 +21,18 @@ class Recommendations {
       if (document.getElementById('content-header')) {
         resolve();
       } else {
-        const header = `<div id="content-header">
+        const header = `
                     <ul class="tags">
                         <li class="featured tag"><a href="#/recommendations/for-you">Для вас</a></li>
                         <li class="artists tag"><a href="#/recommendations/popular">Популярное</a></li>
                         <li class="genres tag"><a href="#/recommendations/genres">Жанры</a></li>
                         <li class="new-releases tag"><a href="#/recommendations/new">Новое</a></li>
                     </ul>
-                </div>`;
+               `;
           const div = document.createElement('div');
           div.id = "content-header";
           div.innerHTML = header.trim();
           contentSection.append(div);
-          document.getElementById('create-playlist-button').addEventListener('click', Library.showPlaylistCreationDialog);
           resolve();
       }
     }).then(() => {
