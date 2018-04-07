@@ -30,7 +30,7 @@ class Listener {
             menu.id = 'song-menu';
             const user = getUser();
             const reg = /\/playlist\/(.*)/;
-            const playlistId = reg.exec(location.hash)[1];
+            const playlistId = reg.exec(location.hash) ? reg.exec(location.hash)[1] : null;
 
             menu.innerHTML = `
                 <div class="menu-list save-song"><span class="menu-text">${user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
@@ -152,7 +152,7 @@ class Listener {
         const {target} = event;
 
         const reg = /\/playlist\/(.*)/;
-        const playlistId = reg.exec(location.hash)[1];
+        const playlistId = reg.exec(location.hash) ? reg.exec(location.hash)[1] : null;
         if (target.closest('.save-song')) {
             saveSong(target);
             Listener.destroySongMenu();
