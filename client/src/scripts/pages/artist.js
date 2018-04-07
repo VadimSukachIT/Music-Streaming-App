@@ -1,11 +1,13 @@
 import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 import { getUser, setUser } from 'scripts/localStorage';
 
+
 class Artist {
     async init() {
         const artistId = this.getArtistId();
         const artistData = await getRequest(`api/artist/${artistId}`);
         this.loadArtist(artistData);
+
     }
 
     destroy() {

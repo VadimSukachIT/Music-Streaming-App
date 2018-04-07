@@ -2,6 +2,7 @@ import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
 import {Listener} from 'client/src/scripts/listeners.js';
 import { getUser, setUser } from 'scripts/localStorage';
 import Playlist from "./playlist";
+import Player, {player} from '../audio-player'
 
 class Album {
     async init() {
@@ -109,7 +110,9 @@ class Album {
         const songs = showSongs(album.tracks);
         contentSection.innerHTML = albumPage;
         document.getElementById('songs').append(songs);
-    }
+        let user = getUser();
+        player.makeSongActive(user.currentTrack._id);
+ }
 
     static getAlbumId() {
         const reg = /\/album\/(.*)/;

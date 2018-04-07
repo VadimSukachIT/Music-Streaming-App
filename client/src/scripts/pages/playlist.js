@@ -1,5 +1,6 @@
 import { getRequest, postRequest, deleteRequest } from 'scripts/requestHelper';
 import { getUser, setUser } from 'scripts/localStorage';
+import {player} from '../audio-player';
 
 class Playlist {
   async init() {
@@ -95,7 +96,9 @@ class Playlist {
       songs.append(song);
     });
 
+    let user = getUser();
     document.getElementById('songs').append(songs);
+    player.makeSongActive(user.currentTrack._id)
   }
 
 

@@ -3,18 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1438da88-e355-45d8-909c-44c7e5fba31b" name="Default" comment="02.03.2018">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.html" afterPath="$PROJECT_DIR$/client/src/index.html" />
       <change beforePath="$PROJECT_DIR$/client/src/scripts/audio-player.js" afterPath="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/album.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/album.js" />
+      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/artist.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/artist.js" />
       <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/library.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/library.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/recommendations.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/recommendations.js" />
-      <change beforePath="$PROJECT_DIR$/client/src/static/index.html" afterPath="$PROJECT_DIR$/client/src/static/index.html" />
-      <change beforePath="$PROJECT_DIR$/client/src/static/main.js.map" afterPath="$PROJECT_DIR$/client/src/static/main.js.map" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/artists.less" afterPath="$PROJECT_DIR$/client/src/styles/artists.less" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/content.less" afterPath="$PROJECT_DIR$/client/src/styles/content.less" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/footer.less" afterPath="$PROJECT_DIR$/client/src/styles/footer.less" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/header.less" afterPath="$PROJECT_DIR$/client/src/styles/header.less" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/search.less" afterPath="$PROJECT_DIR$/client/src/styles/search.less" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/songs.less" afterPath="$PROJECT_DIR$/client/src/styles/songs.less" />
+      <change beforePath="$PROJECT_DIR$/client/src/scripts/pages/playlist.js" afterPath="$PROJECT_DIR$/client/src/scripts/pages/playlist.js" />
+      <change beforePath="$PROJECT_DIR$/server/resources/artist/artist.service.js" afterPath="$PROJECT_DIR$/server/resources/artist/artist.service.js" />
+      <change beforePath="$PROJECT_DIR$/server/resources/playlist/playlist.service.js" afterPath="$PROJECT_DIR$/server/resources/playlist/playlist.service.js" />
+      <change beforePath="$PROJECT_DIR$/server/resources/user/user.service.js" afterPath="$PROJECT_DIR$/server/resources/user/user.service.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,126 +27,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="audio-player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="320" column="32" lean-forward="false" selection-start-line="320" selection-start-column="32" selection-end-line="320" selection-end-column="32" />
+            <state relative-caret-position="404">
+              <caret line="359" column="19" lean-forward="false" selection-start-line="359" selection-start-column="19" selection-end-line="359" selection-end-column="19" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
-                <element signature="n#!!block;n#playButtonsListener#0;n#Player#0" expanded="false" />
                 <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
                 <element signature="n#!!block;n#progressBarListener#0;n#Player#0" expanded="false" />
+                <element signature="n#!!block;n#volumeBarListener#0;n#Player#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="artists.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/artists.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/header.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding>
-                <element signature="e#87#1326#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer.less" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
-              <caret line="204" column="7" lean-forward="true" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommendations.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/recommendations.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-              <folding>
-                <marker date="1523048750104" expanded="true" signature="869:1008" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="869:1298" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="2737:3134" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="2830:3119" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="2863:2951" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="4028:4534" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="4097:4423" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="4131:4235" ph="..." />
-                <marker date="1523048750104" expanded="false" signature="4286:4328" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="5678:5967" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="5747:5952" ph="..." />
-                <marker date="1523048750104" expanded="false" signature="5796:5838" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="6823:7329" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="6892:7218" ph="..." />
-                <marker date="1523048750104" expanded="true" signature="6926:7030" ph="..." />
-                <marker date="1523048750104" expanded="false" signature="7081:7123" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="115" lean-forward="false" selection-start-line="23" selection-start-column="115" selection-end-line="23" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="localStorage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/scripts/localStorage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="53" column="58" lean-forward="false" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/search.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-169">
-              <caret line="272" column="39" lean-forward="false" selection-start-line="272" selection-start-column="39" selection-end-line="272" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="songs.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/songs.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="185" column="16" lean-forward="false" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -169,36 +56,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>search-sec</find>
-      <find>search-layou</find>
-      <find>#create-playlist-but</find>
-      <find>#playlist-creation-</find>
-      <find>button</find>
-      <find>create-</find>
-      <find>#play-playli</find>
-      <find>#play-artist</find>
-      <find>setUser</find>
-      <find>#repeat</find>
-      <find>#shuffle</find>
-      <find>current-song</find>
-      <find>::web</find>
-      <find>#song-dura</find>
-      <find>playSong()</find>
-      <find>playSongs</find>
-      <find>currentTrackFile</find>
-      <find>playButton</find>
-      <find>window.currentTrackFile =</find>
-      <find>play-playlist</find>
-      <find>setCurre</find>
       <find>window</find>
       <find>window.currentTrackFile</find>
       <find>updateSong</find>
-      <find>.play()</find>
       <find>repeat</find>
       <find>#create-playlist</find>
       <find>#volume-sec</find>
       <find>#artists</find>
       <find>song.active</find>
+      <find>.play()</find>
+      <find>song.Play()</find>
+      <find>innerHTML</find>
+      <find>playNext</find>
+      <find>dialog</find>
+      <find>repeatSong</find>
+      <find>makeSong</find>
+      <find>makeSongActive</find>
+      <find>player</find>
+      <find>playBtn</find>
+      <find>playButton</find>
+      <find>make</find>
+      <find>playButton.classList.toggle('active'</find>
+      <find>play</find>
+      <find>playButton.class</find>
+      <find>songs</find>
+      <find>mute</find>
+      <find>playSongs</find>
+      <find>repea</find>
+      <find>makeSo</find>
+      <find>playNextSong()</find>
+      <find>shuffle</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;</replace>
@@ -217,8 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Styles/album-content.less" />
-        <option value="$PROJECT_DIR$/server/resources/artist/artist.controller.js" />
         <option value="$PROJECT_DIR$/scripts/pages/recommendations.js" />
         <option value="$PROJECT_DIR$/html/recommendations-header.html" />
         <option value="$PROJECT_DIR$/json/album.json" />
@@ -238,17 +123,13 @@
         <option value="$PROJECT_DIR$/scripts/pages/library.js" />
         <option value="$PROJECT_DIR$/scripts/listeners.js" />
         <option value="$PROJECT_DIR$/scripts/pages/artist.js" />
-        <option value="$PROJECT_DIR$/server/resources/artist/artist.service.js" />
         <option value="$PROJECT_DIR$/client/src/scripts/router.js" />
         <option value="$PROJECT_DIR$/server/resources/album/album.service.js" />
         <option value="$PROJECT_DIR$/client/src/webpack.config.js" />
         <option value="$PROJECT_DIR$/client/src/styles/playlist-content.less" />
         <option value="$PROJECT_DIR$/client/src/scripts/listeners.js" />
         <option value="$PROJECT_DIR$/client/src/index.js" />
-        <option value="$PROJECT_DIR$/client/src/scripts/pages/playlist.js" />
         <option value="$PROJECT_DIR$/server/resources/track/track.service.js" />
-        <option value="$PROJECT_DIR$/client/src/scripts/pages/album.js" />
-        <option value="$PROJECT_DIR$/client/src/scripts/pages/artist.js" />
         <option value="$PROJECT_DIR$/client/src/styles/playlists.less" />
         <option value="$PROJECT_DIR$/client/src/styles/albums.less" />
         <option value="$PROJECT_DIR$/client/src/scripts/search.js" />
@@ -257,9 +138,7 @@
         <option value="$PROJECT_DIR$/client/src/styles/add-song-to-playlist.less" />
         <option value="$PROJECT_DIR$/client/src/styles/create-playlist-dialog.less" />
         <option value="$PROJECT_DIR$/client/src/static/main.js.map" />
-        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
         <option value="$PROJECT_DIR$/client/src/styles/artists.less" />
-        <option value="$PROJECT_DIR$/client/src/scripts/pages/library.js" />
         <option value="$PROJECT_DIR$/client/src/scripts/pages/recommendations.js" />
         <option value="$PROJECT_DIR$/client/src/index.html" />
         <option value="$PROJECT_DIR$/client/src/static/index.html" />
@@ -268,6 +147,14 @@
         <option value="$PROJECT_DIR$/client/src/styles/songs.less" />
         <option value="$PROJECT_DIR$/client/src/styles/header.less" />
         <option value="$PROJECT_DIR$/client/src/styles/footer.less" />
+        <option value="$PROJECT_DIR$/client/src/scripts/pages/library.js" />
+        <option value="$PROJECT_DIR$/client/src/scripts/pages/playlist.js" />
+        <option value="$PROJECT_DIR$/client/src/scripts/pages/album.js" />
+        <option value="$PROJECT_DIR$/client/src/scripts/pages/artist.js" />
+        <option value="$PROJECT_DIR$/server/resources/artist/artist.service.js" />
+        <option value="$PROJECT_DIR$/server/resources/playlist/playlist.service.js" />
+        <option value="$PROJECT_DIR$/server/resources/user/user.service.js" />
+        <option value="$PROJECT_DIR$/client/src/scripts/audio-player.js" />
       </list>
     </option>
   </component>
@@ -327,37 +214,27 @@
             <path>
               <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
               <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
               <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
               <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="album" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
               <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KursachProjectPlayer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KursachProjectPlayer" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="artist" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -789,11 +666,25 @@
       <option name="project" value="LOCAL" />
       <updated>1523043514895</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="02.03.2018">
+      <created>1523049749517</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1523049749517</updated>
+    </task>
+    <task id="LOCAL-00035" summary="02.03.2018">
+      <created>1523052991397</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1523052991397</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381394000" />
+    <option name="totallyTimeSpent" value="391725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -806,17 +697,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1923077" sideWeight="0.49447078" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49367756" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35869566" sideWeight="0.581138" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35869566" sideWeight="0.5827187" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4604847" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.44994733" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.4399368" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35869566" sideWeight="0.41886196" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35869566" sideWeight="0.41728136" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1849315" sideWeight="0.5055292" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -879,15 +771,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/json/1-songs.json" />
-    <entry file="file://$PROJECT_DIR$/json/2-songs.json" />
-    <entry file="file://$PROJECT_DIR$/json/1-album.json" />
-    <entry file="file://$PROJECT_DIR$/json/2-album.json" />
     <entry file="file://$PROJECT_DIR$/scripts/router.js" />
     <entry file="file://$PROJECT_DIR$/Styles/artists.less" />
     <entry file="file://$PROJECT_DIR$/scripts/requestHelper.js" />
@@ -933,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/resources/album/album.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
-          <caret line="194" column="4" lean-forward="true" selection-start-line="194" selection-start-column="4" selection-end-line="194" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
@@ -958,44 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/playlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/resources/artist/artist.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="29" column="21" lean-forward="false" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="74" column="16" lean-forward="true" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/resources/track/track.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/artist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="39" column="69" lean-forward="false" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1094,43 +937,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/library.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding>
-            <marker date="1523048750065" expanded="true" signature="1012:1364" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="1409:1518" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="3429:3935" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="3498:3824" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="3532:3636" ph="..." />
-            <marker date="1523048750065" expanded="false" signature="3687:3729" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="5106:5517" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="5194:5502" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="5227:5334" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="6815:7694" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="6850:7008" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="7043:7368" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="7406:7679" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="7459:7552" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="8886:9300" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="8957:9285" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="8990:9095" ph="..." />
-            <marker date="1523048750065" expanded="false" signature="9146:9194" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="11123:11534" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="11211:11519" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="11244:11351" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="13504:13673" ph="..." />
-            <marker date="1523048750065" expanded="true" signature="13718:13940" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/static/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="81" lean-forward="true" selection-start-line="15" selection-start-column="81" selection-end-line="15" selection-end-column="81" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3058">
+          <caret line="186" column="18" lean-forward="true" selection-start-line="186" selection-start-column="18" selection-end-line="186" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/artists.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/header.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="e#87#1326#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1146,6 +983,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="29" lean-forward="true" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="53" column="58" lean-forward="false" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/search.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-169">
+          <caret line="272" column="39" lean-forward="false" selection-start-line="272" selection-start-column="39" selection-end-line="272" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/styles/songs.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="185" column="16" lean-forward="false" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1175,66 +1036,168 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/album.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="132" column="41" lean-forward="true" selection-start-line="132" selection-start-column="41" selection-end-line="132" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <marker date="1523056012450" expanded="true" signature="1197:2227" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="1236:1398" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="1437:1824" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="1561:1799" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="1870:2210" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="1937:2061" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="2957:3853" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="2989:3803" ph="..." />
+            <marker date="1523056012450" expanded="false" signature="3035:3077" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="3288:3524" ph="..." />
+            <marker date="1523056012450" expanded="true" signature="3679:3786" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/track/track.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="21" lean-forward="true" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/artist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="65" column="91" lean-forward="false" selection-start-line="65" selection-start-column="86" selection-end-line="65" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+            <marker date="1523056363375" expanded="true" signature="711:1129" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="782:1114" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="820:916" ph="..." />
+            <marker date="1523056363375" expanded="false" signature="971:1013" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="1490:2569" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="1537:1723" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="1770:2110" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="2164:2544" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="2239:2379" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="2875:2955" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="2956:3582" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="3065:3467" ph="..." />
+            <marker date="1523056363375" expanded="true" signature="3314:3444" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/playlist/playlist.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/track/track.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/album/album.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-999">
+          <caret line="38" column="21" lean-forward="true" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/artist/artist.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1902">
+          <caret line="140" column="17" lean-forward="true" selection-start-line="140" selection-start-column="17" selection-end-line="140" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/user/user.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="25" column="12" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/resources/user/user.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/playlist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="100" column="2" lean-forward="true" selection-start-line="100" selection-start-column="2" selection-end-line="100" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#79#0" expanded="true" />
+            <marker date="1523056012415" expanded="true" signature="1056:2016" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="1095:1256" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="1295:1613" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="1659:1999" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="1726:1850" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="2672:3379" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="2707:3331" ph="..." />
+            <marker date="1523056012415" expanded="false" signature="2756:2801" ph="..." />
+            <marker date="1523056012415" expanded="true" signature="3191:3312" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/scripts/pages/library.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="17" column="14" lean-forward="false" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+            <marker date="1523054147743" expanded="true" signature="1051:1403" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="1448:1557" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="3468:3974" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="3537:3863" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="3571:3675" ph="..." />
+            <marker date="1523054147743" expanded="false" signature="3726:3768" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="5145:5556" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="5233:5541" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="5266:5373" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="6854:7733" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="6889:7047" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="7082:7407" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="7445:7718" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="7498:7591" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="8925:9339" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="8996:9324" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="9029:9134" ph="..." />
+            <marker date="1523054147743" expanded="false" signature="9185:9233" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="11162:11573" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="11250:11558" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="11283:11390" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="13697:13866" ph="..." />
+            <marker date="1523054147743" expanded="true" signature="13911:14133" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/scripts/audio-player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="320" column="32" lean-forward="false" selection-start-line="320" selection-start-column="32" selection-end-line="320" selection-end-column="32" />
+        <state relative-caret-position="404">
+          <caret line="359" column="19" lean-forward="false" selection-start-line="359" selection-start-column="19" selection-end-line="359" selection-end-column="19" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
-            <element signature="n#!!block;n#playButtonsListener#0;n#Player#0" expanded="false" />
             <element signature="n#!!block;n#setCurrentSongs#0;n#Player#0" expanded="false" />
             <element signature="n#!!block;n#progressBarListener#0;n#Player#0" expanded="false" />
+            <element signature="n#!!block;n#volumeBarListener#0;n#Player#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/content.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="53" column="58" lean-forward="false" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/search.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-169">
-          <caret line="272" column="39" lean-forward="false" selection-start-line="272" selection-start-column="39" selection-end-line="272" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/songs.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="185" column="16" lean-forward="false" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/artists.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/header.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#87#1326#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/styles/footer.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="204" column="7" lean-forward="true" selection-start-line="204" selection-start-column="7" selection-end-line="204" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -51,6 +51,102 @@ let artists = [
     ],
     followers: 5200,
   },
+    {
+        _id: '3',
+        name: 'Kendrick Lamar',
+        smallCover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP63GJbOqmqJ6r4H543KQkmNmyEcp6-0ZR00d_kA2DiicFs4k',
+        bigCover: 'https://i.scdn.co/image/5a4d488ed4e5f9bbb741d57b3a71e61d09794ce3',
+        genres: [
+            '1',
+        ],
+        albums: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        tracks: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        followers: 5200,
+    },
+    {
+        _id: '4',
+        name: 'Скриптонит',
+        smallCover: 'http://ztb.kz/media/imperavi/59f730007380b.jpg',
+        bigCover: 'https://i.scdn.co/image/5a4d488ed4e5f9bbb741d57b3a71e61d09794ce3',
+        genres: [
+            '1',
+        ],
+        albums: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        tracks: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        followers: 5200,
+    },
+    {
+        _id: '5',
+        name: 'Post Malone',
+        smallCover: 'https://media.thehypemagazine.com/wp-content/uploads/2017/10/post.jpg',
+        bigCover: 'https://i.scdn.co/image/5a4d488ed4e5f9bbb741d57b3a71e61d09794ce3',
+        genres: [
+            '1',
+        ],
+        albums: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        tracks: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        followers: 5200,
+    },
+    {
+        _id: '6',
+        name: 'The Weeknd',
+        smallCover: 'http://www.rap-up.com/app/uploads/2017/06/the-weeknd-blue.jpg',
+        bigCover: 'https://i.scdn.co/image/5a4d488ed4e5f9bbb741d57b3a71e61d09794ce3',
+        genres: [
+            '1',
+        ],
+        albums: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        tracks: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+        ],
+        followers: 5200,
+    },
 ];
 
 const service = {};

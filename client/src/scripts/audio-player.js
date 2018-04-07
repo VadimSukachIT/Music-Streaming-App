@@ -147,6 +147,14 @@ class Player {
         if (song.src) {
             await song.play();
 
+            if (player.isMuted) {
+                song.muted = true;
+            }
+
+            if (player.isLooped) {
+                song.loop = true;
+            }
+
             Player.updateProgressBar(song);
             if (!this.playButton.classList.contains('active')) {
                 this.playButton.classList.toggle('active');
@@ -191,23 +199,31 @@ class Player {
             playlist = user.currentPlaylist;
 
         if (trackFile && playlist) {
-            let nextTrack = playlist[playlist.findIndex(item => item._id === track._id) + 1];
+
+
+            let nextTrack = player.isShuffled ? playlist[Math.floor(Math.random() * playlist.length)] : playlist[playlist.findIndex(item => item._id === track._id) + 1];
 
             if (nextTrack) {
-                trackFile.pause();
 
-                user.currentTrack = nextTrack;
+                if (!player.isLooped) {
+                    trackFile.pause();
 
-                await postRequest(`api/user/${user.login}/current`, JSON.stringify(user.currentTrack));
+                    user.currentTrack = nextTrack;
 
-                window.currentTrackFile = new Audio(user.currentTrack.url);
-                setUser(user);
+                    await postRequest(`api/user/${user.login}/current`, JSON.stringify(user.currentTrack));
 
-                this.playSongs();
-                this.makeSongActive(user.currentTrack._id);
+                    window.currentTrackFile = new Audio(user.currentTrack.url);
+                    setUser(user);
 
-                if (!this.playButton.classList.contains('active')) {
-                    this.playButton.classList.toggle('active');
+                    this.playSongs();
+                    this.makeSongActive(user.currentTrack._id);
+
+                    if (!this.playButton.classList.contains('active')) {
+                        this.playButton.classList.toggle('active');
+                    }
+                } else {
+                    trackFile.pause();
+                    this.playSongs();
                 }
             }
         }
@@ -245,18 +261,7 @@ class Player {
     }
 
     repeatSong() {
-        let repeatBtn = document.getElementById('repeat-song-button');
 
-        if (window.currentTrackFile) {
-
-            if (repeatBtn.classList.contains('active')) {
-                window.currentTrackFile.loop = false;
-                repeatBtn.classList.toggle('active');
-            } else {
-                window.currentTrackFile.loop = true;
-                repeatBtn.classList.toggle('active');
-            }
-        }
     }
 
     stopSong() {
@@ -299,10 +304,9 @@ class Player {
 
     static async playerControlsListener(event) {
         let target = event.target;
-        const user = getUser();
+
 
         if (target.matches('#play-song-button')) {
-            const user = getUser();
             let currentSong = window.currentTrackFile,
                 playButton = document.getElementById('play-song-button');
 
@@ -326,23 +330,49 @@ class Player {
         }
 
         else if (target.matches('#repeat-song-button')) {
-            player.repeatSong();
+
+            let repeatBtn = document.getElementById('repeat-song-button');
+
+            if (window.currentTrackFile) {
+
+                if (repeatBtn.classList.contains('active')) {
+                    player.isLooped = false;
+                    window.currentTrackFile.loop = false;
+                    repeatBtn.classList.toggle('active');
+                } else {
+                    player.isLooped = true;
+                    window.currentTrackFile.loop = true;
+                    repeatBtn.classList.toggle('active');
+                }
+            }
         }
         else if (target.matches('#shuffle-song-button')) {
-            player.shuffleSong();
+            let shuffleBtn = document.getElementById('shuffle-song-button');
+
+            if (shuffleBtn.classList.contains('active')) {
+                shuffleBtn.classList.toggle('active');
+                player.isShuffled = false;
+            } else {
+                shuffleBtn.classList.toggle('active');
+                player.isShuffled = true;
+            }
+
         } else if (target.matches('#volume-button')) {
             let volumeButton = document.getElementById('volume-button');
             let song = window.currentTrackFile;
 
             if (volumeButton.classList.contains('active')) {
                 song.muted = false;
+                player.isMuted = false;
                 volumeButton.classList.toggle('active');
             } else {
                 song.muted = true;
+                player.isMuted = true;
                 player.volumeBar.value = 0;
                 song.volume = 0;
                 player.volumeBar.setAttribute('value', 0);
                 volumeButton.classList.toggle('active');
+
             }
         }
     }
@@ -360,14 +390,19 @@ class Player {
     static volumeBarListener() {
         let volumeBtn = player.volumeButton;
         let song = window.currentTrackFile;
+        console.log(currentTrackFile);
 
         song.volume = player.volumeBar.value / 100;
 
 
         if (song.volume === 0 && !volumeBtn.classList.contains('active')) {
             volumeBtn.classList.toggle('active');
-        } else if (song.volume > 0 && volumeBtn.classList.contains('active')) {
+        } else if (song.volume > 0 && volumeBtn.classList.contains('active') && !player.isMuted) {
             volumeBtn.classList.toggle('active');
+        } else if (song.volume > 0 && volumeBtn.classList.contains('active') && player.isMuted) {
+            volumeBtn.classList.remove('active');
+            player.isMuted = false;
+            song.muted = false;
         }
     }
 }
@@ -380,3 +415,4 @@ document.getElementById('volume-bar').addEventListener('change', Player.volumeBa
 document.getElementById('player-controls').addEventListener('click', Player.playerControlsListener, false);
 document.getElementById('song-progress-bar').addEventListener('change', Player.progressBarListener, false);
 export default Player;
+export {player};

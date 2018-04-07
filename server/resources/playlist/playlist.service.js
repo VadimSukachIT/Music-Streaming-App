@@ -3,8 +3,8 @@ const userService = require('../user/user.service');
 
 let playlists = [{
   _id: '1',
-  cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
-  title: 'Playlist 1',
+  cover: 'https://images.8tracks.com/cover/i/002/690/583/1381798233401916-6706.jpg?rect=0,0,500,500&q=98&fm=jpg&fit=max',
+  title: 'Deep Focus',
   userId: '1',
   tracks: [
     '1',
@@ -13,8 +13,8 @@ let playlists = [{
   ],
 }, {
   _id: '2',
-  cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
-  title: 'Playlist 2',
+  cover: 'https://images.8tracks.com/cover/i/000/354/017/2Pac-Thug-Life-Volume-I-1994-Album-Cover-1587.jpg?rect=0,0,600,600&q=98&fm=jpg&fit=max',
+  title: 'Rap',
   userId: '1',
   tracks: [
     '3',
@@ -23,8 +23,8 @@ let playlists = [{
   ],
 }, {
   _id: '3',
-  cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
-  title: 'A Thousand Suns Playlist',
+  cover: 'https://is5-ssl.mzstatic.com/image/thumb/Music/61/15/62/mzi.iolobnyk.jpg/268x0w.jpg',
+  title: 'Dance',
   userId: '1',
   tracks: [
     '2',

@@ -1,5 +1,6 @@
 import {getRequest, postRequest, deleteRequest} from 'scripts/requestHelper';
 import { getUser, setUser } from 'scripts/localStorage';
+import  Player  from '../audio-player'
 
 class Library {
     constructor() {
@@ -313,11 +314,13 @@ class Library {
                 if (playlistTitle) {
                     let title = playlistTitle;
                     let tracks = [];
+                    let cover = "https://spotify.i.lithium.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=1.0";
                     const user = getUser();
 
                     const playlist = JSON.stringify({
                         title,
                         tracks,
+                        cover,
                         userId: user._id,
                     });
 
