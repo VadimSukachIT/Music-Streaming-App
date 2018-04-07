@@ -1,4 +1,5 @@
 import { getRequest } from 'scripts/requestHelper';
+import { getUser } from 'scripts/localStorage';
 
 class Recommendations {
   constructor() {
@@ -81,40 +82,41 @@ class Recommendations {
   }
 
   async loadForYouContent() {
-    const mainContentSection = document.getElementById('main-content');
-    const fragment = document.createElement('div');
-    fragment.id = 'playlists';
-
-    function createPlaylist(playlistData) {
-      const PLAYLIST = `
-        <div class="playlist">
-            <a class="hovered-part" href="#/user/darkavatar21/playlist/${playlistData._id}">
+    function createAlbum(albumData) {
+      const ALBUM = `
+        <div class="album" id="${albumData._id}">
+            <a class="hovered-part" href="#/album/${albumData._id}"> 
               <div class="icon">
-                <button type="button" class="play-icon"></button> 
-              </div>  
-              <img class="playlist-cover" src="${playlistData.cover}"></img>
-              <span class="playlist-title">${playlistData.title}</span>
+                <button type="button" class="play-icon play play-album"></button> 
+              </div>   
+              <div class="album-cover" style="background-image: url(${albumData.cover});"></div>   
+              <span class="album-title">${albumData.title}</span>  
             </a>
+          <a href="#/artist/${albumData.artistId}" class="album-artist">${albumData.artist}</a>
         </div>`;
-
       const div = document.createElement('div');
-      div.innerHTML = PLAYLIST.trim();
+      div.innerHTML = ALBUM.trim();
       return div.firstChild;
     }
+
     const sectionHeader = document.getElementsByClassName('featured tag')[0];
     if (sectionHeader) {
       sectionHeader.classList += ' active';
     }
+    const user = getUser();
+    const albumData = await getRequest(`api/user/${user.login}/featured`);
 
-    const playlistsData = await getRequest('api/playlist');
+    const mainContentSection = document.getElementById('main-content');
+    const fragment = document.createElement('div');
+    fragment.id = 'albums';
 
-    playlistsData.forEach((playlistsInfo) => {
-      const playlist = createPlaylist(playlistsInfo);
-      fragment.append(playlist);
+    albumData.forEach((albumInfo) => {
+      const album = createAlbum(albumInfo);
+      fragment.append(album);
     });
     mainContentSection.append(fragment);
-      document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
-      document.getElementById('content-section').classList.add('for-you');
+    document.getElementById('content-section').classList.remove('albums', 'songs', 'artists', 'playlists', 'for-you', 'popular', 'new', 'genres');
+    document.getElementById('content-section').classList.add('for-you');
   }
 
   async loadPopularContent() {

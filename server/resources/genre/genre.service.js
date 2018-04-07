@@ -2,41 +2,53 @@ const generateId = require('../../helpers/idGenerator');
 
 let genres = [{
   _id: '1',
-  title: 'Rock',
+  title: 'Alternative / Indie',
   albums: [
-    '1',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
   ],
   cover: 'https://http2.mlstatic.com/cd-linkin-park-meteora-original-y-sellado-D_NQ_NP_979521-MLC20805929449_072016-F.jpg',
   icon: 'https://image.ibb.co/kfLx7H/drummer.png',
 }, {
   _id: '2',
   title: 'Hip Hop',
-  albums: [],
-  cover: 'https://cdn.albumoftheyear.org/album/thumbs/2017/76870-damn-1.jpg',
+  albums: [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+  ],
+  cover: 'http://cdn.pophangover.com/wp-content/uploads/2014/06/rap-album-7.jpg',
   icon: 'https://image.ibb.co/gJwOxH/breakdancing_dancer.png',
 }, {
   _id: '3',
   title: 'Classical',
   albums: [],
-  cover: 'https://cdn.albumoftheyear.org/album/thumbs/2017/76870-damn-1.jpg',
+  cover: 'https://is3-ssl.mzstatic.com/image/thumb/Music2/v4/5b/d5/ed/5bd5ed33-cc8a-e96f-01c0-d04de63f6dd1/dj.colryhvp.jpg/600x600bf.jpg',
   icon: 'https://image.ibb.co/jhgR1c/conductor.png',
 }, {
   _id: '4',
   title: 'Dubstep',
   albums: [],
-  cover: 'https://cdn.albumoftheyear.org/album/thumbs/2017/76870-damn-1.jpg',
+  cover: 'http://www.exil.de/press/bilder/covers/Generation%20BassprintNEU.jpg',
   icon: 'https://image.ibb.co/eeDH7H/dj.png',
 }, {
   _id: '5',
   title: 'Instrumental',
   albums: [],
-  cover: 'https://cdn.albumoftheyear.org/album/thumbs/2017/76870-damn-1.jpg',
+  cover: 'http://heartfeltmusic.org/wp-content/uploads/2013/04/ReggieCoates_InstrumentalGuitarVolume1.jpg',
   icon: 'https://image.ibb.co/iUMgZx/musician.png',
 }, {
   _id: '6',
   title: 'Pop',
   albums: [],
-  cover: 'https://cdn.albumoftheyear.org/album/thumbs/2017/76870-damn-1.jpg',
+  cover: 'https://prabook.com/web/show-photo.jpg?id=54540',
   icon: 'https://image.ibb.co/nupDgc/singer.png',
 }];
 

@@ -202,3 +202,14 @@ module.exports.setCurrentPlaylist = (ctx, next) => {
 
   ctx.body = user.currentTrack || {};
 };
+
+module.exports.getFeaturedAlbums = async (ctx, next) => {
+  const user = userService.findOne({ login: ctx.params.user });
+  const albums = [];
+  user.artists.forEach((item) => {
+    albums.push(...albumService.find({ artistId: item })
+      .filter(album => user.albums.indexOf(album._id) === -1));
+  });
+
+  ctx.body = albums || [];
+};

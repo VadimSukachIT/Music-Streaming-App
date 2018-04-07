@@ -2,22 +2,6 @@ const generateId = require('../../helpers/idGenerator');
 
 let albums = [
   {
-    _id: '0',
-    title: 'New',
-    artist: 'Eminem',
-    artistId: '1',
-    tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-    ],
-    date: '2018',
-    genres: ['1'],
-    cover: 'http://ru.recordshopx.com/cover/normal/5/56/560588.jpg?cd',
-  },
-  {
     _id: '1',
     title: 'Revival',
     artist: 'Eminem',
@@ -25,12 +9,9 @@ let albums = [
     tracks: [
       '1',
       '2',
-      '3',
       '4',
-      '5',
     ],
     date: '2017',
-    genres: ['1'],
     cover: 'http://ru.recordshopx.com/cover/normal/5/56/560588.jpg?cd',
   },
   {
@@ -39,14 +20,9 @@ let albums = [
     artist: 'Eminem',
     artistId: '1',
     tracks: [
-      '1',
-      '2',
       '3',
-      '4',
-      '5',
     ],
     date: '2010',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/archive/8/80/20100526093203%21Eminem_recovery_cover_a.jpg',
   },
   {
@@ -55,14 +31,9 @@ let albums = [
     artist: 'Eminem',
     artistId: '1',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
       '5',
     ],
     date: '2013',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/2/23/Cover_art_Eminem_-_The_Marshall_Mathers_LP_2.jpg/230px-Cover_art_Eminem_-_The_Marshall_Mathers_LP_2.jpg',
   },
   {
@@ -78,7 +49,6 @@ let albums = [
       '5',
     ],
     date: '2009',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/8/81/Relapse_cover.jpg',
   },
   {
@@ -94,7 +64,6 @@ let albums = [
       '5',
     ],
     date: '2009',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/f/f9/The_Slim_Shady_LP.jpg/230px-The_Slim_Shady_LP.jpg',
   },
   {
@@ -103,14 +72,9 @@ let albums = [
     artist: 'Linkin Park',
     artistId: '2',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '11',
     ],
     date: '2017',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/f/f8/One_More_Light.jpg/230px-One_More_Light.jpg',
   },
   {
@@ -125,8 +89,7 @@ let albums = [
       '4',
       '5',
     ],
-    dat: '2014',
-    genreI: '1',
+    date: '2014',
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/3/3c/The_Hunting_Party_2014.jpg/1200px-The_Hunting_Party_2014.jpg',
   },
   {
@@ -135,14 +98,9 @@ let albums = [
     artist: 'Linkin Park',
     artistId: '2',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '10',
     ],
     date: '2012',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/0/00/Living_Things.jpg/230px-Living_Things.jpg',
   },
   {
@@ -158,7 +116,6 @@ let albums = [
       '5',
     ],
     date: '2010',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/b9/ATS_lpblast.jpg/220px-ATS_lpblast.jpg',
   },
   {
@@ -167,14 +124,9 @@ let albums = [
     artist: 'Linkin Park',
     artistId: '2',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '8',
     ],
     date: '2007',
-    genres: ['1'],
     cover: 'https://avatars.yandex.net/get-music-content/34131/6dedd789.a.339859-1/m1000x1000',
   },
   {
@@ -183,14 +135,10 @@ let albums = [
     artist: 'Linkin Park',
     artistId: '2',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '6',
+      '9',
     ],
     date: '2003',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/b/bf/Meteora.jpg/230px-Meteora.jpg',
   },
   {
@@ -199,14 +147,9 @@ let albums = [
     artist: 'Linkin Park',
     artistId: '2',
     tracks: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '7',
     ],
     date: '2000',
-    genres: ['1'],
     cover: 'https://upload.wikimedia.org/wikipedia/ru/archive/8/8e/20100228151217%21Linkin_Park_Hybrid_Theory.png',
   },
 ];

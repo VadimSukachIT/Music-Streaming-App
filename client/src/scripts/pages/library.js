@@ -26,7 +26,7 @@ class Library {
             if (document.getElementById('content-header')) {
                 resolve();
             } else {
-                const header = `
+                const headerEl = `
      
             <ul class="tags">
               <li class="playlists tag"><a href="#/library/playlists">Плейлисты</a></li>
@@ -40,7 +40,7 @@ class Library {
             `;
                 const div = document.createElement('div');
                 div.id = "content-header";
-                div.innerHTML = header.trim();
+                div.innerHTML = headerEl.trim();
                 contentSection.append(div);
                 document.getElementById('create-playlist-button').addEventListener('click', Library.showPlaylistCreationDialog);
                 resolve();

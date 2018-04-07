@@ -54,7 +54,7 @@ let tracks = [
     {
         _id: '6',
         name: 'Numb',
-        albumId: '1',
+        albumId: '11',
         album: 'Meteora',
         artistId: '2',
         artist: 'Linkin Park',
@@ -100,6 +100,16 @@ let tracks = [
         artist: 'Linkin Park',
         durationInSec: 233,
         url: 'http://k003.kiwi6.com/hotlink/0nwiqil00i/Linkin_Park_-_Burn_It_Down.mp3',
+    },
+    {
+        _id: '11',
+        name: 'One More Light',
+        albumId: '6',
+        album: 'One More Light',
+        artistId: '2',
+        artist: 'Linkin Park',
+        durationInSec: 255,
+        url: 'http://k003.kiwi6.com/hotlink/3fq9d3a4pz/Linkin_Park_-_One_More_Light.mp3',
     },
 
 ];

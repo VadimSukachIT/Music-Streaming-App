@@ -4,7 +4,7 @@ const router = require('koa-router')();
 router.post('/signup', controller.signup);
 router.post('/signin', controller.signin);
 router.get('/logout', controller.logout);
-router.get('/:user', controller.getUser);
+router.get('/:user/featured', controller.getFeaturedAlbums);
 router.get('/:user/playlists', controller.getUserPlaylists);
 router.get('/:user/albums', controller.getUserAlbums);
 router.get('/:user/tracks', controller.getUserTracks);
@@ -19,5 +19,6 @@ router.delete('/:user/artists/:id', controller.removeArtist);
 router.delete('/:user/albums/:id', controller.removeAlbum);
 router.delete('/:user/tracks/:id', controller.removeTrack);
 router.delete('/:user/playlists/:id', controller.removePlaylist);
+router.get('/:user', controller.getUser);
 
 module.exports = router.routes();

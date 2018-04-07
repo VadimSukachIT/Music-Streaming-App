@@ -1,6 +1,5 @@
 const albumService = require('./album.service');
 const trackService = require('../track/track.service');
-const genreService = require('../genre/genre.service');
 
 module.exports.getAlbumById = async (ctx, next) => {
   const album = { ...await albumService.findOne({ _id: ctx.params.id }) };
@@ -8,8 +7,6 @@ module.exports.getAlbumById = async (ctx, next) => {
     const doc = trackService.findOne({ _id: id });
     return doc || {};
   });
-  album.genres = await album.genres.map(id =>
-    genreService.findOne({ _id: id }));
 
   ctx.body = album;
 };
@@ -28,9 +25,10 @@ module.exports.getAllAlbums = async (ctx, next) => {
 };
 
 module.exports.getNewAlbums = async (ctx, next) => {
-  const albums = albumService.find({ date: (new Date()).getFullYear().toString() });
+  const thisYearAlbums = albumService.find({ date: (new Date()).getFullYear().toString() });
+  const prevYearAlbums = albumService.find({ date: ((new Date()).getFullYear() - 1).toString() });
 
-  ctx.body = albums || [];
+  ctx.body = [...thisYearAlbums, ...prevYearAlbums] || [];
 };
 
 module.exports.createAlbum = (ctx, next) => {

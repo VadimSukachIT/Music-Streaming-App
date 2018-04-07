@@ -29,11 +29,15 @@ class Listener {
             const menu = document.createElement('div');
             menu.id = 'song-menu';
             const user = getUser();
+            const reg = /\/playlist\/(.*)/;
+            const playlistId = reg.exec(location.hash)[1];
 
             menu.innerHTML = `
-                 <div class="menu-list save-song"><span class="menu-text">${user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
-                 <div class="menu-list add-song-to-playlist"><span class=menu"-text">Добавить в плейлист</span></div>
-                 <div class="menu-list share-song"><span class="menu-text">Поделиться</span></div>
+                <div class="menu-list save-song"><span class="menu-text">${user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
+                <div class="menu-list add-song-to-playlist"><span class=menu"-text">
+                    ${playlistId ? 'Убрать с плейлиста' : 'Добавить в плейлист'}
+                </span></div>
+                <div class="menu-list share-song"><span class="menu-text">Поделиться</span></div>
           `;
 
             songFragment.append(menu);
@@ -42,7 +46,7 @@ class Listener {
         }
     }
 
-    static songMenuListener(event) {
+    static async songMenuListener(event) {
 
         function addSongToPlaylistDialog() {
             let songId = event.target.closest('.song').id;
@@ -147,11 +151,24 @@ class Listener {
 
         const {target} = event;
 
+        const reg = /\/playlist\/(.*)/;
+        const playlistId = reg.exec(location.hash)[1];
         if (target.closest('.save-song')) {
             saveSong(target);
             Listener.destroySongMenu();
         } else if (target.closest('.add-song-to-playlist')) {
-            addSongToPlaylistDialog(target);
+            if (!playlistId) {
+                addSongToPlaylistDialog(target);
+            } else {
+                const song = target.closest('.song');
+                const songId = song.id;
+                const playlist = await getRequest(`api/playlist/${playlistId}`);
+                playlist.tracks = playlist.tracks
+                  .filter(item => item._id !== songId)
+                  .map(item => item._id);
+                await putRequest(`api/playlist/${playlistId}`, JSON.stringify(playlist));
+                song.remove();
+            }
         }
     }
 
