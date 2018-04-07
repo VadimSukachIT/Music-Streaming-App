@@ -41,7 +41,7 @@ class Listener {
           `;
 
             songFragment.append(menu);
-            menu.addEventListener('click', Listener.songMenuListener, false);
+            menu.addEventListener('clicfk', Listener.songMenuListener, false);
             console.log('hi');
         }
     }

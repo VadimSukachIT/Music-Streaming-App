@@ -229,10 +229,27 @@ class Player {
         }
     }
 
-    static updateProgressBar(song) {
+    static async updateProgressBar(song) {
         let progressBar = document.getElementById('song-progress-bar');
         let songDurationBlock = document.getElementById('song-duration');
         let currentTimeBlock = document.getElementById('current-song-time');
+        let currentSongBlock = document.getElementById('playing-now');
+
+        let currentTrack = getUser().currentTrack;
+        let currentAlbum = await getRequest(`api/album/${currentTrack.albumId}`);
+        console.log(currentAlbum);
+
+        console.log(currentTrack);
+        currentSongBlock.innerHTML = `
+        <div class="now-playing-cover">
+             <img class="now-playing-cover-img" src="${currentAlbum.cover}">
+        </div>
+        <div class="now-playing-info">
+            <a href="${currentTrack.name}" class="now-playing-name">${currentTrack.name}</a>
+            <a href="${currentTrack.artist}"  class="now-playing-artist">${currentTrack.artist}</a>
+        </div>
+        `;
+
 
         songDurationBlock.innerText = String(Math.floor(song.duration / 60)) + ':' + String(Math.floor(song.duration) % 60);
         progressBar.setAttribute("max", String(Math.floor(song.duration)));
