@@ -35,7 +35,7 @@ class Listener {
             menu.innerHTML = `
                 <div class="menu-list save-song"><span class="menu-text">${user.tracks.indexOf(songFragment.id) === -1 ? 'Сохранить' : 'Удалить'}</span></div>
                 <div class="menu-list add-song-to-playlist"><span class=menu"-text">
-                    ${playlistId ? 'Убрать с плейлиста' : 'Добавить в плейлист'}
+                    ${playlistId ? 'Убрать из плейлиста' : 'Добавить в плейлист'}
                 </span></div>
                 <div class="menu-list share-song"><span class="menu-text">Поделиться</span></div>
           `;
