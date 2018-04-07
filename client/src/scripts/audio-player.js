@@ -245,7 +245,7 @@ class Player {
              <img class="now-playing-cover-img" src="${currentAlbum.cover}">
         </div>
         <div class="now-playing-info">
-            <a href="${currentTrack.name}" class="now-playing-name">${currentTrack.name}</a>
+            <a href="#/album/${currentTrack.albumId}" class="now-playing-name">${currentTrack.name}</a>
             <a href="#/artist/${currentTrack.artistId}"  class="now-playing-artist">${currentTrack.artist}</a>
         </div>
         `;
