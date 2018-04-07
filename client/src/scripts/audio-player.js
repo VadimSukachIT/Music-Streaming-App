@@ -246,7 +246,7 @@ class Player {
         </div>
         <div class="now-playing-info">
             <a href="${currentTrack.name}" class="now-playing-name">${currentTrack.name}</a>
-            <a href="${currentTrack.artist}"  class="now-playing-artist">${currentTrack.artist}</a>
+            <a href="#/artist/${currentTrack.artistId}"  class="now-playing-artist">${currentTrack.artist}</a>
         </div>
         `;
 
